@@ -198,10 +198,22 @@
     <Compile Include="Migrations\201804092246407_InitialModel.Designer.cs">
       <DependentUpon>201804092246407_InitialModel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201804101631085_AddingTables.cs" />
+    <Compile Include="Migrations\201804101631085_AddingTables.Designer.cs">
+      <DependentUpon>201804101631085_AddingTables.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201804101822194_OverrideConventionsForModels.cs" />
+    <Compile Include="Migrations\201804101822194_OverrideConventionsForModels.Designer.cs">
+      <DependentUpon>201804101822194_OverrideConventionsForModels.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
-    <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\ApplicationDbContext.cs" />
+    <Compile Include="Models\ApplicationUser.cs" />
+    <Compile Include="Models\Ingredient.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\Nutrient.cs" />
+    <Compile Include="Models\Recipe.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -284,6 +296,12 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201804092246407_InitialModel.resx">
       <DependentUpon>201804092246407_InitialModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201804101631085_AddingTables.resx">
+      <DependentUpon>201804101631085_AddingTables.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201804101822194_OverrideConventionsForModels.resx">
+      <DependentUpon>201804101822194_OverrideConventionsForModels.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
