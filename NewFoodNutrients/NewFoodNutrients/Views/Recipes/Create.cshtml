@@ -1,0 +1,20 @@
+﻿@model NewFoodNutrients.Models.Recipe
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+
+<form>
+    <div class="form-group">
+        @Html.LabelFor(m=>m.Title)
+        @Html.TextBoxFor(m=>m.Title, new {@class="form-control"})
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m=>m.Ingredients)
+        @Html.TextBoxFor(m=>m.Title, new {@class="form-control"})
+    </div>
+    <div class="form-group"></div>
+    <div class="form-group"></div>
+    <div class="form-group"></div>
+</form>
