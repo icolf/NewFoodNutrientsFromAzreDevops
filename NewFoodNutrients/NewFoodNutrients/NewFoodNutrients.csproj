@@ -207,13 +207,25 @@
     <Compile Include="Migrations\201804101822194_OverrideConventionsForModels.Designer.cs">
       <DependentUpon>201804101822194_OverrideConventionsForModels.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201804152049334_AddingMoreModels.cs" />
+    <Compile Include="Migrations\201804152049334_AddingMoreModels.Designer.cs">
+      <DependentUpon>201804152049334_AddingMoreModels.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201804170043306_PopulateFoddTypeTable.cs" />
+    <Compile Include="Migrations\201804170043306_PopulateFoddTypeTable.Designer.cs">
+      <DependentUpon>201804170043306_PopulateFoddTypeTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
     <Compile Include="Models\ApplicationUser.cs" />
+    <Compile Include="Models\Daypart.cs" />
+    <Compile Include="Models\Food.cs" />
+    <Compile Include="Models\FoodType.cs" />
     <Compile Include="Models\Ingredient.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Nutrient.cs" />
+    <Compile Include="Models\Plate.cs" />
     <Compile Include="Models\Recipe.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -304,6 +316,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201804101822194_OverrideConventionsForModels.resx">
       <DependentUpon>201804101822194_OverrideConventionsForModels.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201804152049334_AddingMoreModels.resx">
+      <DependentUpon>201804152049334_AddingMoreModels.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201804170043306_PopulateFoddTypeTable.resx">
+      <DependentUpon>201804170043306_PopulateFoddTypeTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

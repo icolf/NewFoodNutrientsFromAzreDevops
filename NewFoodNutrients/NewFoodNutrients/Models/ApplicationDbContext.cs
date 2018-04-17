@@ -1,4 +1,5 @@
 ﻿using System.Data.Entity;
+using System.Security.Permissions;
 using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace NewFoodNutrients.Models
@@ -8,6 +9,12 @@ namespace NewFoodNutrients.Models
         public DbSet<Recipe> Recipes { get; set; }
         public DbSet<Ingredient> Ingredients { get; set; }
         public DbSet<Nutrient> Nutrients { get; set; }
+        public DbSet<Plate> Plates { get; set; }
+        public DbSet<Food> Foods { get; set; }
+        public DbSet<FoodType> FoodTypes { get; set; }
+        public DbSet<Daypart> Dayparts { get; set; }
+
+
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
         {
