@@ -215,6 +215,10 @@
     <Compile Include="Migrations\201804170043306_PopulateFoddTypeTable.Designer.cs">
       <DependentUpon>201804170043306_PopulateFoddTypeTable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201805151808191_DataAnnotationsToSomeModels.cs" />
+    <Compile Include="Migrations\201805151808191_DataAnnotationsToSomeModels.Designer.cs">
+      <DependentUpon>201805151808191_DataAnnotationsToSomeModels.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
@@ -325,6 +329,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201804170043306_PopulateFoddTypeTable.resx">
       <DependentUpon>201804170043306_PopulateFoddTypeTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805151808191_DataAnnotationsToSomeModels.resx">
+      <DependentUpon>201805151808191_DataAnnotationsToSomeModels.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
