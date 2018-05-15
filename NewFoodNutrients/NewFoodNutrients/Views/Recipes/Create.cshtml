@@ -2,13 +2,31 @@
 @{
     ViewBag.Title = "Create";
 }
-
-<h2>Create</h2>
-
 <form>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class="card" style="width:428px;">
+                    <img class="card-img-top" style="width:430px" src="~/App/img/protein.jpg" alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title" style="text-align: center">Protein</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <a href="#" class="btn btn-primary">select a protein</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+            </div>
+            <div class="col">
+            </div>
+            <div class="col">
+            </div>
+            <div class="col">
+            </div>
+    </div>
     <div class="form-group">
-        @Html.LabelFor(m=>m.FoodType)
-        @Html.DropDownListFor(m=>m.FoodType, new SelectList(Model.FoodTypes, "FoodTypeId", "FoodTypeName"))
+        @Html.LabelFor(m => m.FoodType)
+        @Html.DropDownListFor(m => m.FoodType, new SelectList(Model.FoodTypes, "FoodTypeId", "FoodTypeName"))
     </div>
     <div class="form-group">
         @*@Html.LabelFor(m=>m.Ingredients)
@@ -18,3 +36,5 @@
     <div class="form-group"></div>
     <div class="form-group"></div>
 </form>
+
+<h2>Create</h2>
