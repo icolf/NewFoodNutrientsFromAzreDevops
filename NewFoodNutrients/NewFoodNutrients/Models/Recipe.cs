@@ -11,6 +11,8 @@ namespace NewFoodNutrients.Models
         public int Id { get; set; }
 
         [Required]
+        public int FoodTypeId { get; set; }
+        [Required]
         public ApplicationUser CookApplicationUser { get; set; }
 
         [Required]

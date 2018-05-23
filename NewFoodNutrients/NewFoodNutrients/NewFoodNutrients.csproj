@@ -220,6 +220,14 @@
     <Compile Include="Migrations\201805151808191_DataAnnotationsToSomeModels.Designer.cs">
       <DependentUpon>201805151808191_DataAnnotationsToSomeModels.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201805231421139_Changes to plate.cs" />
+    <Compile Include="Migrations\201805231421139_Changes to plate.Designer.cs">
+      <DependentUpon>201805231421139_Changes to plate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201805231430380_Add food type id to Recipe.cs" />
+    <Compile Include="Migrations\201805231430380_Add food type id to Recipe.Designer.cs">
+      <DependentUpon>201805231430380_Add food type id to Recipe.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
@@ -363,6 +371,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201805151808191_DataAnnotationsToSomeModels.resx">
       <DependentUpon>201805151808191_DataAnnotationsToSomeModels.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805231421139_Changes to plate.resx">
+      <DependentUpon>201805231421139_Changes to plate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805231430380_Add food type id to Recipe.resx">
+      <DependentUpon>201805231430380_Add food type id to Recipe.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

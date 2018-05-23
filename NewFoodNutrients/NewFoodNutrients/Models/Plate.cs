@@ -13,6 +13,7 @@ namespace NewFoodNutrients.Models
         public string Name { get; set; }
         public Daypart Daypart { get; set; }
         public List<Food> Foods { get; set; }
+        public List<Recipe> Recipes { get; set; }
 
     }
 }
