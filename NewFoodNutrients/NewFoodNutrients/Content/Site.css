@@ -22,3 +22,29 @@ select,
 textarea {
     max-width: 280px;
 }
+
+/* Bootstrap overrides*/
+
+.navbar-inverse {
+    background-color: #11770f;
+    border-color: #11770f;
+}
+
+.navbar-inverse .navbar-nav > li > a {
+    color: #b3daa3;
+}
+
+.navbar-inverse .navbar-brand {
+    color: #d8f1cb;
+}
+
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+    font-family: "Lato";
+    color: #132704;
+}
+
+body {
+    font-family: Lato, "Helvetica Neue", Helvetica, Arial, sans-serif; 
+    color: #132704;
+}
+

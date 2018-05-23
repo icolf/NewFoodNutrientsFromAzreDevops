@@ -8,59 +8,42 @@
             <h1>Create a plate</h1>
         </div>
         <div class="row" style="text-align: center">
-            <p>Start by selecting types of food included in the plate</p>
+            <p>Start by selecting types of food to include in the plate</p>
         </div>
-        <div class="row">
-            <div class="col">
-                <div class="card" style="width: 280px;">
-                    <img class="card-img-top" style="width: 280px" src="~/App/img/protein.jpg" alt="Card image cap">
-                    <div class="card-body">
-                        <h5 class="card-title" style="text-align: center">Protein</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    </div>
+        <div class="row" style="padding-left: 20px">
+            <div class=".col-md-2">
+                <div style="width: 190px; display: inline-block; margin: 10px;">
+                    <a href="@Url.Action("Index", "Home")">
+                        <img style="width: 190px; height: 145px;" src="~/App/img/protein.jpg" alt="Proteins">
+                    </a>
+                    <h4 style="text-align: center">Lean Meats</h4>
                 </div>
-                <div class="card" style="width: 280px;">
-                    <img class="card-img-top" style="width: 280px" src="~/App/img/Vegetables-Legums.jpg" alt="Card image cap">
-                    <div class="card-body">
-                        <h5 class="card-title" style="text-align: center">Protein</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    </div>
+                <div style="width: 190px; display: inline-block; margin: 10px;">
+                    <a href="@Url.Action("Index", "Home")">
+                        <img style="width: 190px; height: 145px;" src="~/App/img/Vegetables-Legums.jpg" alt="Vegetables">
+                    </a>
+                    <h4 style="text-align: center">Vegetable and Legums</h4>
                 </div>
-                <div class="card" style="width: 280px;">
-                    <img class="card-img-top" style="width: 280px" src="~/App/img/Grains.jpg" alt="Card image cap">
-                    <div class="card-body">
-                        <h5 class="card-title" style="text-align: center">Protein</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    </div>
+                <div style="width: 190px; display: inline-block; margin: 10px;">
+                    <a href="@Url.Action("Index", "Home")">
+                        <img style="width: 190px; height: 145px;" src="~/App/img/Grains.jpg" alt="Grains">
+                    </a>
+                    <h4 style="text-align: center">Grains</h4>
                 </div>
-                <div class="card" style="width: 280px;">
-                    <img class="card-img-top" style="width: 280px" src="~/App/img/Dairy.jpg" alt="Card image cap">
-                    <div class="card-body">
-                        <h5 class="card-title" style="text-align: center">Protein</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    </div>
+                <div style="width: 190px; display: inline-block; margin: 10px;">
+                    <a href="@Url.Action("Index", "Home")">
+                        <img style="width: 190px; height: 145px;" src="~/App/img/Dairy.jpg" alt="Milk and Dairy">
+                    </a>
+                    <h4 style="text-align: center">Milk and Dairy</h4>
                 </div>
-            </div>
-            <div class="col">
-            </div>
-            <div class="col">
-            </div>
-            <div class="col">
-            </div>
-            <div class="col">
+                <div style="width: 190px; display: inline-block; margin: 10px;">
+                    <a href="@Url.Action("Index", "Home")">
+                        <img style="width: 190px; height: 145px;" src="~/App/img/Fruits.jpeg" alt="Fruits">
+                    </a>
+                    <h4 style="text-align: center">Fruits</h4>
+                </div>
             </div>
         </div>
-        <div class="form-group">
-            @Html.LabelFor(m => m.FoodType)
-            @Html.DropDownListFor(m => m.FoodType, new SelectList(Model.FoodTypes, "FoodTypeId", "FoodTypeName"))
-        </div>
-        <div class="form-group">
-            @*@Html.LabelFor(m=>m.Ingredients)
-                @Html.TextBoxFor(m=>m.Title, new {@class="form-control"})*@
-        </div>
-        <div class="form-group"></div>
-        <div class="form-group"></div>
-        <div class="form-group"></div>
     </div>
 </form>
 
