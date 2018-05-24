@@ -11,15 +11,16 @@ namespace NewFoodNutrients.Models
         public int Id { get; set; }
 
         [Required]
-        public int FoodTypeId { get; set; }
-        [Required]
-        public ApplicationUser CookApplicationUser { get; set; }
-
-        [Required]
         public string Title { get; set; }
 
         [Required]
         public DateTime CreationDate { get; set; }
+
+        [Required]
+        public FoodType FoodType { get; set; }
+
+        [Required]
+        public ApplicationUser CookApplicationUser { get; set; }
 
         [Required]
         public List<Ingredient> Ingredients { get; set; }   

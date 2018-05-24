@@ -228,6 +228,42 @@
     <Compile Include="Migrations\201805231430380_Add food type id to Recipe.Designer.cs">
       <DependentUpon>201805231430380_Add food type id to Recipe.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201805231447179_DeleteFoodsFromPlate.cs" />
+    <Compile Include="Migrations\201805231447179_DeleteFoodsFromPlate.Designer.cs">
+      <DependentUpon>201805231447179_DeleteFoodsFromPlate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201805241422496_AddFoods.cs" />
+    <Compile Include="Migrations\201805241422496_AddFoods.Designer.cs">
+      <DependentUpon>201805241422496_AddFoods.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201805241440116_PopulateFoodsTable.cs" />
+    <Compile Include="Migrations\201805241440116_PopulateFoodsTable.Designer.cs">
+      <DependentUpon>201805241440116_PopulateFoodsTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201805241553558_AddRecipeIDToPlateModel.cs" />
+    <Compile Include="Migrations\201805241553558_AddRecipeIDToPlateModel.Designer.cs">
+      <DependentUpon>201805241553558_AddRecipeIDToPlateModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201805241601013_NormalizePlateAndRecipe.cs" />
+    <Compile Include="Migrations\201805241601013_NormalizePlateAndRecipe.Designer.cs">
+      <DependentUpon>201805241601013_NormalizePlateAndRecipe.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201805241619395_ChangePlateIDKeyToId.cs" />
+    <Compile Include="Migrations\201805241619395_ChangePlateIDKeyToId.Designer.cs">
+      <DependentUpon>201805241619395_ChangePlateIDKeyToId.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201805241652306_DeleteFoodTypeIdInRecipe.cs" />
+    <Compile Include="Migrations\201805241652306_DeleteFoodTypeIdInRecipe.Designer.cs">
+      <DependentUpon>201805241652306_DeleteFoodTypeIdInRecipe.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201805241655193_ChangeFoodTypeIdKeyToId.cs" />
+    <Compile Include="Migrations\201805241655193_ChangeFoodTypeIdKeyToId.Designer.cs">
+      <DependentUpon>201805241655193_ChangeFoodTypeIdKeyToId.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201805241704155_ChangingOtherClassNameIdToId.cs" />
+    <Compile Include="Migrations\201805241704155_ChangingOtherClassNameIdToId.Designer.cs">
+      <DependentUpon>201805241704155_ChangingOtherClassNameIdToId.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
@@ -378,6 +414,33 @@
     <EmbeddedResource Include="Migrations\201805231430380_Add food type id to Recipe.resx">
       <DependentUpon>201805231430380_Add food type id to Recipe.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805231447179_DeleteFoodsFromPlate.resx">
+      <DependentUpon>201805231447179_DeleteFoodsFromPlate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805241422496_AddFoods.resx">
+      <DependentUpon>201805241422496_AddFoods.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805241440116_PopulateFoodsTable.resx">
+      <DependentUpon>201805241440116_PopulateFoodsTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805241553558_AddRecipeIDToPlateModel.resx">
+      <DependentUpon>201805241553558_AddRecipeIDToPlateModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805241601013_NormalizePlateAndRecipe.resx">
+      <DependentUpon>201805241601013_NormalizePlateAndRecipe.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805241619395_ChangePlateIDKeyToId.resx">
+      <DependentUpon>201805241619395_ChangePlateIDKeyToId.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805241652306_DeleteFoodTypeIdInRecipe.resx">
+      <DependentUpon>201805241652306_DeleteFoodTypeIdInRecipe.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805241655193_ChangeFoodTypeIdKeyToId.resx">
+      <DependentUpon>201805241655193_ChangeFoodTypeIdKeyToId.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805241704155_ChangingOtherClassNameIdToId.resx">
+      <DependentUpon>201805241704155_ChangingOtherClassNameIdToId.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
@@ -390,6 +453,9 @@
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="Scripts\index.d.ts" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

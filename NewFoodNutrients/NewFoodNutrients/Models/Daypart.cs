@@ -4,7 +4,7 @@ namespace NewFoodNutrients.Models
 {
     public class Daypart
     {
-        public int DaypartId { get; set; }
+        public int Id { get; set; }
         [Required]
         public string DaypartName { get; set; }
 
