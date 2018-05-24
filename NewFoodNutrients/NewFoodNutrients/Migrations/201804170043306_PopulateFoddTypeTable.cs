@@ -1,10 +1,7 @@
-using System.Security.Cryptography;
-
 namespace NewFoodNutrients.Migrations
 {
-    using System;
     using System.Data.Entity.Migrations;
-    
+
     public partial class PopulateFoddTypeTable : DbMigration
     {
         public override void Up()
@@ -15,7 +12,7 @@ namespace NewFoodNutrients.Migrations
             Sql("INSERT INTO FoodTypes (FoodTypeName) VALUES ('Milk')");
             Sql("INSERT INTO FoodTypes (FoodTypeName) VALUES ('Vegetable and legumes')");
         }
-        
+
         public override void Down()
         {
             Sql("DELETE FROM FoodTypes WHERE FoodTypeId IN (1, 2, 3, 4)");
