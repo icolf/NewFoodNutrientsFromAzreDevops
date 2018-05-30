@@ -10,6 +10,9 @@ namespace NewFoodNutrients.Models
         [Required]
         public string Name { get; set; }
 
+        [Required]
+        public IngredientType IngredientType { get; set; }
+
         public decimal Amount { get; set; }
 
         public string UnitofMeasure { get; set; }

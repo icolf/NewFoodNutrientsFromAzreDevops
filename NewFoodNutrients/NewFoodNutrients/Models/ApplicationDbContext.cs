@@ -13,6 +13,8 @@ namespace NewFoodNutrients.Models
         public DbSet<Food> Foods { get; set; }
         public DbSet<FoodType> FoodTypes { get; set; }
         public DbSet<Daypart> Dayparts { get; set; }
+        public DbSet<IngredientType> IngredientTypes { get; set; }
+
 
 
         public ApplicationDbContext()
