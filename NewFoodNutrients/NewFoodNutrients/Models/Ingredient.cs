@@ -15,7 +15,7 @@ namespace NewFoodNutrients.Models
 
         public decimal Amount { get; set; }
 
-        public string UnitofMeasure { get; set; }
+        public UnitOfMeasure UnitofMeasure { get; set; }
 
         [Required]
         public List<Nutrient> Nutrients { get; set; }

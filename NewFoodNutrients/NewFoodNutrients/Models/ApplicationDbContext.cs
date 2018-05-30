@@ -14,6 +14,7 @@ namespace NewFoodNutrients.Models
         public DbSet<FoodType> FoodTypes { get; set; }
         public DbSet<Daypart> Dayparts { get; set; }
         public DbSet<IngredientType> IngredientTypes { get; set; }
+        public DbSet<UnitOfMeasure> UnitOfMeasures { get; set; }
 
 
 

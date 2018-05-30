@@ -284,6 +284,14 @@
     <Compile Include="Migrations\201805301431211_PopulateIngredientsTable.Designer.cs">
       <DependentUpon>201805301431211_PopulateIngredientsTable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201805301539518_AddUnitOfMeasuresTable.cs" />
+    <Compile Include="Migrations\201805301539518_AddUnitOfMeasuresTable.Designer.cs">
+      <DependentUpon>201805301539518_AddUnitOfMeasuresTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201805301542268_PopulateUnitOfMeasuresTable.cs" />
+    <Compile Include="Migrations\201805301542268_PopulateUnitOfMeasuresTable.Designer.cs">
+      <DependentUpon>201805301542268_PopulateUnitOfMeasuresTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
@@ -297,6 +305,7 @@
     <Compile Include="Models\Nutrient.cs" />
     <Compile Include="Models\Plate.cs" />
     <Compile Include="Models\Recipe.cs" />
+    <Compile Include="Models\UnitOfMeasure.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\PlateViewModel.cs" />
@@ -476,6 +485,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201805301431211_PopulateIngredientsTable.resx">
       <DependentUpon>201805301431211_PopulateIngredientsTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805301539518_AddUnitOfMeasuresTable.resx">
+      <DependentUpon>201805301539518_AddUnitOfMeasuresTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805301542268_PopulateUnitOfMeasuresTable.resx">
+      <DependentUpon>201805301542268_PopulateUnitOfMeasuresTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
