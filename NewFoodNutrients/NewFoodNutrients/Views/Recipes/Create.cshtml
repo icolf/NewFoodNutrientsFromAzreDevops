@@ -1,49 +1,68 @@
-﻿@model NewFoodNutrients.ViewModels.PlateViewModel
+﻿@model NewFoodNutrients.ViewModels.RecipeFormViewModel
 @{
     ViewBag.Title = "Create";
 }
 <form>
-    <div class="container">
-        <div class="row">
-            <div class="page-header">
-                <h1>Create a plate</h1>
-                <p>Start by selecting types of food to include in the plate</p>
-            </div>
-        </div>
-        <div class="row">
-            <div class=".col-md-2">
-                <div style="width: 190px; display: inline-block; margin: 17px;">
-                    <a href="@Url.Action("Index", "Home")">
-                        <img style="width: 190px; height: 145px;" src="~/App/img/protein.jpg" alt="Proteins">
-                    </a>
-                    <h4 style="text-align: center">Lean Meats</h4>
-                </div>
-                <div style="width: 190px; display: inline-block; margin: 17px;">
-                    <a href="@Url.Action("Index", "Home")">
-                        <img style="width: 190px; height: 145px;" src="~/App/img/Vegetables-Legums.jpg" alt="Vegetables">
-                    </a>
-                    <h4 style="text-align: center">Vegetable and Legums</h4>
-                </div>
-                <div style="width: 190px; display: inline-block; margin: 17px;">
-                    <a href="@Url.Action("Index", "Home")">
-                        <img style="width: 190px; height: 145px;" src="~/App/img/Grains.jpg" alt="Grains">
-                    </a>
-                    <h4 style="text-align: center">Grains</h4>
-                </div>
-                <div style="width: 190px; display: inline-block; margin: 17px;">
-                    <a href="@Url.Action("Index", "Home")">
-                        <img style="width: 190px; height: 145px;" src="~/App/img/Dairy.jpg" alt="Milk and Dairy">
-                    </a>
-                    <h4 style="text-align: center">Milk and Dairy</h4>
-                </div>
-                <div style="width: 190px; display: inline-block; margin: 17px;">
-                    <a href="@Url.Action("Index", "Home")">
-                        <img style="width: 190px; height: 145px;" src="~/App/img/Fruits.jpeg" alt="Fruits">
-                    </a>
-                    <h4 style="text-align: center">Fruits</h4>
-                </div>
-            </div>
-        </div>
+    <div class="form-group"></div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.RecipeName)
+        @Html.TextBoxFor(m => m.RecipeName, new { @class = "form-control", data_bind = "value: mappedViewModel.RecipeName" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.FoodTypeId)
+        @Html.DropDownListFor(m => m.FoodTypeId
+            ,Model.FoodTypes
+            , new { @class = "form-control"
+                , data_bind =
+                    "options : mappedViewModel.FoodTypes" +
+                    ", optionsText : 'Text'" +
+                    ", optionsValue : 'Value'" +
+                    ", value : selectedFoodType" /*+*/
+                                                 //", optionsCaption : 'Select a food type"
+            })
+                
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.FoodId)
+        @Html.DropDownListFor(m => m.FoodId, Model.Foods
+            ,new { @class = "form-control"
+                , data_bind = "options : filteredFoods" +
+                              ", optionsText : 'Text'" +
+                              ", optionsValue : 'Value'"
+            })
     </div>
 </form>
 
+@section Scripts
+{
+<script type="text/javascript">
+        $(document).ready(function() {
+            var my = {};
+            my.recipeViewModel = (function () {
+
+                var model = @Html.Raw(Json.Encode(Model));
+
+                var mappedViewModel = ko.mapping.fromJS(model);
+
+                var selectedFoodType = ko.observable("");
+                     
+                var filteredFoods = ko.computed(function() {
+                        return ko.utils.arrayFilter(mappedViewModel.Foods(),
+                            function(food) {
+                                var foodFilter = food.Value();
+                                return foodFilter === selectedFoodType();
+                            });
+                    },
+                    this);
+
+                return {
+                    mappedViewModel: mappedViewModel,
+                    filteredFoods: filteredFoods,
+                    selectedFoodType: selectedFoodType
+                };
+            }());
+
+            ko.applyBindings(my.recipeViewModel);
+        });
+</script>
+}

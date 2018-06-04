@@ -20,8 +20,10 @@ namespace NewFoodNutrients.Controllers
         // GET: Recipes
         public ActionResult Create()
         {
-            var viewModel = new PlateViewModel();
-            viewModel.FoodTypes = _context.FoodTypes.ToList();
+            var viewModel = new RecipeFormViewModel();
+            viewModel.RecipeName = "Recipe Name loaded from ViewModel";
+            viewModel.ContextFoodTypes = _context.FoodTypes.ToList();
+            viewModel.ContextFoods = _context.Foods.ToList();
             return View(viewModel);
         }
     }
