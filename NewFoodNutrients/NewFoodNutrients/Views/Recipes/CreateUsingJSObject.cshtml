@@ -1,0 +1,87 @@
+﻿@model NewFoodNutrients.ViewModels.RecipeFormViewModel
+@{
+    ViewBag.Title = "Create using a javaScript object for recipe";
+}
+
+<form>
+    <div class="form-group"></div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.RecipeName)
+        @Html.TextBoxFor(m => m.RecipeName, new { @class = "form-control", data_bind = "value: recipe().RecipeName" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.FoodTypeId)
+        @Html.DropDownListFor(m => m.FoodTypeId
+            ,Model.FoodTypes
+            , new { @class = "form-control"
+                , data_bind =
+                    "options : recipe().FoodTypes" +
+                    ", optionsText : 'Text'" +
+                    ", optionsValue : 'Value'" +
+                    ", value : selectedFoodType , optionsCaption : 'Select a food type...'"
+            })
+
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.FoodId)
+        @Html.DropDownListFor(m => m.FoodId
+            , Model.Foods
+            ,new { @class = "form-control"
+                , data_bind = "options : recipe().Foods" +
+                              ", optionsText : 'Text'" +
+                              ", optionsValue : 'Value'"
+            })
+    </div>
+</form>
+@section Scripts
+{
+    <script type="text/javascript">
+        $(document).ready(function() {
+            var my = {};
+
+            my.Recipe = function() {
+                this.RecipeName = ko.observable("");
+                this.FoodTypes = ko.observableArray([]);
+                this.Foods = ko.observableArray([]);
+            };
+
+            my.recipeViewModel = function () {
+                var
+                    model = @Html.Raw(Json.Encode(Model)),
+
+                    mappedViewModel = ko.mapping.fromJS(model),
+
+                    selectedFoodType = ko.observable(""),
+
+                    filteredFoods = ko.computed(function() {
+                            return ko.utils.arrayFilter(mappedViewModel.Foods(),
+                                function(food) {
+                                    var foodFilter = food.Value();
+                                    return foodFilter === selectedFoodType();
+                                });
+                        },
+                        this),
+                    recipe = ko.observable(
+                        new my.Recipe(mappedViewModel.Foods(), selectedFoodType())
+                        .RecipeName("")
+                        .FoodTypes(mappedViewModel.FoodTypes())
+                    );
+                //recipe().Foods(filteredFoods());
+                return {
+                    mappedViewModel: mappedViewModel,
+                    filteredFoods: filteredFoods,
+                    selectedFoodType: selectedFoodType,
+                    recipe: recipe
+                };
+            }();
+
+
+            my.recipeViewModel.selectedFoodType.subscribe(function () {
+                this.recipe().Foods(this.filteredFoods());
+            }, my.recipeViewModel);
+
+
+            ko.applyBindings(my.recipeViewModel);
+        });
+    </script>
+}   

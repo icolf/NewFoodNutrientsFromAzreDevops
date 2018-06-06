@@ -17,14 +17,14 @@
                     "options : mappedViewModel.FoodTypes" +
                     ", optionsText : 'Text'" +
                     ", optionsValue : 'Value'" +
-                    ", value : selectedFoodType" /*+*/
-                                                 //", optionsCaption : 'Select a food type"
+                    ", value : selectedFoodType , optionsCaption : 'Select a food type...'"
             })
                 
     </div>
     <div class="form-group">
         @Html.LabelFor(m => m.FoodId)
-        @Html.DropDownListFor(m => m.FoodId, Model.Foods
+        @Html.DropDownListFor(m => m.FoodId
+            , Model.Foods
             ,new { @class = "form-control"
                 , data_bind = "options : filteredFoods" +
                               ", optionsText : 'Text'" +
@@ -65,4 +65,4 @@
             ko.applyBindings(my.recipeViewModel);
         });
 </script>
-}
+}   

@@ -8,6 +8,7 @@ namespace NewFoodNutrients.ViewModels
 {
     public class RecipeFormViewModel
     {
+        //Recipe Header
         [Display(Name = "Recipe Name")]
         public string RecipeName { get; set; }
 
@@ -29,9 +30,9 @@ namespace NewFoodNutrients.ViewModels
             }
         }
 
-
         [Display(Name = "Food")]
         public int FoodId { get; set; }
+
         public List<Food> ContextFoods { get; set; }
 
         public IEnumerable<SelectListItem> Foods
@@ -46,5 +47,42 @@ namespace NewFoodNutrients.ViewModels
                 return allFoods;
             }
         }
+
+        //Recipe Ingredients
+        [Display(Name = "Ingredient Type")]
+        public int IngredientTypeId { get; set; }
+        public List<IngredientType> ContextIngredientTypes { get; set; }
+
+        public IEnumerable<SelectListItem> IngredientTypes
+        {
+            get
+            {
+                var allIgredientTypes = ContextIngredientTypes.Select(i => new SelectListItem
+                {
+                    Text = i.IngredientTypeName,
+                    Value = i.Id.ToString()
+
+                });
+                return allIgredientTypes;
+
+            }
+        }
+
+        public int IngredientId { get; set; }
+        public List<Ingredient> ContextIngredients { get; set; }
+
+        public IEnumerable<SelectListItem> Ingredients
+        {
+            get
+            {
+                var allIngredients = ContextIngredients.Select(i => new SelectListItem
+                {
+                    Text = i.Name,
+                    Value = i.IngredientType.ToString()
+                });
+                return allIngredients;
+            }
+        }
+
     }
 }
