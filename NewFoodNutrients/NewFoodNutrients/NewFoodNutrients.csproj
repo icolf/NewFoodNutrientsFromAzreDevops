@@ -372,6 +372,14 @@
     <Compile Include="Migrations\201806111602403_AddingIngredients.Designer.cs">
       <DependentUpon>201806111602403_AddingIngredients.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201806121847179_AddIngredientToRecipeIngredientTable.cs" />
+    <Compile Include="Migrations\201806121847179_AddIngredientToRecipeIngredientTable.Designer.cs">
+      <DependentUpon>201806121847179_AddIngredientToRecipeIngredientTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201806121857114_RemoveNameFromRecipeIngredient.cs" />
+    <Compile Include="Migrations\201806121857114_RemoveNameFromRecipeIngredient.Designer.cs">
+      <DependentUpon>201806121857114_RemoveNameFromRecipeIngredient.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
@@ -641,6 +649,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201806111602403_AddingIngredients.resx">
       <DependentUpon>201806111602403_AddingIngredients.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201806121847179_AddIngredientToRecipeIngredientTable.resx">
+      <DependentUpon>201806121847179_AddIngredientToRecipeIngredientTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201806121857114_RemoveNameFromRecipeIngredient.resx">
+      <DependentUpon>201806121857114_RemoveNameFromRecipeIngredient.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

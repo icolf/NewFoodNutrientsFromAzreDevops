@@ -68,14 +68,15 @@
                                 <td>
                                     <div class="form-group">
                                         @Html.DropDownListFor(m => m.IngredientTypeId, Model.IngredientTypes, new
-                                        {
-                                            @class = "form-control"
+                                   {
+                                       @class = "form-control"
                                             , data_bind = "options: $parent.dropDownsSource().IngredientTypesDD" +
                                                           ",optionsText:'Text'" +
                                                           ",optionsValue: 'Value'" +
                                                           ",optionsCaption: 'Select an ingredient type...'" +
-                                                          ",value: $parent.selectedIngredientType"
-                                        })
+                                                          ",value: $parent.selectedIngredientType, IngredientType"
+                                       //",value: $parent.selectedIngredientType"
+                                   })
                                     </div>
                                 </td>
                                 <td>
@@ -86,13 +87,13 @@
                                             , data_bind = "options:$parent.dropDownsSource().IngredientsDD" +
                                                           ",optionsText:'Text'" +
                                                           ",optionsValue: 'Value'" +
-                                                          ",value: Name" +
+                                                          ",value: Ingredient" +
                                                           ",optionsCaption: 'Select an ingredient...'"
                                         })
                                     </div>
                                 </td>
                                 <td>
-                                    <span></span>
+                                            <input type="number" class="form-control" data-bind="value: Amount, valueUpdate: 'afterkeydown'"/>
                                 </td>
                                 <td>
                                     <span></span>
@@ -132,8 +133,8 @@
 
             my.Ingredient = function() {
                 this.IngredientType = ko.observable("");
-                this.Name = ko.observable("");
-                this.Amount = ko.observable("");
+                this.Ingredient = ko.observable("");
+                this.Amount = ko.observable(1);
                 this.UnitOfMeasure = ko.observable("");
             };
 
