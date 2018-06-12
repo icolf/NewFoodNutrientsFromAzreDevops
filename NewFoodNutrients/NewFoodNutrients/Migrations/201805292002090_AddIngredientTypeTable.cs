@@ -16,16 +16,16 @@ namespace NewFoodNutrients.Migrations
                     })
                 .PrimaryKey(t => t.Id);
             
-            AddColumn("dbo.Ingredients", "IngredientType_Id", c => c.Int());
-            CreateIndex("dbo.Ingredients", "IngredientType_Id");
-            AddForeignKey("dbo.Ingredients", "IngredientType_Id", "dbo.IngredientTypes", "Id");
+            AddColumn("dbo.Ingredients", "IngredientTypeId", c => c.Int());
+            CreateIndex("dbo.Ingredients", "IngredientTypeId");
+            AddForeignKey("dbo.Ingredients", "IngredientTypeId", "dbo.IngredientTypes", "Id");
         }
         
         public override void Down()
         {
-            DropForeignKey("dbo.Ingredients", "IngredientType_Id", "dbo.IngredientTypes");
-            DropIndex("dbo.Ingredients", new[] { "IngredientType_Id" });
-            DropColumn("dbo.Ingredients", "IngredientType_Id");
+            DropForeignKey("dbo.Ingredients", "IngredientTypeId", "dbo.IngredientTypes");
+            DropIndex("dbo.Ingredients", new[] { "IngredientTypeId" });
+            DropColumn("dbo.Ingredients", "IngredientTypeId");
             DropTable("dbo.IngredientTypes");
         }
     }

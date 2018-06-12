@@ -45,6 +45,10 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
     color: #132704;
 }
 
+h3, .h3 {
+    margin-top: 8px;
+}
+
 body {
     font-family: Lato, "Helvetica Neue", Helvetica, Arial, sans-serif; 
     color: #132704;

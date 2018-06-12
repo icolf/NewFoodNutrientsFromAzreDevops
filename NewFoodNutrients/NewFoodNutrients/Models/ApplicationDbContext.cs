@@ -1,6 +1,5 @@
-﻿using System.Data.Entity;
-using System.Security.Permissions;
-using Microsoft.AspNet.Identity.EntityFramework;
+﻿using Microsoft.AspNet.Identity.EntityFramework;
+using System.Data.Entity;
 
 namespace NewFoodNutrients.Models
 {
@@ -15,7 +14,7 @@ namespace NewFoodNutrients.Models
         public DbSet<Daypart> Dayparts { get; set; }
         public DbSet<IngredientType> IngredientTypes { get; set; }
         public DbSet<UnitOfMeasure> UnitOfMeasures { get; set; }
-
+        public DbSet<RecipeIngredients> RecipeIngredients { get; set; }
 
 
         public ApplicationDbContext()

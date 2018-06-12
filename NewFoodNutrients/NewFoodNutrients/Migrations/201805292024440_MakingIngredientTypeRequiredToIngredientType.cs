@@ -7,22 +7,22 @@ namespace NewFoodNutrients.Migrations
     {
         public override void Up()
         {
-            DropForeignKey("dbo.Ingredients", "IngredientType_Id", "dbo.IngredientTypes");
-            DropIndex("dbo.Ingredients", new[] { "IngredientType_Id" });
-            AlterColumn("dbo.Ingredients", "IngredientType_Id", c => c.Int(nullable: false));
+            DropForeignKey("dbo.Ingredients", "IngredientTypeId", "dbo.IngredientTypes");
+            DropIndex("dbo.Ingredients", new[] { "IngredientTypeId" });
+            AlterColumn("dbo.Ingredients", "IngredientTypeId", c => c.Int(nullable: false));
             AlterColumn("dbo.IngredientTypes", "IngredientTypeName", c => c.String(nullable: false));
-            CreateIndex("dbo.Ingredients", "IngredientType_Id");
-            AddForeignKey("dbo.Ingredients", "IngredientType_Id", "dbo.IngredientTypes", "Id", cascadeDelete: true);
+            CreateIndex("dbo.Ingredients", "IngredientTypeId");
+            AddForeignKey("dbo.Ingredients", "IngredientTypeId", "dbo.IngredientTypes", "Id", cascadeDelete: true);
         }
         
         public override void Down()
         {
-            DropForeignKey("dbo.Ingredients", "IngredientType_Id", "dbo.IngredientTypes");
-            DropIndex("dbo.Ingredients", new[] { "IngredientType_Id" });
+            DropForeignKey("dbo.Ingredients", "IngredientTypeId", "dbo.IngredientTypes");
+            DropIndex("dbo.Ingredients", new[] { "IngredientTypeId" });
             AlterColumn("dbo.IngredientTypes", "IngredientTypeName", c => c.String());
-            AlterColumn("dbo.Ingredients", "IngredientType_Id", c => c.Int());
-            CreateIndex("dbo.Ingredients", "IngredientType_Id");
-            AddForeignKey("dbo.Ingredients", "IngredientType_Id", "dbo.IngredientTypes", "Id");
+            AlterColumn("dbo.Ingredients", "IngredientTypeId", c => c.Int());
+            CreateIndex("dbo.Ingredients", "IngredientTypeId");
+            AddForeignKey("dbo.Ingredients", "IngredientTypeId", "dbo.IngredientTypes", "Id");
         }
     }
 }

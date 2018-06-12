@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Web;
 
 namespace NewFoodNutrients.Models
 {
@@ -16,13 +14,12 @@ namespace NewFoodNutrients.Models
         [Required]
         public DateTime CreationDate { get; set; }
 
-        [Required]
+        public int PlateId { get; set; }
+
         public FoodType FoodType { get; set; }
 
-        [Required]
         public ApplicationUser CookApplicationUser { get; set; }
 
-        [Required]
-        public List<Ingredient> Ingredients { get; set; }   
+        public List<RecipeIngredients> Ingredients { get; set; }
     }
 }

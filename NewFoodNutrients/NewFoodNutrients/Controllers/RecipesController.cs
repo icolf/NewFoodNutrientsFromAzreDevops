@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
-using NewFoodNutrients.Models;
+﻿using NewFoodNutrients.Models;
 using NewFoodNutrients.ViewModels;
+using System.Linq;
+using System.Web.Mvc;
 
 namespace NewFoodNutrients.Controllers
 {
@@ -12,7 +9,7 @@ namespace NewFoodNutrients.Controllers
     {
         private ApplicationDbContext _context;
 
-        public RecipesController( )
+        public RecipesController()
         {
             _context = new ApplicationDbContext();
 
@@ -38,7 +35,8 @@ namespace NewFoodNutrients.Controllers
                 ContextFoodTypes = _context.FoodTypes.ToList(),
                 ContextFoods = _context.Foods.ToList(),
                 ContextIngredientTypes = _context.IngredientTypes.ToList(),
-                ContextIngredients = _context.Ingredients.ToList()
+                ContextIngredients = _context.Ingredients.ToList(),
+                RecipeIngredients = _context.RecipeIngredients.ToList()
             };
             return View(viewModel);
         }

@@ -10,7 +10,6 @@ namespace NewFoodNutrients.Models
         [Required]
         public string Name { get; set; }
 
-        [Required]
         public ApplicationUser CookApplicationUser { get; set; }
 
         public Daypart Daypart { get; set; }

@@ -78,11 +78,12 @@ namespace NewFoodNutrients.ViewModels
                 var allIngredients = ContextIngredients.Select(i => new SelectListItem
                 {
                     Text = i.Name,
-                    Value = i.IngredientType.ToString()
+                    Value = i.IngredientType.Id.ToString()
                 });
                 return allIngredients;
             }
         }
 
+        public List<RecipeIngredients> RecipeIngredients { get; set; }
     }
 }
