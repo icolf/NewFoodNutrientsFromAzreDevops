@@ -36,7 +36,8 @@ namespace NewFoodNutrients.Controllers
                 ContextFoods = _context.Foods.ToList(),
                 ContextIngredientTypes = _context.IngredientTypes.ToList(),
                 ContextIngredients = _context.Ingredients.ToList(),
-                RecipeIngredients = _context.RecipeIngredients.ToList()
+                RecipeIngredients = _context.RecipeIngredients.ToList(),
+                ContextUnitOfMeasures =_context.UnitOfMeasures.ToList()
             };
             return View(viewModel);
         }

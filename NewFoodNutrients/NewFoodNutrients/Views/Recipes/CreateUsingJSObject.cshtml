@@ -37,22 +37,26 @@
                 @class = "form-control"
                 , data_bind = "options : dropDownsSource().FoodsDD" +
                               ", optionsText : 'Text'" +
-                              ", optionsValue : 'Value'" +
+                              //", optionsValue : 'Value'" +
                               ", optionsCaption : 'Select food...'" +
-                              ", value: recipe().Food" +
-                              ", enable: recipe().RecipeName().length > 0 && parseInt('0' + selectedFoodType(), 10) >0"
+                              ", value: recipe().selectedFood" +
+                              ", enable: recipe().RecipeName().length > 0 && parseInt('0' + selectedFoodType(), 10) >0" +
+                              ", event: {change: foodChange}"
             })
     </div>
     <div class="row" style="border-color: black">
-        <div class="row">
+        @*<div class="row">
             <button class="col-md-1 col-md-offset-11 btn btn-primary" data-bind="click:addRecipeIngredient">
                 <span class="glyphicon glyphicon-plus"></span>Add
             </button>
-        </div>
+        </div>*@
         <div class="row">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <h3 class="panel-title">Ingredients</h3>
+                    <h3 class="panel-title col-md-11">Ingredients</h3>
+                    <button class="btn btn-primary" style="padding: 2px 12px" data-bind="click:addRecipeIngredient">
+                        <span class="glyphicon glyphicon-plus"></span>New
+                    </button>
                 </div>
                 <div class="panel-body">
                     <table class="table table-condensed">
@@ -70,33 +74,43 @@
                                         @Html.DropDownListFor(m => m.IngredientTypeId, Model.IngredientTypes, new
                                    {
                                        @class = "form-control"
-                                            , data_bind = "options: $parent.dropDownsSource().IngredientTypesDD" +
+                                            , data_bind = "options: IngredientTypesDD" +
                                                           ",optionsText:'Text'" +
                                                           ",optionsValue: 'Value'" +
                                                           ",optionsCaption: 'Select an ingredient type...'" +
-                                                          ",value: $parent.selectedIngredientType, IngredientType"
-                                       //",value: $parent.selectedIngredientType"
+                                                          ",value: IngredientType" +
+                                                          ",event:{change: $parent.changeIngredientType}"
                                    })
                                     </div>
                                 </td>
                                 <td>
                                     <div class="form-group">
                                         @Html.DropDownListFor(m => m.IngredientId, Model.Ingredients, new
-                                        {
-                                            @class = "form-control"
-                                            , data_bind = "options:$parent.dropDownsSource().IngredientsDD" +
+                                   {
+                                       @class = "form-control"
+                                            , data_bind = "options:IngredientsDD" +
                                                           ",optionsText:'Text'" +
-                                                          ",optionsValue: 'Value'" +
-                                                          ",value: Ingredient" +
-                                                          ",optionsCaption: 'Select an ingredient...'"
-                                        })
+                                                          ",value: selectedIngredient" +
+                                                          ",optionsCaption: 'Select an ingredient...'" +
+                                                          ",event: {change: $parent.changeIngredient}"
+                                   })
                                     </div>
                                 </td>
                                 <td>
                                             <input type="number" class="form-control" data-bind="value: Amount, valueUpdate: 'afterkeydown'"/>
                                 </td>
                                 <td>
-                                    <span></span>
+                                    <div class="form-group">
+                                        @Html.DropDownListFor(m => m.UnitOfMeasureId, Model.UnitOfMeasures, new
+                                        {
+                                            @class = "form-control"
+                                            , data_bind = "options: $parent.dropDownsSource().UnitOfMeasureDD" +
+                                                          ",optionsText:'Text'" +
+                                                          ",optionsValue: 'Value'" +
+                                                          ",optionsCaption: 'Select unit of measure...'" +
+                                                          ",value: UnitOfMeasure"
+                                        })
+                                    </div>
                                 </td>
                             </tr>
                         </tbody>
@@ -117,28 +131,39 @@
         $(function() {
             var my = {};
 
-            my.dropDownsSource = function(){
+            my.dropDownsSource = function() {
                 this.FoodTypesDD = ko.observableArray([]);
                 this.FoodsDD = ko.observableArray([]);
                 this.IngredientTypesDD = ko.observableArray([]);
                 this.IngredientsDD = ko.observableArray([]);
+                this.UnitOfMeasureDD = ko.observableArray([]);
             };
 
             my.Recipe = function() {
                 this.RecipeName = ko.observable("");
                 this.FoodType = ko.observable("");
                 this.Food = ko.observable("");
+                this.selectedFood = ko.observable("");
                 this.RecipeIngredients = ko.observableArray([]);
+                this.AllFoods = ko.observableArray([]);
+
             };
 
             my.Ingredient = function() {
-                this.IngredientType = ko.observable("");
-                this.Ingredient = ko.observable("");
-                this.Amount = ko.observable(1);
-                this.UnitOfMeasure = ko.observable("");
+                var self = this;
+                self.IngredientType = ko.observable("");
+                self.selectedIngredientType = ko.observable("");
+                self.selectedIngredient = ko.observable("");
+                self.Ingredient = ko.observable("");
+                self.Amount = ko.observable(0);
+                self.UnitOfMeasure = ko.observable("");
+                self.IngredientsDD = ko.observableArray([]);
+                self.IngredientTypesDD = ko.observableArray([]);
+                self.UnitOfMeasureDD = ko.observableArray([]);
+                self.AllIngredients = ko.observableArray([]);
             };
 
-            my.recipeViewModel = function () {
+            my.recipeViewModel = function() {
                 var
                     model = @Html.Raw(Json.Encode(Model)),
 
@@ -146,67 +171,104 @@
 
                     dropDownsSource = ko.observable(
                         new my.dropDownsSource()
-                        .FoodTypesDD(mappedViewModel.FoodTypes())
-                        .IngredientTypesDD(mappedViewModel.IngredientTypes())
+                            .FoodTypesDD(mappedViewModel.FoodTypes())
+                            .IngredientTypesDD(mappedViewModel.IngredientTypes())
+                            .UnitOfMeasureDD(mappedViewModel.UnitOfMeasures())
                     ),
 
                     selectedFoodType = ko.observable(""),
                     selectedIngredientType = ko.observable(""),
 
                     //Filtered Foods DDL based on selected FoodType DDL
-                    filteredFoods = ko.computed(function() {
-                            return ko.utils.arrayFilter(mappedViewModel.Foods(),
-                                function(food) {
-                                    var foodFilter = food.Value();
-                                    return foodFilter === selectedFoodType();
-                                });
-                        },
+                    filteredFoods = ko.computed(function () {
+                        return ko.utils.arrayFilter(mappedViewModel.Foods(),
+                            function (food) {
+                                var foodFilter = food.Value();
+                                return foodFilter === selectedFoodType();
+                            });
+                    },
                         this),
 
-                    //Filtered Ingredients DDL based on selected IngredientType DDL
-                    filteredIngredients = ko.computed(function() {
-                            return ko.utils.arrayFilter(mappedViewModel.Ingredients(),
-                                function(ingredient) {
-                                    var ingredientFilter = ingredient.Value();
-                                    return ingredientFilter === selectedIngredientType();
-                                });
-                        },
-                        this),
                     recipe = ko.observable(
                         new my.Recipe()
-                        .RecipeName("")
+                            .AllFoods(mappedViewModel.ContextFoods())
                     ),
-                    addRecipeIngredient = function() {
-                        this.recipe().RecipeIngredients.push(new my.Ingredient());
+
+                    foodChange = function(obj) {
+                        var text = obj.recipe().selectedFood().Text();
+                        var filteredFood = ko.computed(function() {
+                            return ko.utils.arrayFilter(obj.recipe().AllFoods(),
+                                function(f) {
+                                    return f.FoodName() === text;
+                                });
+                        }, obj);
+                        obj.recipe().Food(filteredFood()[0].Id);
                     },
-                    save = function() {
-                        self = this;
-                    };
+
+                    changeIngredientType = function(obj, event) {
+                        var selected = this.IngredientType();
+                        var filteredIngredients = ko.computed(function() {
+                                return ko.utils.arrayFilter(this.IngredientsDD(),
+                                    function(ingredient) {
+                                        var ingredientFilter = ingredient.Value();
+                                        return ingredientFilter === selected;
+                                    });
+                            },
+                            obj);
+                        obj.IngredientsDD(filteredIngredients());
+                    },
+
+                    changeIngredient = function(obj, event) {
+                        var text = obj.selectedIngredient().Text();
+                        var ingredientId = ko.computed(function() {
+                                return ko.utils.arrayFilter(obj.AllIngredients(),
+                                    function(i) {
+                                        return i.Name() === text;
+                                    });
+                        }, obj);
+                        obj.Ingredient(ingredientId()[0].Id());
+                    },
+                    addRecipeIngredient = function() {
+                            this.recipe().RecipeIngredients.push(new my.Ingredient()
+                                .IngredientTypesDD(this.mappedViewModel.IngredientTypes())
+                                .IngredientsDD(this.mappedViewModel.Ingredients())
+                                .AllIngredients(this.mappedViewModel.ContextIngredients())
+                            );
+                        },
+                        save = function() {
+                            self = this;
+                        };
                 return {
                     mappedViewModel: mappedViewModel,
                     filteredFoods: filteredFoods,
                     dropDownsSource: dropDownsSource,
                     selectedFoodType: selectedFoodType,
                     recipe: recipe,
+                    foodChange: foodChange,
                     addRecipeIngredient: addRecipeIngredient,
-                    filteredIngredients: filteredIngredients,
+                    //filteredIngredients: filteredIngredients,
                     selectedIngredientType: selectedIngredientType,
+                    changeIngredientType: changeIngredientType,
+                    changeIngredient: changeIngredient,
                     save: save
                 };
             }();
 
 
-            my.recipeViewModel.selectedFoodType.subscribe(function (value) {
-                this.recipe().FoodType(value);
-                this.dropDownsSource().FoodsDD(this.filteredFoods());
-            }, my.recipeViewModel);
+            my.recipeViewModel.selectedFoodType.subscribe(function(value) {
+                    this.recipe().FoodType(value);
+                    this.dropDownsSource().FoodsDD(this.filteredFoods());
+                },
+                my.recipeViewModel);
 
-            my.recipeViewModel.selectedIngredientType.subscribe(function (value) {
-                this.dropDownsSource().IngredientsDD(this.filteredIngredients());
-            }, my.recipeViewModel);
+            //my.recipeViewModel.selectedIngredientType.subscribe(function(value) {
+            //        this.dropDownsSource();
+            //        //this.dropDownsSource().IngredientsDD(this.filteredIngredients());
+            //    },
+            //    my.recipeViewModel);
 
 
             ko.applyBindings(my.recipeViewModel);
         });
     </script>
-}   
+} 

@@ -85,5 +85,22 @@ namespace NewFoodNutrients.ViewModels
         }
 
         public List<RecipeIngredients> RecipeIngredients { get; set; }
+
+        public int UnitOfMeasureId { get; set; }
+        public List<UnitOfMeasure> ContextUnitOfMeasures { get; set; }
+
+        public IEnumerable<SelectListItem> UnitOfMeasures
+        {
+            get
+            {
+                var allUnitOfMeasures = ContextUnitOfMeasures.Select(c => new SelectListItem
+                {
+                    Value=c.Id.ToString(),
+                    Text=c.UnitofMeasure
+                });
+                return allUnitOfMeasures;
+            }
+        }
+
     }
 }
