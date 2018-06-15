@@ -15,18 +15,20 @@ namespace NewFoodNutrients.Controllers
 
         }
         // GET: Recipes
-        public ActionResult Create()
-        {
-            var viewModel = new RecipeFormViewModel
-            {
-                RecipeName = "",
-                ContextFoodTypes = _context.FoodTypes.ToList(),
-                ContextFoods = _context.Foods.ToList(),
-                ContextIngredientTypes = _context.IngredientTypes.ToList(),
-                ContextIngredients = _context.Ingredients.ToList()
-            };
-            return View(viewModel);
-        }
+        //public ActionResult Create()
+        //{
+        //    var viewModel = new RecipeFormViewModel
+        //    {
+        //        RecipeName = "",
+        //        ContextFoodTypes = _context.FoodTypes.ToList(),
+        //        ContextFoods = _context.Foods.ToList(),
+        //        ContextIngredientTypes = _context.IngredientTypes.ToList(),
+        //        ContextIngredients = _context.Ingredients.ToList()
+        //    };
+        //    return View(viewModel);
+        //}
+
+        [Authorize]
         public ActionResult CreateUsingJSObject()
         {
             var viewModel = new RecipeFormViewModel
