@@ -9,8 +9,8 @@ namespace NewFoodNutrients.ViewModels
     public class RecipeFormViewModel
     {
         //Recipe Header
-        [Display(Name = "Recipe Name")]
-        public string RecipeName { get; set; }
+        [Display(Name = "Title")]
+        public string Title { get; set; }
 
         public IEnumerable<FoodType> ContextFoodTypes { get; set; }
 

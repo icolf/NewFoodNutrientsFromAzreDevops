@@ -1,16 +1,16 @@
 ﻿@model NewFoodNutrients.ViewModels.RecipeFormViewModel
 @{
-    ViewBag.Title = "Create using a javaScript object for recipe";
+    ViewBag.Title = "Create a recipe";
 
 }
 
-@using (Html.BeginForm("CreateUsingJSObject", "Recipes"))
+@using (Html.BeginForm("Create", "Recipes"))
 {
     <h2>New recipe</h2>
     <div class="form-group"></div>
     <div class="form-group">
-        @Html.LabelFor(m => m.RecipeName)
-        @Html.TextBoxFor(m => m.RecipeName, new { @class = "form-control", data_bind = "value: recipe().RecipeName, valueUpdate: 'afterkeydown'" })
+        @Html.LabelFor(m => m.Title)
+        @Html.TextBoxFor(m => m.Title, new { @class = "form-control", data_bind = "value: recipe().Title, valueUpdate: 'afterkeydown'" })
     </div>
     <div class="form-group">
         @Html.LabelFor(m => m.FoodTypeId)
@@ -25,7 +25,7 @@
                     ", optionsValue : 'Value'" +
                     ", value : selectedFoodType " +
                     ", optionsCaption : 'Select a food type...'" +
-                    ", enable: recipe().RecipeName().length > 0"
+                    ", enable: recipe().Title().length > 0"
             })
 
     </div>
@@ -38,10 +38,9 @@
                 @class = "form-control"
                 , data_bind = "options : dropDownsSource().FoodsDD" +
                               ", optionsText : 'Text'" +
-                              //", optionsValue : 'Value'" +
                               ", optionsCaption : 'Select food...'" +
                               ", value: recipe().selectedFood" +
-                              ", enable: recipe().RecipeName().length > 0 && parseInt('0' + selectedFoodType(), 10) >0" +
+                              ", enable: recipe().Title().length > 0 && parseInt('0' + selectedFoodType(), 10) >0" +
                               ", event: {change: foodChange}"
             })
     </div>
@@ -119,7 +118,7 @@
                 </div>
             </div>
             <div class="row">
-                <button class="col-md-1 btn btn-primary" data-bind="click:save()">
+                <button class="btn btn-primary" data-bind="click: save">
                     <span class="glyphicon glyphicon-save"></span>Save
                 </button>
             </div>
@@ -142,7 +141,7 @@
             };
 
             my.Recipe = function() {
-                this.RecipeName = ko.observable("");
+                this.Title = ko.observable("");
                 this.FoodType = ko.observable("");
                 this.Food = ko.observable("");
                 this.selectedFood = ko.observable("");
@@ -165,7 +164,7 @@
                 self.AllIngredients = ko.observableArray([]);
             };
 
-            my.recipeViewModel = function() {
+            my.recipeViewModel = (function() {
                 var model = @Html.Raw(Json.Encode(Model));
 
                 var mappedViewModel = ko.mapping.fromJS(model);
@@ -178,6 +177,7 @@
                 );
 
                 var selectedFoodType = ko.observable("");
+
                 var selectedIngredientType = ko.observable("");
 
                 //Filtered Foods DDL based on selected FoodType DDL
@@ -187,15 +187,20 @@
                                 var foodFilter = food.Value();
                                 return foodFilter === selectedFoodType();
                             });
-                    },
-                    this);
+                });
 
                 var recipe = ko.observable(
                     new my.Recipe()
                     .AllFoods(mappedViewModel.ContextFoods())
                 );
 
-                var foodChange = function (obj) {
+                //Knockout Subscribe example
+                selectedFoodType.subscribe(function(value) {
+                        recipe().FoodType(value);
+                        dropDownsSource().FoodsDD(filteredFoods());
+                });
+
+                var foodChange = function(obj) {
                     if (!obj.recipe().selectedFood())
                         return;
                     var text = obj.recipe().selectedFood().Text();
@@ -212,7 +217,7 @@
                 var changeIngredientType = function(obj, event) {
                     var selected = this.IngredientType();
                     this.IngredientsDD(mappedViewModel.Ingredients());
-                    var filteredIngredients = ko.computed(function () {
+                    var filteredIngredients = ko.computed(function() {
                             return ko.utils.arrayFilter(this.IngredientsDD(),
                                 function(ingredient) {
                                     var ingredientFilter = ingredient.Value();
@@ -223,7 +228,7 @@
                     obj.IngredientsDD(filteredIngredients());
                 };
 
-                var changeIngredient = function (obj, event) {
+                var changeIngredient = function(obj, event) {
                     if (!obj.selectedIngredient())
                         return;
                     var text = obj.selectedIngredient().Text();
@@ -237,10 +242,10 @@
                     obj.Ingredient(ingredientId()[0].Id());
                 };
                 var addRecipeIngredient = function() {
-                    this.recipe().RecipeIngredients.push(new my.Ingredient()
-                        .IngredientTypesDD(this.mappedViewModel.IngredientTypes())
-                        .IngredientsDD(this.mappedViewModel.Ingredients())
-                        .AllIngredients(this.mappedViewModel.ContextIngredients())
+                    recipe().RecipeIngredients.push(new my.Ingredient()
+                        .IngredientTypesDD(mappedViewModel.IngredientTypes())
+                        .IngredientsDD(mappedViewModel.Ingredients())
+                        .AllIngredients(mappedViewModel.ContextIngredients())
                     );
                 };
                 var removeRecipeIngredient = function(recipeIngredient) {
@@ -257,28 +262,13 @@
                     recipe: recipe,
                     foodChange: foodChange,
                     addRecipeIngredient: addRecipeIngredient,
-                    //filteredIngredients: filteredIngredients,
                     selectedIngredientType: selectedIngredientType,
                     changeIngredientType: changeIngredientType,
                     changeIngredient: changeIngredient,
                     removeRecipeIngredient: removeRecipeIngredient,
                     save: save
                 };
-            }();
-
-
-            my.recipeViewModel.selectedFoodType.subscribe(function(value) {
-                    this.recipe().FoodType(value);
-                    this.dropDownsSource().FoodsDD(this.filteredFoods());
-                },
-                my.recipeViewModel);
-
-            //my.recipeViewModel.selectedIngredientType.subscribe(function(value) {
-            //        this.dropDownsSource();
-            //        //this.dropDownsSource().IngredientsDD(this.filteredIngredients());
-            //    },
-            //    my.recipeViewModel);
-
+            })();
 
             ko.applyBindings(my.recipeViewModel);
         });

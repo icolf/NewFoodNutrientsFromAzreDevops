@@ -14,26 +14,12 @@ namespace NewFoodNutrients.Controllers
             _context = new ApplicationDbContext();
 
         }
-        // GET: Recipes
-        //public ActionResult Create()
-        //{
-        //    var viewModel = new RecipeFormViewModel
-        //    {
-        //        RecipeName = "",
-        //        ContextFoodTypes = _context.FoodTypes.ToList(),
-        //        ContextFoods = _context.Foods.ToList(),
-        //        ContextIngredientTypes = _context.IngredientTypes.ToList(),
-        //        ContextIngredients = _context.Ingredients.ToList()
-        //    };
-        //    return View(viewModel);
-        //}
-
         [Authorize]
-        public ActionResult CreateUsingJSObject()
+        public ActionResult Create()
         {
             var viewModel = new RecipeFormViewModel
             {
-                RecipeName = "",
+                Title = "",
                 ContextFoodTypes = _context.FoodTypes.ToList(),
                 ContextFoods = _context.Foods.ToList(),
                 ContextIngredientTypes = _context.IngredientTypes.ToList(),
@@ -42,6 +28,17 @@ namespace NewFoodNutrients.Controllers
                 ContextUnitOfMeasures =_context.UnitOfMeasures.ToList()
             };
             return View(viewModel);
+        }
+
+        [Authorize]
+        [HttpPost]
+        public ActionResult Create(RecipeFormViewModel viewModel)
+        {
+            var recipe = new Recipe
+            {
+                
+            };
+            return RedirectToAction("Index", "Home");
         }
     }
 }
