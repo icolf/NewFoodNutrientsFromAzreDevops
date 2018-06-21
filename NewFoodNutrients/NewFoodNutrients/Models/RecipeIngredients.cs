@@ -1,4 +1,7 @@
-﻿namespace NewFoodNutrients.Models
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
+namespace NewFoodNutrients.Models
 {
     public class RecipeIngredients
     {
@@ -6,12 +9,11 @@
 
         public Ingredient Ingredient { get; set; }
 
+        public IngredientType IngredientType { get; set; }
+
         public decimal Amount { get; set; }
 
-        public int RecipeId { get; set; }
-
         public UnitOfMeasure UnitOfMeasure { get; set; }
-
 
 
     }

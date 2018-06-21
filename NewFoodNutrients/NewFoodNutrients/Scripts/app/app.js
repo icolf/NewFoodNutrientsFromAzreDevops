@@ -10,8 +10,8 @@
 
         function Recipe () {
             this.Title = ko.observable("");
-            this.FoodType = ko.observable("");
-            this.Food = ko.observable("");
+            this.FoodTypeId = ko.observable("");
+            this.FoodId = ko.observable("");
             this.selectedFood = ko.observable("");
             this.RecipeIngredients = ko.observableArray([]);
             this.AllFoods = ko.observableArray([]);
@@ -20,12 +20,12 @@
 
         function Ingredient () {
             var self = this;
-            self.IngredientType = ko.observable("");
+            self.IngredientTypeId = ko.observable("");
             self.selectedIngredientType = ko.observable("");
             self.selectedIngredient = ko.observable("");
-            self.Ingredient = ko.observable("");
+            self.IngredientId = ko.observable("");
             self.Amount = ko.observable(0);
-            self.UnitOfMeasure = ko.observable("");
+            self.UnitOfMeasureId = ko.observable("");
             self.IngredientsDD = ko.observableArray([]);
             self.IngredientTypesDD = ko.observableArray([]);
             self.UnitOfMeasureDD = ko.observableArray([]);
@@ -63,7 +63,7 @@
 
             //Knockout Subscribe example
             selectedFoodType.subscribe(function (value) {
-                recipe().FoodType(value);
+                recipe().FoodTypeId(value);
                 dropDownsSource().FoodsDD(filteredFoods());
             });
 
@@ -78,11 +78,11 @@
                         });
                 },
                     obj);
-                obj.recipe().Food(filteredFood()[0].Id);
+                obj.recipe().FoodId(filteredFood()[0].Id);
             };
 
             var changeIngredientType = function (obj, event) {
-                var selected = this.IngredientType();
+                var selected = this.IngredientTypeId();
                 this.IngredientsDD(mappedViewModel.Ingredients());
                 var filteredIngredients = ko.computed(function () {
                     return ko.utils.arrayFilter(this.IngredientsDD(),
@@ -106,7 +106,7 @@
                         });
                 },
                     obj);
-                obj.Ingredient(ingredientId()[0].Id());
+                obj.IngredientId(ingredientId()[0].Id());
             };
             var addRecipeIngredient = function () {
                 recipe().RecipeIngredients.push(new Ingredient()
@@ -119,7 +119,15 @@
                 recipe().RecipeIngredients.remove(recipeIngredient);
             };
             var save = function () {
-                self = this;
+                $.ajax({
+                    url: "/Recipes/Save",
+                    type: "Post",
+                    data: ko.toJSON(recipe),
+                    contentType: "application/json",
+                    success: function(data) {
+                        console.log("Success");
+                    }
+                });
             };
             return {
                 mappedViewModel: mappedViewModel,

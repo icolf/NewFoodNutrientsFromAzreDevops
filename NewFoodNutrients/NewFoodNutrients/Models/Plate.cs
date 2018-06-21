@@ -7,14 +7,13 @@ namespace NewFoodNutrients.Models
     {
         public int Id { get; set; }
 
-        [Required]
         public string Name { get; set; }
 
         public ApplicationUser CookApplicationUser { get; set; }
 
         public Daypart Daypart { get; set; }
 
-        public List<Recipe> Recipes { get; set; }
+        //public List<Recipe> Recipes { get; set; }
 
     }
 }

@@ -1,4 +1,5 @@
-﻿@model NewFoodNutrients.ViewModels.RecipeFormViewModel
+﻿@using System.Web.Script.Serialization
+@model NewFoodNutrients.ViewModels.RecipeFormViewModel
 @{
     ViewBag.Title = "Create a recipe";
 
@@ -73,7 +74,7 @@
                                                           ",optionsText:'Text'" +
                                                           ",optionsValue: 'Value'" +
                                                           ",optionsCaption: 'Select an ingredient type...'" +
-                                                          ",value: IngredientType" +
+                                                          ",value: IngredientTypeId" +
                                                           ",event:{change: $parent.changeIngredientType}"
                                    })
                                     </div>
@@ -103,7 +104,7 @@
                                                           ",optionsText:'Text'" +
                                                           ",optionsValue: 'Value'" +
                                                           ",optionsCaption: 'Select unit of measure...'" +
-                                                          ",value: UnitOfMeasure"
+                                                          ",value: UnitOfMeasureId"
                                         })
                                     </div>
                                 </td>
@@ -131,7 +132,10 @@
     <script type="text/javascript">
         var my = {};
         $(function () {
+            //Another possible way to convert Model into a JSON object
+            @*@{ string data = new JavaScriptSerializer().Serialize(Model);}*@
             var model = @Html.Raw(Json.Encode(Model));
+            //debugger;
             ko.applyBindings(vm.recipeVM.recipeViewModel(model));
         });
     </script>

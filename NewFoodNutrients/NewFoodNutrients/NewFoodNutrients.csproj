@@ -380,10 +380,47 @@
     <Compile Include="Migrations\201806121857114_RemoveNameFromRecipeIngredient.Designer.cs">
       <DependentUpon>201806121857114_RemoveNameFromRecipeIngredient.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201806201423062_AddIngredientTypeToRecipeIngredients.cs" />
+    <Compile Include="Migrations\201806201423062_AddIngredientTypeToRecipeIngredients.Designer.cs">
+      <DependentUpon>201806201423062_AddIngredientTypeToRecipeIngredients.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201806201535233_AddFoodToRecipe.cs" />
+    <Compile Include="Migrations\201806201535233_AddFoodToRecipe.Designer.cs">
+      <DependentUpon>201806201535233_AddFoodToRecipe.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201806201614031_DeletePlateIdToRecipe.cs" />
+    <Compile Include="Migrations\201806201614031_DeletePlateIdToRecipe.Designer.cs">
+      <DependentUpon>201806201614031_DeletePlateIdToRecipe.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201806201728227_DateNotRequiredInRecipe.cs" />
+    <Compile Include="Migrations\201806201728227_DateNotRequiredInRecipe.Designer.cs">
+      <DependentUpon>201806201728227_DateNotRequiredInRecipe.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201806201814301_AddIdentityAtribute.cs" />
+    <Compile Include="Migrations\201806201814301_AddIdentityAtribute.Designer.cs">
+      <DependentUpon>201806201814301_AddIdentityAtribute.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201806201819506_AddIdentityAtributeAndtype.cs" />
+    <Compile Include="Migrations\201806201819506_AddIdentityAtributeAndtype.Designer.cs">
+      <DependentUpon>201806201819506_AddIdentityAtributeAndtype.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201806202212369_RemoveRecipeFromRecipeIngredients.cs" />
+    <Compile Include="Migrations\201806202212369_RemoveRecipeFromRecipeIngredients.Designer.cs">
+      <DependentUpon>201806202212369_RemoveRecipeFromRecipeIngredients.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201806202237548_RecipePKChangedToRecipeId.cs" />
+    <Compile Include="Migrations\201806202237548_RecipePKChangedToRecipeId.Designer.cs">
+      <DependentUpon>201806202237548_RecipePKChangedToRecipeId.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201806202240145_RecipePKChangedFromRecipeIdBackToId.cs" />
+    <Compile Include="Migrations\201806202240145_RecipePKChangedFromRecipeIdBackToId.Designer.cs">
+      <DependentUpon>201806202240145_RecipePKChangedFromRecipeIdBackToId.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
     <Compile Include="Models\ApplicationUser.cs" />
+    <Compile Include="Models\Configurations\RecipeConfiguration.cs" />
     <Compile Include="Models\Daypart.cs" />
     <Compile Include="Models\Food.cs" />
     <Compile Include="Models\FoodType.cs" />
@@ -397,7 +434,9 @@
     <Compile Include="Models\UnitOfMeasure.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="ViewModels\IngredientViewModel.cs" />
     <Compile Include="ViewModels\RecipeFormViewModel.cs" />
+    <Compile Include="ViewModels\RecipeViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="App\img\Dairy.jpg" />
@@ -655,6 +694,33 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201806121857114_RemoveNameFromRecipeIngredient.resx">
       <DependentUpon>201806121857114_RemoveNameFromRecipeIngredient.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201806201423062_AddIngredientTypeToRecipeIngredients.resx">
+      <DependentUpon>201806201423062_AddIngredientTypeToRecipeIngredients.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201806201535233_AddFoodToRecipe.resx">
+      <DependentUpon>201806201535233_AddFoodToRecipe.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201806201614031_DeletePlateIdToRecipe.resx">
+      <DependentUpon>201806201614031_DeletePlateIdToRecipe.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201806201728227_DateNotRequiredInRecipe.resx">
+      <DependentUpon>201806201728227_DateNotRequiredInRecipe.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201806201814301_AddIdentityAtribute.resx">
+      <DependentUpon>201806201814301_AddIdentityAtribute.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201806201819506_AddIdentityAtributeAndtype.resx">
+      <DependentUpon>201806201819506_AddIdentityAtributeAndtype.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201806202212369_RemoveRecipeFromRecipeIngredients.resx">
+      <DependentUpon>201806202212369_RemoveRecipeFromRecipeIngredients.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201806202237548_RecipePKChangedToRecipeId.resx">
+      <DependentUpon>201806202237548_RecipePKChangedToRecipeId.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201806202240145_RecipePKChangedFromRecipeIdBackToId.resx">
+      <DependentUpon>201806202240145_RecipePKChangedFromRecipeIdBackToId.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

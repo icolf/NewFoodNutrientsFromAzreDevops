@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNet.Identity.EntityFramework;
 using System.Data.Entity;
+using NewFoodNutrients.Models.Configurations;
 
 namespace NewFoodNutrients.Models
 {
@@ -25,6 +26,16 @@ namespace NewFoodNutrients.Models
         public static ApplicationDbContext Create()
         {
             return new ApplicationDbContext();
+        }
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<IdentityUserLogin>().HasKey<string>(l => l.UserId);
+            modelBuilder.Entity<IdentityRole>().HasKey<string>(r => r.Id);
+            modelBuilder.Entity<IdentityUserRole>().HasKey(r => new { r.RoleId, r.UserId }); modelBuilder.Configurations.Add(new RecipeConfiguration());
+
+            modelBuilder.Configurations.Add(new RecipeConfiguration());
+            base.OnModelCreating(modelBuilder);
         }
     }
 }

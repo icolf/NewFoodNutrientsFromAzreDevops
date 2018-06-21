@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace NewFoodNutrients.Models
 {
@@ -8,15 +9,14 @@ namespace NewFoodNutrients.Models
     {
         public int Id { get; set; }
 
-        [Required]
         public string Title { get; set; }
 
-        [Required]
         public DateTime CreationDate { get; set; }
 
-        public int PlateId { get; set; }
-
+        [Display(Name = "Food Type")]
         public FoodType FoodType { get; set; }
+
+        public Food Food { get; set; }
 
         public ApplicationUser CookApplicationUser { get; set; }
 
