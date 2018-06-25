@@ -6,7 +6,7 @@
             this.IngredientTypesDD = ko.observableArray([]);
             this.IngredientsDD = ko.observableArray([]);
             this.UnitOfMeasureDD = ko.observableArray([]);
-        };
+        }
 
         function Recipe () {
             this.Title = ko.observable("");
@@ -16,7 +16,7 @@
             this.RecipeIngredients = ko.observableArray([]);
             this.AllFoods = ko.observableArray([]);
 
-        };
+        }
 
         function Ingredient () {
             var self = this;
@@ -30,7 +30,7 @@
             self.IngredientTypesDD = ko.observableArray([]);
             self.UnitOfMeasureDD = ko.observableArray([]);
             self.AllIngredients = ko.observableArray([]);
-        };
+        }
 
         var recipeViewModel = function (data) {
 
@@ -125,7 +125,7 @@
                     data: ko.toJSON(recipe),
                     contentType: "application/json",
                     success: function(data) {
-                        console.log("Success");
+                        ko.mapping.fromJS(data);
                     }
                 });
             };
@@ -146,11 +146,11 @@
         };
         return {
             recipeViewModel: recipeViewModel
-        }
+        };
     })();
     return {
         recipeVM: recipeVM
-    }
+    };
 
 })();
 

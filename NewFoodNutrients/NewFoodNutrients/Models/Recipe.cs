@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace NewFoodNutrients.Models
 {
-    public class Recipe
+    public class Recipe 
     {
         public int Id { get; set; }
 
@@ -21,5 +21,7 @@ namespace NewFoodNutrients.Models
         public ApplicationUser CookApplicationUser { get; set; }
 
         public List<RecipeIngredients> Ingredients { get; set; }
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         
+
     }
 }

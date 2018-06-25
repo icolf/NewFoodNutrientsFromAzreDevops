@@ -11,7 +11,8 @@ namespace NewFoodNutrients.Models.Configurations
         public RecipeConfiguration()
         {
             Property(r => r.Title).HasMaxLength(20).IsRequired();
+            //Ignore(r => r.ObjectState);
 
-        }
+        } 
     }
 }

@@ -10,11 +10,13 @@ namespace NewFoodNutrients.ViewModels
     {
         //Recipe Header
         [Display(Name = "Title")]
+        [Required]
         public string Title { get; set; }
 
         public IEnumerable<FoodType> ContextFoodTypes { get; set; }
 
         [Display(Name = "Food Type")]
+        [Required]
         public int FoodTypeId { get; set; }
 
         public IEnumerable<SelectListItem> FoodTypes
@@ -31,6 +33,7 @@ namespace NewFoodNutrients.ViewModels
         }
 
         [Display(Name = "Food")]
+        [Required]
         public int FoodId { get; set; }
 
         public List<Food> ContextFoods { get; set; }
@@ -84,7 +87,7 @@ namespace NewFoodNutrients.ViewModels
             }
         }
 
-        public List<RecipeIngredients> RecipeIngredients { get; set; }
+        public List<IngredientViewModel> RecipeIngredients { get; set; }
 
         public int UnitOfMeasureId { get; set; }
         public List<UnitOfMeasure> ContextUnitOfMeasures { get; set; }

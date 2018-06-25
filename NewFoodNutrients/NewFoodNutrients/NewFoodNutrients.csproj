@@ -426,6 +426,7 @@
     <Compile Include="Models\FoodType.cs" />
     <Compile Include="Models\Ingredient.cs" />
     <Compile Include="Models\IngredientType.cs" />
+    <Compile Include="Models\IObjectWithState.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Nutrient.cs" />
     <Compile Include="Models\Plate.cs" />
