@@ -1,16 +1,29 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using Microsoft.AspNet.Identity;
+using NewFoodNutrients.Models;
+using System.Data.Entity;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 
 namespace NewFoodNutrients.Controllers
 {
     public class HomeController : Controller
     {
+        private ApplicationDbContext _context;
+
+        public HomeController()
+        {
+            _context = new ApplicationDbContext();
+        }
         public ActionResult Index()
         {
-            return View();
+            var userId = User.Identity.GetUserId();
+            var recipes = _context.Recipes
+                .Include(r => r.CookApplicationUser)
+                .Include(r => r.Food)
+                .Include(r => r.FoodType)
+                .Include(r => r.Ingredients)
+                .Where(r => r.CookApplicationUserId == userId).ToList();
+            return View(recipes);
         }
 
         public ActionResult About()

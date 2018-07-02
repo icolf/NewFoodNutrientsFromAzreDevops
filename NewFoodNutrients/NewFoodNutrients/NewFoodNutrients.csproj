@@ -416,6 +416,34 @@
     <Compile Include="Migrations\201806202240145_RecipePKChangedFromRecipeIdBackToId.Designer.cs">
       <DependentUpon>201806202240145_RecipePKChangedFromRecipeIdBackToId.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201806252121343_AddCookAplicationUserIdToRecipe.cs" />
+    <Compile Include="Migrations\201806252121343_AddCookAplicationUserIdToRecipe.Designer.cs">
+      <DependentUpon>201806252121343_AddCookAplicationUserIdToRecipe.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201806252132488_AddFoodTypeIdAndfoodIdToRecipe.cs" />
+    <Compile Include="Migrations\201806252132488_AddFoodTypeIdAndfoodIdToRecipe.Designer.cs">
+      <DependentUpon>201806252132488_AddFoodTypeIdAndfoodIdToRecipe.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201806252258389_AddNameToApplicationUserModel.cs" />
+    <Compile Include="Migrations\201806252258389_AddNameToApplicationUserModel.Designer.cs">
+      <DependentUpon>201806252258389_AddNameToApplicationUserModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201806272040365_AddFoodIdToRecipeIngredients.cs" />
+    <Compile Include="Migrations\201806272040365_AddFoodIdToRecipeIngredients.Designer.cs">
+      <DependentUpon>201806272040365_AddFoodIdToRecipeIngredients.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201806272044317_AddFoodTypeIdAndUnitOfMeasureIdToRecipeIngredients.cs" />
+    <Compile Include="Migrations\201806272044317_AddFoodTypeIdAndUnitOfMeasureIdToRecipeIngredients.Designer.cs">
+      <DependentUpon>201806272044317_AddFoodTypeIdAndUnitOfMeasureIdToRecipeIngredients.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201806291544455_AddFoodTypeIdToFood.cs" />
+    <Compile Include="Migrations\201806291544455_AddFoodTypeIdToFood.Designer.cs">
+      <DependentUpon>201806291544455_AddFoodTypeIdToFood.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201807022321310_AddIObjectWithStateToRecipe.cs" />
+    <Compile Include="Migrations\201807022321310_AddIObjectWithStateToRecipe.Designer.cs">
+      <DependentUpon>201807022321310_AddIObjectWithStateToRecipe.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
@@ -429,6 +457,7 @@
     <Compile Include="Models\IObjectWithState.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Nutrient.cs" />
+    <Compile Include="Models\ObjectState.cs" />
     <Compile Include="Models\Plate.cs" />
     <Compile Include="Models\Recipe.cs" />
     <Compile Include="Models\RecipeIngredients.cs" />
@@ -438,6 +467,7 @@
     <Compile Include="ViewModels\IngredientViewModel.cs" />
     <Compile Include="ViewModels\RecipeFormViewModel.cs" />
     <Compile Include="ViewModels\RecipeViewModel.cs" />
+    <Compile Include="ViewModels\RegisterViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="App\img\Dairy.jpg" />
@@ -550,6 +580,7 @@
     <Content Include="Scripts\popper-utils.min.js.map" />
     <Content Include="Scripts\popper-utils.js.map" />
     <Content Include="Views\Recipes\Create.cshtml" />
+    <Content Include="Views\Recipes\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -722,6 +753,27 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201806202240145_RecipePKChangedFromRecipeIdBackToId.resx">
       <DependentUpon>201806202240145_RecipePKChangedFromRecipeIdBackToId.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201806252121343_AddCookAplicationUserIdToRecipe.resx">
+      <DependentUpon>201806252121343_AddCookAplicationUserIdToRecipe.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201806252132488_AddFoodTypeIdAndfoodIdToRecipe.resx">
+      <DependentUpon>201806252132488_AddFoodTypeIdAndfoodIdToRecipe.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201806252258389_AddNameToApplicationUserModel.resx">
+      <DependentUpon>201806252258389_AddNameToApplicationUserModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201806272040365_AddFoodIdToRecipeIngredients.resx">
+      <DependentUpon>201806272040365_AddFoodIdToRecipeIngredients.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201806272044317_AddFoodTypeIdAndUnitOfMeasureIdToRecipeIngredients.resx">
+      <DependentUpon>201806272044317_AddFoodTypeIdAndUnitOfMeasureIdToRecipeIngredients.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201806291544455_AddFoodTypeIdToFood.resx">
+      <DependentUpon>201806291544455_AddFoodTypeIdToFood.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807022321310_AddIObjectWithStateToRecipe.resx">
+      <DependentUpon>201807022321310_AddIObjectWithStateToRecipe.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

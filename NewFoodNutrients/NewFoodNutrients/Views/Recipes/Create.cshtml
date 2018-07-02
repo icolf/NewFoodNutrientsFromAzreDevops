@@ -7,94 +7,99 @@
 
 @using (Html.BeginForm("Create", "Recipes"))
 {
-    <h2>New recipe</h2>
-    <div class="form-group"></div>
-    <div class="form-group">
-        @Html.LabelFor(m => m.Title)
-        @Html.TextBoxFor(m => m.Title, new { @class = "form-control", data_bind = "value: recipe().Title, valueUpdate: 'afterkeydown'" })
-        @Html.ValidationMessageFor(m=>m.Title)
-    </div>
-    <div class="form-group">
-        @Html.LabelFor(m => m.FoodTypeId)
-        @Html.DropDownListFor(m => m.FoodTypeId
-            , Model.FoodTypes
-            , new
-            {
-                @class = "form-control"
-                , data_bind =
-                    "options : dropDownsSource().FoodTypesDD" +
-                    ", optionsText : 'Text'" +
-                    ", optionsValue : 'Value'" +
-                    ", value : selectedFoodType " +
-                    ", optionsCaption : 'Select a food type...'" +
-                    ", enable: recipe().Title().length > 0"
-            })
-
-    </div>
-    <div class="form-group">
-        @Html.LabelFor(m => m.FoodId)
-        @Html.DropDownListFor(m => m.FoodId
-            , Model.Foods
-            , new
-            {
-                @class = "form-control"
-                , data_bind = "options : dropDownsSource().FoodsDD" +
-                              ", optionsText : 'Text'" +
-                              ", optionsCaption : 'Select food...'" +
-                              ", value: recipe().selectedFood" +
-                              ", enable: recipe().Title().length > 0 && parseInt('0' + selectedFoodType(), 10) >0" +
-                              ", event: {change: foodChange}"
-            })
-    </div>
-    <div class="row" style="border-color: black">
+    <div class="container">
         <div class="row">
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    <h3 class="panel-title col-md-11">Ingredients</h3>
-                    <button class="btn btn-primary" style="padding: 2px 4px" data-bind="click:addRecipeIngredient, enable: recipe().Title().length > 0 && parseInt('0' + selectedFoodType(), 10) >0 && recipe().selectedFood()">
-                        <span class="glyphicon glyphicon-plus"></span>New
-                    </button>
-                </div>
-                <div class="panel-body">
-                    <table class="table table-condensed">
-                        <tr>
-                            <th>Type</th>
-                            <th>Ingredient</th>
-                              <th>Amount</th>
-                            <th>Unit</th>
-                            <th>Remove</th>
-                        </tr>
-                        <tbody data-bind="foreach:recipe().RecipeIngredients()">
+            <h2>New recipe</h2>
+            <div class="form-group"></div>
+            <div class="form-group">
+                @Html.LabelFor(m => m.Title)
+                @Html.TextBoxFor(m => m.Title, new { @class = "form-control", autofocus = "autofocus", data_bind = "value: recipe().Title, valueUpdate: 'afterkeydown'" })
+                @Html.ValidationMessageFor(m => m.Title)
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(m => m.FoodTypeId)
+                @Html.DropDownListFor(m => m.FoodTypeId
+                    , Model.FoodTypes
+                    , new
+                    {
+                        @class = "form-control"
+                        , data_bind =
+                            "options : dropDownsSource().FoodTypesDD" +
+                            ", optionsText : 'Text'" +
+                            ", optionsValue : 'Value'" +
+                            ", value : selectedFoodType " +
+                            ", optionsCaption : 'Select a food type...'" +
+                            ", enable: recipe().Title().length > 0" +
+                            ", event: {change: foodTypeChange}"
+                    })
+
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(m => m.FoodId)
+                @Html.DropDownListFor(m => m.FoodId
+                    , Model.Foods
+                    , new
+                    {
+                        @class = "form-control"
+                        , data_bind = "options : dropDownsSource().FoodsDD" +
+                                      ", optionsText : 'Text'" +
+                                      ", optionsValue : 'Value'" +
+                                      ", optionsCaption : 'Select food...'" +
+                                      ", value: selectedFood" +
+                                      ", enable: recipe().Title().length > 0 && parseInt('0' + selectedFoodType(), 10) >0" +
+                                      ", event: {change: foodChange}"
+                    })
+            </div>
+        </div>
+        @*<div class="row" style="border-color: black">*@
+            <div class="row" style="padding-top: 15px">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title col-md-11">Ingredients</h3>
+                        <button class="btn btn-primary btn-sm" style="padding: 2px 4px" data-bind="click:addRecipeIngredient, enable: recipe().Title().length > 0 && parseInt('0' + selectedFoodType(), 10) >0 && parseInt('0' + selectedFood(), 10) > 0">
+                            <span class="glyphicon glyphicon-plus"></span> New
+                        </button>
+                    </div>
+                    <div class="panel-body">
+                        <table class="table table-condensed">
+                            <tr>
+                                <th>Type</th>
+                                <th>Ingredient</th>
+                                <th>Amount</th>
+                                <th>Unit</th>
+                                <th>Remove</th>
+                            </tr>
+                            <tbody data-bind="foreach:recipe().RecipeIngredients()">
                             <tr>
                                 <td>
                                     <div class="form-group">
                                         @Html.DropDownListFor(m => m.IngredientTypeId, Model.IngredientTypes, new
-                                   {
-                                       @class = "form-control"
+                                        {
+                                            @class = "form-control"
                                             , data_bind = "options: IngredientTypesDD" +
                                                           ",optionsText:'Text'" +
                                                           ",optionsValue: 'Value'" +
                                                           ",optionsCaption: 'Select an ingredient type...'" +
                                                           ",value: IngredientTypeId" +
                                                           ",event:{change: $parent.changeIngredientType}"
-                                   })
+                                        })
                                     </div>
                                 </td>
                                 <td>
                                     <div class="form-group">
                                         @Html.DropDownListFor(m => m.IngredientId, Model.Ingredients, new
-                                   {
-                                       @class = "form-control"
+                                        {
+                                            @class = "form-control"
                                             , data_bind = "options:IngredientsDD" +
                                                           ",optionsText:'Text'" +
                                                           ",value: selectedIngredient" +
                                                           ",optionsCaption: 'Select an ingredient...'" +
                                                           ",event: {change: $parent.changeIngredient}"
-                                   })
+                                        })
                                     </div>
                                 </td>
                                 <td>
-                                    <input type="number" class="form-control" data-bind="value: Amount, valueUpdate: 'afterkeydown'" />
+                                    <input type="number" class="form-control" data-bind="value: Amount, valueUpdate: 'afterkeydown'"/>
                                 </td>
                                 <td>
                                     <div class="form-group">
@@ -110,21 +115,26 @@
                                     </div>
                                 </td>
                                 <td>
-                                    <button class="btn btn-default" data-bind="click:$parent.removeRecipeIngredient">
-                                        <span class="glyphicon glyphicon-remove"></span>
-                                    </button>
+                                    <div class="removeButton">
+                                        <button class="btn btn-danger btn-xs" data-bind="click:$parent.removeRecipeIngredient">
+                                            <span class="glyphicon glyphicon-remove"></span>
+                                        </button>
+                                    </div>
                                 </td>
                             </tr>
-                        </tbody>
-                    </table>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="saveButton">
+                        <button class="btn btn-primary" data-bind="click: save">
+                            <span class="glyphicon glyphicon-save"></span> Save
+                        </button>
+                    </div>
                 </div>
             </div>
-            <div class="row">
-                <button class="btn btn-primary" data-bind="click: save">
-                    <span class="glyphicon glyphicon-save"></span>Save
-                </button>
-            </div>
-        </div>
+        @*</div>*@
     </div>
 }
 

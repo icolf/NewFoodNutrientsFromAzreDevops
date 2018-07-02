@@ -8,14 +8,13 @@
             this.UnitOfMeasureDD = ko.observableArray([]);
         }
 
-        function Recipe () {
-            this.Title = ko.observable("");
-            this.FoodTypeId = ko.observable("");
-            this.FoodId = ko.observable("");
-            this.selectedFood = ko.observable("");
-            this.RecipeIngredients = ko.observableArray([]);
+        function Recipe (data) {
+            this.Title = ko.observable(data.Title());
+            this.FoodTypeId = ko.observable(data.FoodTypeId());
+            this.FoodId = ko.observable(data.FoodId());
+            this.selectedFood = ko.observable(data.FoodId());
+            this.RecipeIngredients = ko.observableArray(data.RecipeIngredients());
             this.AllFoods = ko.observableArray([]);
-
         }
 
         function Ingredient () {
@@ -39,27 +38,45 @@
             var dropDownsSource = ko.observable(
                 new DropDownsSource()
                     .FoodTypesDD(mappedViewModel.FoodTypes())
+                    .FoodsDD(mappedViewModel.Foods())
                     .IngredientTypesDD(mappedViewModel.IngredientTypes())
                     .UnitOfMeasureDD(mappedViewModel.UnitOfMeasures())
             );
-
-            var selectedFoodType = ko.observable("");
-
+            var selectedFoodType = ko.observable(mappedViewModel.FoodTypeId());
+            var selectedFood = ko.observable(mappedViewModel.FoodId()); 
             var selectedIngredientType = ko.observable("");
 
             //Filtered Foods DDL based on selected FoodType DDL
             var filteredFoods = ko.computed(function () {
-                return ko.utils.arrayFilter(mappedViewModel.Foods(),
-                    function (food) {
-                        var foodFilter = food.Value();
-                        return foodFilter === selectedFoodType();
-                    });
+                var contextFilteredFoods = ko.observableArray([]);
+                contextFilteredFoods(ko.utils.arrayFilter(mappedViewModel.ContextFoods(),
+                    function(cf) {
+                        return cf.FoodTypeId() === parseInt(selectedFoodType());
+                    }));
+                var contextFilteredIds = ko.observableArray([]);
+                if (contextFilteredFoods()) {
+                    for (var x = 0; x < contextFilteredFoods().length; x++) {
+                        contextFilteredIds.push(contextFilteredFoods()[x].Id().toString());
+                    }
+                }
+
+
+                var newArray = ko.observableArray([]);
+                newArray(ko.utils.arrayFilter(mappedViewModel.Foods(),
+                        function (f) {
+                            if (contextFilteredFoods().length > 0) {
+                                return contextFilteredIds().indexOf(f.Value())>=0;
+                            }
+                        }));
+                return newArray();
+
             });
 
             var recipe = ko.observable(
-                new Recipe()
-                    .AllFoods(mappedViewModel.ContextFoods())
+                new Recipe(mappedViewModel)
+                //.AllFoods(mappedViewModel.ContextFoods())
             );
+
 
             //Knockout Subscribe example
             selectedFoodType.subscribe(function (value) {
@@ -67,18 +84,15 @@
                 dropDownsSource().FoodsDD(filteredFoods());
             });
 
+            var foodTypeChange = function(obj) {
+                obj.dropDownsSource().FoodsDD(filteredFoods());
+                obj.selectedFood(mappedViewModel.FoodId());
+            };
+
             var foodChange = function (obj) {
-                if (!obj.recipe().selectedFood())
+                if (!obj.selectedFood())
                     return;
-                var text = obj.recipe().selectedFood().Text();
-                var filteredFood = ko.computed(function () {
-                    return ko.utils.arrayFilter(obj.recipe().AllFoods(),
-                        function (f) {
-                            return f.FoodName() === text;
-                        });
-                },
-                    obj);
-                obj.recipe().FoodId(filteredFood()[0].Id);
+                obj.recipe().FoodId(obj.selectedFood());
             };
 
             var changeIngredientType = function (obj, event) {
@@ -126,15 +140,19 @@
                     contentType: "application/json",
                     success: function(data) {
                         ko.mapping.fromJS(data);
+                        console.log("Success");
+                        window.location = data.homePage;
                     }
                 });
             };
-            return {
+            return { 
                 mappedViewModel: mappedViewModel,
                 filteredFoods: filteredFoods,
                 dropDownsSource: dropDownsSource,
                 selectedFoodType: selectedFoodType,
+                selectedFood: selectedFood,
                 recipe: recipe,
+                foodTypeChange: foodTypeChange,
                 foodChange: foodChange,
                 addRecipeIngredient: addRecipeIngredient,
                 selectedIngredientType: selectedIngredientType,

@@ -1,31 +1,114 @@
-﻿@{
+﻿@using System.Web.Script.Serialization
+@model IEnumerable<NewFoodNutrients.Models.Recipe>
+@{
     ViewBag.Title = "Home Page";
 }
 
-<div class="jumbotron">
-    <h1>ASP.NET</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+@*<ul class="recipes">
+        @foreach (var recipe in Model)
+        {
+            <li>
+                <div class="recipe">
+                    <div class="title">@recipe.Title</div>
+                    <div class="food">Main Ingredient: @recipe.Food.FoodName</div>
+                </div>
+                <div class="detail">
+                    <span class="date">Created: @recipe.CreationDate.ToString("d")</span>
+                    <span class="ingredients">Total Ingredients: @recipe.Ingredients.Count</span>
+                </div>
+            </li>
+        }
+    </ul>*@
+<div class="row" style="border-color: black">
+    <div class="row">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title col-md-11">My Recipes</h3>
+                <button class="btn btn-primary" style="padding: 2px 4px" data-bind="click:addRecipe">
+                    <span class="glyphicon glyphicon-plus"></span>New
+                </button>
+            </div>
+            <div class="panel-body">
+                <table class="table table-condensed">
+                    <tr>
+                        <th>Title</th>
+                        <th>Owner</th>
+                        <th>Main Ingredient</th>
+                        <th style="width:30px"></th>
+                        <th style="width:30px"></th>
+                    </tr>
+                    <tbody data-bind="foreach : recipeListViewModel()">
+                        @*@foreach (var recipe in Model)*@
+@*                        {*@
+                        <tr>
+                            <td data-bind="text : Title()"></td>
+
+                            <td data-bind="text : CookApplicationUser.Name()"></td>
+
+                            <td data-bind="text : Food.FoodName()">
+                            </td>
+                            <td>
+                                <button class="btn btn-default btn-xs" data-bind="click : $parent.editRecipe">
+                                    <span class="glyphicon glyphicon-pencil"></span>
+                                </button>
+                            </td>
+                            <td>
+                                <button class="btn btn-danger btn-xs" data-bind="click : $parent.removeRecipe">
+                                    <span class="glyphicon glyphicon-remove"></span>
+                                </button>
+                            </td>
+                        </tr>
+ @*                       }*@
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
 </div>
 
-<div class="row">
-    <div class="col-md-4">
-        <h2>Getting started</h2>
-        <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
-        </p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
-    </div>
-</div>
+@section scripts
+{
+    @Scripts.Render("~/bundles/jqueryval")
+    <script type="text/javascript">
+        @*@{ string model = new JavaScriptSerializer().Serialize(Model);}*@
+        var model = @Html.Raw(Json.Encode(Model));
+        var vm = (function() {
+            var recipeListFormViewModel = function(model) {
+                var recipeListViewModel = ko.mapping.fromJS(model);
+                var editRecipe = function (recipe) {
+                    var Id = recipe.Id();
+                    window.location = "/Recipes/Edit/" + Id;
+
+                    //$.ajax({
+                    //    url: "/Recipes/Edit/" +Id,
+                    //    type: "Post",
+                    //    contentType: "application/json",
+                    //    success: function(data) {
+                    //        //ko.mapping.fromJS(data);
+                    //        console.log("Success");
+                    //        window.location = data.redirectedToPage;
+                    //    }
+                    //});
+                };
+                var removeRecipe = function(recipe) {
+                    var thisrecipe = recipe;
+                };
+                var addRecipe = function(recipe) {
+                    var thisrecipe = recipe;
+                };
+                return {
+                    recipeListViewModel: recipeListViewModel,
+                    editRecipe: editRecipe,
+                    removeRecipe: removeRecipe,
+                    addRecipe: addRecipe
+
+                };
+            };
+            return {
+                recipeListFormViewModel: recipeListFormViewModel
+            };
+        })();
+        ko.applyBindings(vm.recipeListFormViewModel(model));
+    </script>
+
+}

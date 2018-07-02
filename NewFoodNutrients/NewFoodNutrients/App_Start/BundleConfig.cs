@@ -31,10 +31,11 @@ namespace NewFoodNutrients
                       "~/Scripts/knockout.mapping-latest.js"
                 ));
             bundles.Add(new ScriptBundle("~/bundles/lodash").Include(
-                      "~/Scripts/lodash.js",
-                      "~/Scripts/lodash.min.js",
-                      "~/Scripts/lodash.core.js",
-                      "~/Scripts/lodash.core.min.js"
+                "~/Scripts/lodash.js"
+                      //"~/Scripts/lodash.js",
+                //"~/Scripts/lodash.min.js",
+                //"~/Scripts/lodash.core.js",
+                //"~/Scripts/lodash.core.min.js"
                 ));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(

@@ -9,5 +9,7 @@ namespace NewFoodNutrients.Models
         public string FoodName { get; set; }
 
         public FoodType FoodType { get; set; }
+
+        public int FoodTypeId { get; set; }
     }
 }

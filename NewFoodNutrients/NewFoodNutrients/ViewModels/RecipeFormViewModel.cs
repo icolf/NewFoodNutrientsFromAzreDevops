@@ -32,6 +32,8 @@ namespace NewFoodNutrients.ViewModels
             }
         }
 
+        public string FoodName { get; set; }
+
         [Display(Name = "Food")]
         [Required]
         public int FoodId { get; set; }
@@ -44,7 +46,7 @@ namespace NewFoodNutrients.ViewModels
             {
                 var allFoods = ContextFoods.Select(f => new SelectListItem
                 {
-                    Value = f.FoodType.Id.ToString(),
+                    Value = f.Id.ToString(),
                     Text = f.FoodName
                 });
                 return allFoods;
