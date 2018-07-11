@@ -1,8 +1,12 @@
 ﻿namespace NewFoodNutrients.Models
 {
-    public class RecipeIngredients
+    public class RecipeIngredients : IObjectWithState
     {
         public int Id { get; set; }
+
+        public Recipe Recipe { get; set; }
+
+        public int RecipeId { get; set; }
 
         public Ingredient Ingredient { get; set; }
 
@@ -19,5 +23,6 @@
         public int UnitOfMeasureId { get; set; }
 
 
+        public ObjectState ObjectState { get; set; }
     }
 }

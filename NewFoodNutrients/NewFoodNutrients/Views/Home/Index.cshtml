@@ -4,66 +4,58 @@
     ViewBag.Title = "Home Page";
 }
 
-@*<ul class="recipes">
-        @foreach (var recipe in Model)
-        {
-            <li>
-                <div class="recipe">
-                    <div class="title">@recipe.Title</div>
-                    <div class="food">Main Ingredient: @recipe.Food.FoodName</div>
-                </div>
-                <div class="detail">
-                    <span class="date">Created: @recipe.CreationDate.ToString("d")</span>
-                    <span class="ingredients">Total Ingredients: @recipe.Ingredients.Count</span>
-                </div>
-            </li>
-        }
-    </ul>*@
-<div class="row" style="border-color: black">
-    <div class="row">
-        <div class="panel panel-default">
-            <div class="panel-heading">
-                <h3 class="panel-title col-md-11">My Recipes</h3>
-                <button class="btn btn-primary" style="padding: 2px 4px" data-bind="click:addRecipe">
-                    <span class="glyphicon glyphicon-plus"></span>New
-                </button>
-            </div>
-            <div class="panel-body">
-                <table class="table table-condensed">
-                    <tr>
-                        <th>Title</th>
-                        <th>Owner</th>
-                        <th>Main Ingredient</th>
-                        <th style="width:30px"></th>
-                        <th style="width:30px"></th>
-                    </tr>
-                    <tbody data-bind="foreach : recipeListViewModel()">
-                        @*@foreach (var recipe in Model)*@
-@*                        {*@
-                        <tr>
-                            <td data-bind="text : Title()"></td>
+<div class="row">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title col-md-11">My Recipes</h3>
+            <button class="btn btn-primary" style="padding: 2px 4px" data-bind="click:addRecipe">
+                <span class="glyphicon glyphicon-plus"></span>New
+            </button>
+        </div>
+        <div class="panel-body">
+            <table class="table table-condensed">
+                <tr>
+                    <th>Title</th>
+                    <th>Owner</th>
+                    <th>Main Ingredient</th>
+                    <th style="width:30px"></th>
+                    <th style="width:30px"></th>
+                </tr>
+                <tbody data-bind="foreach : recipeListViewModel()">
+                <tr>
+                    <td data-bind="text : Title()"></td>
 
-                            <td data-bind="text : CookApplicationUser.Name()"></td>
+                    <td data-bind="text : CookApplicationUser.Name()"></td>
 
-                            <td data-bind="text : Food.FoodName()">
-                            </td>
-                            <td>
-                                <button class="btn btn-default btn-xs" data-bind="click : $parent.editRecipe">
-                                    <span class="glyphicon glyphicon-pencil"></span>
-                                </button>
-                            </td>
-                            <td>
-                                <button class="btn btn-danger btn-xs" data-bind="click : $parent.removeRecipe">
-                                    <span class="glyphicon glyphicon-remove"></span>
-                                </button>
-                            </td>
-                        </tr>
- @*                       }*@
-                    </tbody>
-                </table>
-            </div>
+                    <td data-bind="text : Food.FoodName()">
+                    </td>
+                    <td>
+                        <button class="btn btn-default btn-xs" data-bind="click : $parent.editRecipe">
+                            <span class="glyphicon glyphicon-pencil"></span>
+                        </button>
+                    </td>
+                    <td>
+                        <button class="btn btn-danger btn-xs" data-bind="click : $parent.removeRecipe">
+                            <span class="glyphicon glyphicon-remove"></span>
+                        </button>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
         </div>
     </div>
+    <div class="row">
+        <div class="saveButton">
+            <button class="btn btn-primary" data-bind="click: ">
+                <span class="glyphicon glyphicon-save"></span>Save
+            </button>
+            <button class="btn btn-default" data-bind="click: ">
+                <span class="glyphicon glyphicon-ban-circle"></span>Cancel
+            </button>
+
+        </div>
+    </div>
+
 </div>
 
 @section scripts
@@ -78,17 +70,6 @@
                 var editRecipe = function (recipe) {
                     var Id = recipe.Id();
                     window.location = "/Recipes/Edit/" + Id;
-
-                    //$.ajax({
-                    //    url: "/Recipes/Edit/" +Id,
-                    //    type: "Post",
-                    //    contentType: "application/json",
-                    //    success: function(data) {
-                    //        //ko.mapping.fromJS(data);
-                    //        console.log("Success");
-                    //        window.location = data.redirectedToPage;
-                    //    }
-                    //});
                 };
                 var removeRecipe = function(recipe) {
                     var thisrecipe = recipe;

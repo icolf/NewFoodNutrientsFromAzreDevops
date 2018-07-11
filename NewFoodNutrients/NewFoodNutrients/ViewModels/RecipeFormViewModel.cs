@@ -6,17 +6,22 @@ using System.Web.Mvc;
 
 namespace NewFoodNutrients.ViewModels
 {
-    public class RecipeFormViewModel
+    public class RecipeFormViewModel : IObjectWithState
     {
+        public RecipeFormViewModel()
+        {
+            RecipeIngredients=new List<IngredientViewModel>();
+        }
         //Recipe Header
+
+        public int Id { get; set; }
+
         [Display(Name = "Title")]
-        [Required]
         public string Title { get; set; }
 
         public IEnumerable<FoodType> ContextFoodTypes { get; set; }
 
         [Display(Name = "Food Type")]
-        [Required]
         public int FoodTypeId { get; set; }
 
         public IEnumerable<SelectListItem> FoodTypes
@@ -35,7 +40,6 @@ namespace NewFoodNutrients.ViewModels
         public string FoodName { get; set; }
 
         [Display(Name = "Food")]
-        [Required]
         public int FoodId { get; set; }
 
         public List<Food> ContextFoods { get; set; }
@@ -83,13 +87,15 @@ namespace NewFoodNutrients.ViewModels
                 var allIngredients = ContextIngredients.Select(i => new SelectListItem
                 {
                     Text = i.Name,
-                    Value = i.IngredientType.Id.ToString()
+                    Value = i.Id.ToString()
                 });
                 return allIngredients;
             }
         }
 
         public List<IngredientViewModel> RecipeIngredients { get; set; }
+
+        public decimal Amount { get; set; }
 
         public int UnitOfMeasureId { get; set; }
         public List<UnitOfMeasure> ContextUnitOfMeasures { get; set; }
@@ -100,12 +106,13 @@ namespace NewFoodNutrients.ViewModels
             {
                 var allUnitOfMeasures = ContextUnitOfMeasures.Select(c => new SelectListItem
                 {
-                    Value=c.Id.ToString(),
-                    Text=c.UnitofMeasure
+                    Value = c.Id.ToString(),
+                    Text = c.UnitofMeasure
                 });
                 return allUnitOfMeasures;
             }
         }
 
+        public ObjectState ObjectState { get; set; }
     }
 }

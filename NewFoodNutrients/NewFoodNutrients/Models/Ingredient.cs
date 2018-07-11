@@ -11,5 +11,7 @@ namespace NewFoodNutrients.Models
 
         public IngredientType IngredientType { get; set; }
 
+        public int IngredientTypeId { get; set; }
+
     }
 }

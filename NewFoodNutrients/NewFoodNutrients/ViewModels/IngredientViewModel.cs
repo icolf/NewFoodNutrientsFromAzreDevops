@@ -3,22 +3,24 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
+using NewFoodNutrients.Models;
 
 namespace NewFoodNutrients.ViewModels
 {
-    public class IngredientViewModel
+    public class IngredientViewModel : IObjectWithState
     {
-        [Required]
+        public int Id { get; set; }
+
+        public int RecipeId { get; set; }
+
         public int IngredientId { get; set; }
 
-        [Required]
         public int IngredientTypeId { get; set; }
 
-        [Required]
         public int UnitOfMeasureId { get; set; }
 
-        [Required]
         public decimal Amount { get; set; }
 
+        public ObjectState ObjectState { get; set; }
     }
 }   

@@ -21,7 +21,6 @@ namespace NewFoodNutrients.Controllers
                 .Include(r => r.CookApplicationUser)
                 .Include(r => r.Food)
                 .Include(r => r.FoodType)
-                .Include(r => r.Ingredients)
                 .Where(r => r.CookApplicationUserId == userId).ToList();
             return View(recipes);
         }

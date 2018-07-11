@@ -13,7 +13,7 @@
             <div class="form-group"></div>
             <div class="form-group">
                 @Html.LabelFor(m => m.Title)
-                @Html.TextBoxFor(m => m.Title, new { @class = "form-control", autofocus = "autofocus", data_bind = "value: recipe().Title, valueUpdate: 'afterkeydown'" })
+                @Html.TextBoxFor(m => m.Title, new { @class = "form-control", autofocus = "autofocus", data_bind = "value: recipe().Title, valueUpdate: 'afterkeydown', event:{change: flagRecipeAsEdited}" })
                 @Html.ValidationMessageFor(m => m.Title)
             </div>
             <div class="form-group">
@@ -93,26 +93,29 @@
                                            @class = "form-control"
                                                 , data_bind = "options:IngredientsDD" +
                                                               ",optionsText:'Text'" +
-                                                              ",value: selectedIngredient" +
+                                                              ",optionsValue:'Value'" +
+                                                              ",value: IngredientId" +
                                                               ",optionsCaption: 'Select an ingredient...'" +
                                                               ",event: {change: $parent.changeIngredient}"
                                        })
                                         </div>
                                     </td>
                                     <td>
-                                        <input type="number" class="form-control" data-bind="value: Amount, valueUpdate: 'afterkeydown'" />
+                                        <input type="number" class="form-control" data-bind="value: Amount, valueUpdate: 'afterkeydown', event:{change:$parent.changeAmount}" />
                                     </td>
                                     <td>
+                                        @*$parent.dropDownsSource().UnitOfMeasureDD*@
                                         <div class="form-group">
                                             @Html.DropDownListFor(m => m.UnitOfMeasureId, Model.UnitOfMeasures, new
-                                            {
-                                                @class = "form-control"
-                                                , data_bind = "options: $parent.dropDownsSource().UnitOfMeasureDD" +
+                                       {
+                                           @class = "form-control"
+                                                , data_bind = "options: UnitOfMeasureDD" +
                                                               ",optionsText:'Text'" +
                                                               ",optionsValue: 'Value'" +
                                                               ",optionsCaption: 'Select unit of measure...'" +
-                                                              ",value: UnitOfMeasureId"
-                                            })
+                                                              ",value: UnitOfMeasureId" +
+                                                              ",event: {change: $parent.changeUnitOfMeasure}"
+                                       })
                                         </div>
                                     </td>
                                     <td>

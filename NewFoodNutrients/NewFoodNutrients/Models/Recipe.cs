@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 
 namespace NewFoodNutrients.Models
 {
@@ -25,7 +24,7 @@ namespace NewFoodNutrients.Models
 
         public string CookApplicationUserId { get; set; }
 
-        public List<RecipeIngredients> Ingredients { get; set; }
+        public List<RecipeIngredients> RecipeIngredients { get; set; }
 
         public ObjectState ObjectState { get; set; }
     }

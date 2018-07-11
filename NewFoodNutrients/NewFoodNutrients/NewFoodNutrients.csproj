@@ -190,6 +190,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\Helpers.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\RecipesController.cs" />
@@ -443,6 +444,30 @@
     <Compile Include="Migrations\201807022321310_AddIObjectWithStateToRecipe.cs" />
     <Compile Include="Migrations\201807022321310_AddIObjectWithStateToRecipe.Designer.cs">
       <DependentUpon>201807022321310_AddIObjectWithStateToRecipe.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201807091635223_AddIngredientTypeIdToIngredient.cs" />
+    <Compile Include="Migrations\201807091635223_AddIngredientTypeIdToIngredient.Designer.cs">
+      <DependentUpon>201807091635223_AddIngredientTypeIdToIngredient.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201807092137510_AddRecipeIdToRecipeIngredients.cs" />
+    <Compile Include="Migrations\201807092137510_AddRecipeIdToRecipeIngredients.Designer.cs">
+      <DependentUpon>201807092137510_AddRecipeIdToRecipeIngredients.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201807092147450_RemoveRecipeToRecipeIngredients.cs" />
+    <Compile Include="Migrations\201807092147450_RemoveRecipeToRecipeIngredients.Designer.cs">
+      <DependentUpon>201807092147450_RemoveRecipeToRecipeIngredients.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201807092325161_DontRememberChanges.cs" />
+    <Compile Include="Migrations\201807092325161_DontRememberChanges.Designer.cs">
+      <DependentUpon>201807092325161_DontRememberChanges.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201807101449585_AddingRecipeTypeInRecipeIngredients.cs" />
+    <Compile Include="Migrations\201807101449585_AddingRecipeTypeInRecipeIngredients.Designer.cs">
+      <DependentUpon>201807101449585_AddingRecipeTypeInRecipeIngredients.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201807101501242_ChangingIngredientsToRecipeIngredientsInRecipe.cs" />
+    <Compile Include="Migrations\201807101501242_ChangingIngredientsToRecipeIngredientsInRecipe.Designer.cs">
+      <DependentUpon>201807101501242_ChangingIngredientsToRecipeIngredientsInRecipe.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -774,6 +799,24 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201807022321310_AddIObjectWithStateToRecipe.resx">
       <DependentUpon>201807022321310_AddIObjectWithStateToRecipe.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807091635223_AddIngredientTypeIdToIngredient.resx">
+      <DependentUpon>201807091635223_AddIngredientTypeIdToIngredient.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807092137510_AddRecipeIdToRecipeIngredients.resx">
+      <DependentUpon>201807092137510_AddRecipeIdToRecipeIngredients.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807092147450_RemoveRecipeToRecipeIngredients.resx">
+      <DependentUpon>201807092147450_RemoveRecipeToRecipeIngredients.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807092325161_DontRememberChanges.resx">
+      <DependentUpon>201807092325161_DontRememberChanges.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807101449585_AddingRecipeTypeInRecipeIngredients.resx">
+      <DependentUpon>201807101449585_AddingRecipeTypeInRecipeIngredients.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807101501242_ChangingIngredientsToRecipeIngredientsInRecipe.resx">
+      <DependentUpon>201807101501242_ChangingIngredientsToRecipeIngredientsInRecipe.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
