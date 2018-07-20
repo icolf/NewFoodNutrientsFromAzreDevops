@@ -282,7 +282,7 @@
                 $('#deleteModal').modal('show');
             };
             var addRecipe = function (recipe) {
-                var thisrecipe = recipe;
+                window.location = "/Recipes/Create/";
             };
 
             var modalClose = function() {
@@ -292,9 +292,9 @@
 
             var modalSave = function() {
                 $.ajax({
-                    url: "/Home/Delete/" + recipe.Id(),
+                    url: "/Home/Delete/",
                     type: "Post",
-                    data: recipe.Id(),
+                    data: '{ RecipeId:"'+recipe.Id()+'"}',
                     contentType: "application/json",
                     success: function (data) {
                         recipeListViewModel(ko.mapping.fromJS(data));

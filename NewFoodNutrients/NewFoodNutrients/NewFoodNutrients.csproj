@@ -194,6 +194,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\RecipesController.cs" />
+    <Compile Include="Dtos\RecipeDto.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -604,11 +605,12 @@
     <Content Include="Scripts\popper.js.map" />
     <Content Include="Scripts\popper-utils.min.js.map" />
     <Content Include="Scripts\popper-utils.js.map" />
-    <Content Include="Views\Recipes\Create.cshtml" />
-    <Content Include="Views\Recipes\Edit.cshtml" />
+    <Content Include="Views\Shared\Recipe.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Scripts\app\models\" />
+    <Folder Include="Views\Recipes\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

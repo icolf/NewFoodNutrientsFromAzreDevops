@@ -34,10 +34,11 @@ namespace NewFoodNutrients.Controllers
                 ContextUnitOfMeasures = _context.UnitOfMeasures.ToList(),
                 ObjectState = ObjectState.Added
             };
-            return View(viewModel);
+            return View("Recipe",viewModel);
         }
 
         [Authorize]
+        [HttpGet]
         public ActionResult Edit(int? Id)
         {
             if (Id == null)
@@ -86,68 +87,7 @@ namespace NewFoodNutrients.Controllers
                 };
                 viewModel.RecipeIngredients.Add(ingVM);
             }
-            //var redirectedToPage = "/Recipes/Edit";
-            return View(viewModel);
-        }
-
-
-        [Authorize]
-        [HttpPost]
-        public ActionResult Delete(int? Id)
-        {
-            if (Id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-
-            var recipe = _context.Recipes
-                .Include(r => r.FoodType)
-                .Include(r => r.Food)
-                .Include(r => r.RecipeIngredients)
-                .SingleOrDefault<Recipe>(r => r.Id == Id);
-
-            if (recipe == null)
-            {
-                return HttpNotFound("Recipe not found");
-            }
-
-            var viewModel = new RecipeFormViewModel
-            {
-                Id = recipe.Id,
-                Title = recipe.Title,
-                ContextFoodTypes = _context.FoodTypes.ToList(),
-                ContextFoods = _context.Foods.ToList(),
-                ContextIngredientTypes = _context.IngredientTypes.ToList(),
-                ContextIngredients = _context.Ingredients.ToList(),
-                ContextUnitOfMeasures = _context.UnitOfMeasures.ToList(),
-                FoodTypeId = recipe.FoodTypeId,
-                FoodId = recipe.FoodId,
-                FoodName = recipe.Food.FoodName,
-                RecipeIngredients = new List<IngredientViewModel>(),
-                ObjectState = ObjectState.Deleted
-            };
-
-            foreach (var ing in recipe.RecipeIngredients)
-            {
-                var ingVM = new IngredientViewModel
-                {
-                    Id = ing.Id,
-                    RecipeId = ing.RecipeId,
-                    Amount = ing.Amount,
-                    IngredientId = ing.IngredientId,
-                    IngredientTypeId = ing.IngredientTypeId,
-                    UnitOfMeasureId = ing.UnitOfMeasureId,
-                    ObjectState = ObjectState.Deleted
-                };
-                viewModel.RecipeIngredients.Add(ingVM);
-            }
-            _context.Recipes.Attach(recipe);
-            _context.ApplyStateChanges();
-            _context.SaveChanges();
-
-
-            var redirectedToPage = "/Home/Index";
-            return Json(new { homePage = redirectedToPage });
+            return View("Recipe",viewModel);
         }
 
 
@@ -179,7 +119,10 @@ namespace NewFoodNutrients.Controllers
                 RecipeIngredients = new List<RecipeIngredients>(),
                 ObjectState = recipeFormViewModel.ObjectState
             };
+
+            // A negative Id value for added (New) ingredients 
             var ingredientId = -1;
+
             foreach (var ing in recipeFormViewModel.RecipeIngredients)
             {
                 var ingredientType = _context.IngredientTypes.Single(it => it.Id == ing.IngredientTypeId);
@@ -222,24 +165,27 @@ namespace NewFoodNutrients.Controllers
                     break;
             }
 
-            recipeFormViewModel.ObjectState = ObjectState.Unchanged;
-            recipeFormViewModel.Id = recipe.Id;
+            // If we decide in the future to stay in Edit view, then we'll restore the viewModel to show changes in the dataBase. 
+            // Like new Ids for added records and we'll also need to return ObjectState to Unchange.
 
-            recipeFormViewModel.RecipeIngredients = new List<IngredientViewModel>();
-            foreach (var ing in recipe.RecipeIngredients)
-            {
-                var ingVM = new IngredientViewModel
-                {
-                    Id = ing.Id,
-                    RecipeId = ing.RecipeId,
-                    Amount = ing.Amount,
-                    IngredientId = ing.IngredientId,
-                    IngredientTypeId = ing.IngredientTypeId,
-                    UnitOfMeasureId = ing.UnitOfMeasureId,
-                    ObjectState = ObjectState.Unchanged
-                };
-                recipeFormViewModel.RecipeIngredients.Add(ingVM);
-            }
+            //recipeFormViewModel.ObjectState = ObjectState.Unchanged;
+            //recipeFormViewModel.Id = recipe.Id;
+
+            //recipeFormViewModel.RecipeIngredients = new List<IngredientViewModel>();
+            //foreach (var ing in recipe.RecipeIngredients)
+            //{
+            //    var ingVM = new IngredientViewModel
+            //    {
+            //        Id = ing.Id,
+            //        RecipeId = ing.RecipeId,
+            //        Amount = ing.Amount,
+            //        IngredientId = ing.IngredientId,
+            //        IngredientTypeId = ing.IngredientTypeId,
+            //        UnitOfMeasureId = ing.UnitOfMeasureId,
+            //        ObjectState = ObjectState.Unchanged
+            //    };
+            //    recipeFormViewModel.RecipeIngredients.Add(ingVM);
+            //}
             var redirectedToPage = "/Home/Index";
             return Json(new { homePage = redirectedToPage });
         }

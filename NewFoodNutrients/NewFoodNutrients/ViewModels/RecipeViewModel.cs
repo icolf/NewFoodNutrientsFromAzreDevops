@@ -12,16 +12,20 @@ namespace NewFoodNutrients.ViewModels
 
         public DateTime CreationDate { get; set; }
 
+        public ApplicationUser CookApplicationUser { get; set; }
+
+        public string CookApplicationUserName { get; set; }
+
         public int PlateId { get; set; }
 
         public int FoodTypeId { get; set; }
 
         public int FoodId { get; set; }
+
         public string FoodName { get; set; }
-        public ApplicationUser CookApplicationUser { get; set; }
 
         public List<IngredientViewModel> RecipeIngredients { get; set; }
-        public string CookApplicationUserName { get; set; }
+
         public ObjectState ObjectState { get; set; }
     }
 }

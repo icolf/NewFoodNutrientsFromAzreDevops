@@ -5,6 +5,7 @@ using System.Data.Entity;
 using System.Linq;
 using System.Net;
 using System.Web.Mvc;
+using NewFoodNutrients.Dtos;
 using NewFoodNutrients.ViewModels;
 
 namespace NewFoodNutrients.Controllers
@@ -44,15 +45,11 @@ namespace NewFoodNutrients.Controllers
 
         [Authorize]
         [HttpPost]
-        public ActionResult Delete(int? Id)
+        public ActionResult Delete(RecipeDto dto)
         {
-            if (Id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
             var recipe = _context.Recipes
                 .Include(r => r.RecipeIngredients)
-                .SingleOrDefault<Recipe>(r => r.Id == Id);
+                .SingleOrDefault<Recipe>(r => r.Id == dto.RecipeId);
 
             if (recipe == null)
             {
@@ -93,8 +90,6 @@ namespace NewFoodNutrients.Controllers
                 recipesViewModel.Add(recipeVM);
             }
 
-
-            //var redirectedToPage = "/Home/Index";
             return Json(recipesViewModel);
         }
 
