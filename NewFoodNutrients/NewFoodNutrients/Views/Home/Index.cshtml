@@ -1,5 +1,5 @@
 ﻿@using System.Web.Script.Serialization
-@model IEnumerable<NewFoodNutrients.Models.Recipe>
+@model IEnumerable<NewFoodNutrients.ViewModels.RecipeViewModel>
 @{
     ViewBag.Title = "Home Page";
 }
@@ -25,9 +25,9 @@
                 <tr>
                     <td data-bind="text : Title()"></td>
 
-                    <td data-bind="text : CookApplicationUser.Name()"></td>
+                    <td data-bind="text : CookApplicationUserName()"></td>
 
-                    <td data-bind="text : Food.FoodName()">
+                    <td data-bind="text : FoodName()">
                     </td>
                     <td>
                         <button class="btn btn-default btn-xs" data-bind="click : $parent.editRecipe">
@@ -35,9 +35,10 @@
                         </button>
                     </td>
                     <td>
-                        <button class="btn btn-danger btn-xs" data-bind="click : $parent.removeRecipe">
+                        <a href="#deleteModal" role="button" class="btn btn-danger btn-xs" data-bind="click : $parent.removeRecipe">
+                            @*//data-toggle="modal"*@
                             <span class="glyphicon glyphicon-remove"></span>
-                        </button>
+                        </a>
                     </td>
                 </tr>
                 </tbody>
@@ -56,6 +57,29 @@
         </div>
     </div>
 
+        
+        
+    <div id="deleteModal" class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title">Confirmation</h4>
+                </div>
+                <div class="modal-body">
+                    <p>Do you want to this Recipe before closing?</p>
+                    <p class="text-warning"><small>If you don't save, this recipe won't be deleted.</small></p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal" data-bind="click: modalClose">Close</button>
+                    <button type="button" class="btn btn-primary" data-bind="click: modalSave">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
 </div>
 
 @section scripts
@@ -64,32 +88,8 @@
     <script type="text/javascript">
         @*@{ string model = new JavaScriptSerializer().Serialize(Model);}*@
         var model = @Html.Raw(Json.Encode(Model));
-        var vm = (function() {
-            var recipeListFormViewModel = function(model) {
-                var recipeListViewModel = ko.mapping.fromJS(model);
-                var editRecipe = function (recipe) {
-                    var Id = recipe.Id();
-                    window.location = "/Recipes/Edit/" + Id;
-                };
-                var removeRecipe = function(recipe) {
-                    var thisrecipe = recipe;
-                };
-                var addRecipe = function(recipe) {
-                    var thisrecipe = recipe;
-                };
-                return {
-                    recipeListViewModel: recipeListViewModel,
-                    editRecipe: editRecipe,
-                    removeRecipe: removeRecipe,
-                    addRecipe: addRecipe
+        ko.applyBindings(vm.recipeVM.recipeListViewModel(model));
 
-                };
-            };
-            return {
-                recipeListFormViewModel: recipeListFormViewModel
-            };
-        })();
-        ko.applyBindings(vm.recipeListFormViewModel(model));
     </script>
 
 }

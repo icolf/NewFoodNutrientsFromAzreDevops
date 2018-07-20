@@ -92,6 +92,7 @@ namespace NewFoodNutrients.Controllers
 
 
         [Authorize]
+        [HttpPost]
         public ActionResult Delete(int? Id)
         {
             if (Id == null)
@@ -140,6 +141,11 @@ namespace NewFoodNutrients.Controllers
                 };
                 viewModel.RecipeIngredients.Add(ingVM);
             }
+            _context.Recipes.Attach(recipe);
+            _context.ApplyStateChanges();
+            _context.SaveChanges();
+
+
             var redirectedToPage = "/Home/Index";
             return Json(new { homePage = redirectedToPage });
         }
@@ -182,7 +188,7 @@ namespace NewFoodNutrients.Controllers
                 var recipeIngredient = new RecipeIngredients
                 {
                     RecipeId = recipeFormViewModel.Id,
-                    Id = ing.ObjectState==ObjectState.Added?ingredientId : ing.Id,
+                    Id = ing.ObjectState == ObjectState.Added ? ingredientId : ing.Id,
                     IngredientTypeId = ingredientType.Id,
                     IngredientId = ingredient.Id,
                     UnitOfMeasureId = unitOfMeasure.Id,
@@ -194,6 +200,15 @@ namespace NewFoodNutrients.Controllers
             }
 
             _context.Recipes.Attach(recipe);
+
+            foreach (int riToDelete in recipeFormViewModel.RecipeIngredientsToDelete)
+            {
+                var recipeIngredient = _context.RecipeIngredients.Find(riToDelete);
+                if (recipeIngredient != null)
+                    recipeIngredient.ObjectState = ObjectState.Deleted;
+            }
+
+
             _context.ApplyStateChanges();
             _context.SaveChanges();
 

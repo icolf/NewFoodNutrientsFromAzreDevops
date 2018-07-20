@@ -16,6 +16,7 @@
             this.FoodId = ko.observable(data.FoodId());
             this.selectedFood = ko.observable(data.FoodId());
             this.AllFoods = ko.observableArray([]);
+            this.RecipeIngredientsToDelete = ko.observableArray(data.RecipeIngredientsToDelete());
             this.RecipeIngredients = ko.observableArray([]);
             for (var x = 0; x < data.RecipeIngredients().length; x++) {
                 this.RecipeIngredients.push(new Ingredient()
@@ -56,6 +57,12 @@
             self.IngredientTypesDD = ko.observableArray([]);
             self.UnitOfMeasureDD = ko.observableArray([]);
             self.AllIngredients = ko.observableArray([]);
+            self.isValidIngredient = ko.computed(function () {
+                if (self.IngredientId() && self.IngredientTypeId() && self.Amount()>0 && self.UnitOfMeasureId())
+                    return true;
+                else
+                    return false;
+            });
         }
 
 
@@ -105,6 +112,37 @@
                 new Recipe(mappedViewModel)
             );
 
+            var isValidRecipe = ko.computed(function () {
+                var isValidRecipe = ko.computed(function () {
+                    if (this().Title() && this().FoodTypeId() && this().FoodId())
+                        return true;
+                    else
+                        return false;
+                }, this);
+                var isValidRecipeIngredients = ko.computed(function () {
+                    if (!this().RecipeIngredients().length > 0)
+                        return false;
+                    var isRecipeIngredients = true;
+                    ko.utils.arrayForEach(this().RecipeIngredients(),
+                        function(ing) {
+                            if (!ing.isValidIngredient())
+                                isRecipeIngredients = false;
+                        });
+                    return isRecipeIngredients;
+                }, this);
+                return isValidRecipe() && isValidRecipeIngredients();
+            }, recipe);
+
+
+            var flagRecipeAsEdited = function () {
+                if (recipe().ObjectState() !== ObjectState.Added) {
+                    recipe().ObjectState(ObjectState.Modified);
+                }
+
+
+                return true;
+            };
+
             //Knockout Subscribe example
             selectedFoodType.subscribe(function (value) {
                 recipe().FoodTypeId(value);
@@ -122,10 +160,11 @@
                     return;
                 obj.recipe().FoodId(obj.selectedFood());
             };
-
-            var changeIngredientType = function (obj, event) {
-                if (obj.ObjectState !== ObjectState.Added)
+            var changeIngredientType = function (obj) {
+                if (obj.ObjectState() !== ObjectState.Added) {
                     obj.ObjectState(ObjectState.Modified);
+                    flagRecipeAsEdited();
+                }
                 var selected = this.IngredientTypeId();
                 var contextFilteredIngredients = ko.observableArray([]);
                 contextFilteredIngredients(ko.utils.arrayFilter(mappedViewModel.ContextIngredients(),
@@ -153,28 +192,38 @@
             };
 
             var changeIngredient = function (obj, event) {
-                if(obj.ObjectState!==ObjectState.Added)
+                if (obj.ObjectState() !== ObjectState.Added) {
                     obj.ObjectState(ObjectState.Modified);
+                    flagRecipeAsEdited();
+                }
             };
 
             var changeAmount = function (obj, event) {
-                if (obj.ObjectState !== ObjectState.Added)
+                if (obj.ObjectState() !== ObjectState.Added) {
                     obj.ObjectState(ObjectState.Modified);
+                    flagRecipeAsEdited();
+                }
             };
             var changeUnitOfMeasure = function (obj, event) {
-                if (obj.ObjectState !== ObjectState.Added)
+                if (obj.ObjectState() !== ObjectState.Added) {
                     obj.ObjectState(ObjectState.Modified);
+                    flagRecipeAsEdited();
+                }
             };
             var addRecipeIngredient = function () {
                 recipe().RecipeIngredients.push(new Ingredient()
                     .ObjectState(ObjectState.Added)
                     .IngredientTypesDD(mappedViewModel.IngredientTypes())
                     .IngredientsDD(mappedViewModel.Ingredients())
+                    .UnitOfMeasureDD(mappedViewModel.UnitOfMeasures())
                     .AllIngredients(mappedViewModel.ContextIngredients())
                 );
             };
             var removeRecipeIngredient = function (recipeIngredient) {
                 recipe().RecipeIngredients.remove(recipeIngredient);
+                if (recipeIngredient.Id() > 0 && recipe().RecipeIngredientsToDelete().indexOf(recipeIngredient.Id()) === -1) {
+                    recipe().RecipeIngredientsToDelete.push(recipeIngredient.Id());
+                }
             };
             var save = function () {
 
@@ -191,14 +240,10 @@
                 });
             };
 
-            var flagRecipeAsEdited = function () {
-                if (recipe().ObjectState() !== ObjectState.Added) {
-                    recipe().ObjectState(ObjectState.Modified);
-                }
+            var cancel = function() {
+                recipe(new Recipe(mappedViewModel));
+            }
 
-
-                return true;
-            };
 
             return { 
                 mappedViewModel: mappedViewModel,
@@ -217,11 +262,62 @@
                 changeUnitOfMeasure: changeUnitOfMeasure,
                 removeRecipeIngredient: removeRecipeIngredient,
                 flagRecipeAsEdited: flagRecipeAsEdited,
-                save: save
+                isValidRecipe: isValidRecipe,
+                save: save,
+                cancel: cancel,
+                ObjectState: ObjectState
             };
         };
+
+        var recipeListViewModel = function (data) {
+
+            var recipe = '';
+            var recipeListViewModel = ko.mapping.fromJS(data);
+            var editRecipe = function (recipe) {
+                var Id = recipe.Id();
+                window.location = "/Recipes/Edit/" + Id;
+            };
+            var removeRecipe = function (localRecipe) {
+                recipe = localRecipe;
+                $('#deleteModal').modal('show');
+            };
+            var addRecipe = function (recipe) {
+                var thisrecipe = recipe;
+            };
+
+            var modalClose = function() {
+                $('#deleteModal').modal('hide');
+
+            };
+
+            var modalSave = function() {
+                $.ajax({
+                    url: "/Home/Delete/" + recipe.Id(),
+                    type: "Post",
+                    data: recipe.Id(),
+                    contentType: "application/json",
+                    success: function (data) {
+                        recipeListViewModel(ko.mapping.fromJS(data));
+                        console.log("Success");
+                        $('#deleteModal').modal('hide');
+                    }
+                });
+            }
+            return {
+                recipeListViewModel: recipeListViewModel,
+                editRecipe: editRecipe,
+                removeRecipe: removeRecipe,
+                addRecipe: addRecipe,
+                modalClose: modalClose,
+                modalSave: modalSave
+
+            };
+
+        };
+
         return {
-            recipeViewModel: recipeViewModel
+            recipeViewModel: recipeViewModel,
+            recipeListViewModel: recipeListViewModel
         };
     })();
     return {

@@ -10,7 +10,8 @@ namespace NewFoodNutrients.ViewModels
     {
         public RecipeFormViewModel()
         {
-            RecipeIngredients=new List<IngredientViewModel>();
+            RecipeIngredients = new List<IngredientViewModel>();
+            RecipeIngredientsToDelete = new List<int>();
         }
         //Recipe Header
 
@@ -114,5 +115,7 @@ namespace NewFoodNutrients.ViewModels
         }
 
         public ObjectState ObjectState { get; set; }
+
+        public List<int> RecipeIngredientsToDelete { get; set; }
     }
 }

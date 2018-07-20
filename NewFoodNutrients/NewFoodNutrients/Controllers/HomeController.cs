@@ -1,8 +1,11 @@
-﻿using Microsoft.AspNet.Identity;
+﻿using System.Collections.Generic;
+using Microsoft.AspNet.Identity;
 using NewFoodNutrients.Models;
 using System.Data.Entity;
 using System.Linq;
+using System.Net;
 using System.Web.Mvc;
+using NewFoodNutrients.ViewModels;
 
 namespace NewFoodNutrients.Controllers
 {
@@ -22,8 +25,79 @@ namespace NewFoodNutrients.Controllers
                 .Include(r => r.Food)
                 .Include(r => r.FoodType)
                 .Where(r => r.CookApplicationUserId == userId).ToList();
-            return View(recipes);
+            var recipesViewModel = new List<RecipeViewModel>();
+            foreach (var recipe in recipes)
+            {
+                var recipeVM = new RecipeViewModel()
+                {
+                    Id = recipe.Id,
+                    Title = recipe.Title,
+                    CookApplicationUserName = recipe.CookApplicationUser.Name,
+                    FoodId = recipe.FoodId,
+                    FoodName = recipe.Food.FoodName,
+                    ObjectState = ObjectState.Unchanged
+                };
+                recipesViewModel.Add(recipeVM);
+            }
+            return View(recipesViewModel);
         }
+
+        [Authorize]
+        [HttpPost]
+        public ActionResult Delete(int? Id)
+        {
+            if (Id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            var recipe = _context.Recipes
+                .Include(r => r.RecipeIngredients)
+                .SingleOrDefault<Recipe>(r => r.Id == Id);
+
+            if (recipe == null)
+            {
+                return HttpNotFound("Recipe not found");
+            }
+
+            recipe.ObjectState = ObjectState.Deleted;
+
+            foreach (var ing in recipe.RecipeIngredients)
+            {
+                ing.ObjectState = ObjectState.Deleted;
+            }
+            _context.Recipes.Attach(recipe);
+            _context.ApplyStateChanges();
+            _context.SaveChanges();
+
+
+
+            var userId = User.Identity.GetUserId();
+            var recipes = _context.Recipes
+                .Include(r => r.CookApplicationUser)
+                .Include(r => r.Food)
+                .Include(r => r.FoodType)
+                .Where(r => r.CookApplicationUserId == userId).ToList();
+
+            var recipesViewModel = new List<RecipeViewModel>();
+            foreach (var recipeModel in recipes)
+            {
+                var recipeVM = new RecipeViewModel()
+                {
+                    Id = recipeModel.Id,
+                    Title = recipeModel.Title,
+                    CookApplicationUserName = recipeModel.CookApplicationUser.Name,
+                    FoodId = recipeModel.FoodId,
+                    FoodName = recipeModel.Food.FoodName,
+                    ObjectState = ObjectState.Unchanged
+                };
+                recipesViewModel.Add(recipeVM);
+            }
+
+
+            //var redirectedToPage = "/Home/Index";
+            return Json(recipesViewModel);
+        }
+
 
         public ActionResult About()
         {
