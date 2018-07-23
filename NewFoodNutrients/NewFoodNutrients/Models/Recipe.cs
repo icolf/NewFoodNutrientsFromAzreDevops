@@ -10,7 +10,7 @@ namespace NewFoodNutrients.Models
 
         public string Title { get; set; }
 
-        public DateTime CreationDate { get; set; }
+        public DateTime CreationDate { get; private set; }
 
         [Display(Name = "Food Type")]
         public FoodType FoodType { get; set; }
@@ -27,5 +27,11 @@ namespace NewFoodNutrients.Models
         public List<RecipeIngredients> RecipeIngredients { get; set; }
 
         public ObjectState ObjectState { get; set; }
+
+        public Recipe()
+        {
+            RecipeIngredients = new List<RecipeIngredients>();
+            CreationDate = DateTime.Now;
+        }
     }
 }

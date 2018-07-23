@@ -1,7 +1,6 @@
 ﻿using Microsoft.AspNet.Identity;
 using NewFoodNutrients.Models;
 using NewFoodNutrients.ViewModels;
-using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
@@ -17,7 +16,6 @@ namespace NewFoodNutrients.Controllers
         public RecipesController()
         {
             _context = new ApplicationDbContext();
-
         }
 
         [Authorize]
@@ -30,15 +28,14 @@ namespace NewFoodNutrients.Controllers
                 ContextFoods = _context.Foods.ToList(),
                 ContextIngredientTypes = _context.IngredientTypes.ToList(),
                 ContextIngredients = _context.Ingredients.ToList(),
-                RecipeIngredients = new List<IngredientViewModel>(),
                 ContextUnitOfMeasures = _context.UnitOfMeasures.ToList(),
+                Heading = "New Recipe",
                 ObjectState = ObjectState.Added
             };
-            return View("Recipe",viewModel);
+            return View("Recipe", viewModel);
         }
 
         [Authorize]
-        [HttpGet]
         public ActionResult Edit(int? Id)
         {
             if (Id == null)
@@ -46,11 +43,12 @@ namespace NewFoodNutrients.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
 
+            var userId = User.Identity.GetUserId();
             var recipe = _context.Recipes
                 .Include(r => r.FoodType)
                 .Include(r => r.Food)
                 .Include(r => r.RecipeIngredients)
-                .SingleOrDefault<Recipe>(r => r.Id == Id);
+                .Single<Recipe>(r => r.Id == Id && r.CookApplicationUserId == userId);
 
             if (recipe == null)
             {
@@ -69,7 +67,7 @@ namespace NewFoodNutrients.Controllers
                 FoodTypeId = recipe.FoodTypeId,
                 FoodId = recipe.FoodId,
                 FoodName = recipe.Food.FoodName,
-                RecipeIngredients = new List<IngredientViewModel>(),
+                Heading = "Edit Recipe",
                 ObjectState = ObjectState.Unchanged
             };
 
@@ -87,7 +85,7 @@ namespace NewFoodNutrients.Controllers
                 };
                 viewModel.RecipeIngredients.Add(ingVM);
             }
-            return View("Recipe",viewModel);
+            return View("Recipe", viewModel);
         }
 
 
@@ -104,7 +102,7 @@ namespace NewFoodNutrients.Controllers
                 recipeFormViewModel.ContextIngredients = _context.Ingredients.ToList();
                 recipeFormViewModel.ContextUnitOfMeasures = _context.UnitOfMeasures.ToList();
 
-                return View("Create", recipeFormViewModel);
+                return View("Recipe", recipeFormViewModel);
             }
             var userId = User.Identity.GetUserId();
 
@@ -113,7 +111,6 @@ namespace NewFoodNutrients.Controllers
                 Id = recipeFormViewModel.Id,
                 CookApplicationUserId = userId,
                 Title = recipeFormViewModel.Title,
-                CreationDate = DateTime.Now,
                 FoodTypeId = recipeFormViewModel.FoodTypeId,
                 FoodId = recipeFormViewModel.FoodId,
                 RecipeIngredients = new List<RecipeIngredients>(),
@@ -125,16 +122,13 @@ namespace NewFoodNutrients.Controllers
 
             foreach (var ing in recipeFormViewModel.RecipeIngredients)
             {
-                var ingredientType = _context.IngredientTypes.Single(it => it.Id == ing.IngredientTypeId);
-                var ingredient = _context.Ingredients.Single(i => i.Id == ing.IngredientId);
-                var unitOfMeasure = _context.UnitOfMeasures.Single(u => u.Id == ing.UnitOfMeasureId);
                 var recipeIngredient = new RecipeIngredients
                 {
                     RecipeId = recipeFormViewModel.Id,
                     Id = ing.ObjectState == ObjectState.Added ? ingredientId : ing.Id,
-                    IngredientTypeId = ingredientType.Id,
-                    IngredientId = ingredient.Id,
-                    UnitOfMeasureId = unitOfMeasure.Id,
+                    IngredientTypeId = ing.IngredientTypeId,
+                    IngredientId = ing.IngredientId,
+                    UnitOfMeasureId = ing.UnitOfMeasureId,
                     Amount = ing.Amount,
                     ObjectState = ing.ObjectState
                 };

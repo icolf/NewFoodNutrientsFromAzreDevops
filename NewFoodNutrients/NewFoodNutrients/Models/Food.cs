@@ -5,6 +5,7 @@ namespace NewFoodNutrients.Models
     public class Food
     {
         public int Id { get; set; }
+
         [Required]
         public string FoodName { get; set; }
 

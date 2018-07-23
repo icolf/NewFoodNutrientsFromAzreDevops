@@ -163,8 +163,8 @@
             var changeIngredientType = function (obj) {
                 if (obj.ObjectState() !== ObjectState.Added) {
                     obj.ObjectState(ObjectState.Modified);
-                    flagRecipeAsEdited();
                 }
+                flagRecipeAsEdited();
                 var selected = this.IngredientTypeId();
                 var contextFilteredIngredients = ko.observableArray([]);
                 contextFilteredIngredients(ko.utils.arrayFilter(mappedViewModel.ContextIngredients(),
@@ -194,21 +194,21 @@
             var changeIngredient = function (obj, event) {
                 if (obj.ObjectState() !== ObjectState.Added) {
                     obj.ObjectState(ObjectState.Modified);
-                    flagRecipeAsEdited();
                 }
+                flagRecipeAsEdited();
             };
 
             var changeAmount = function (obj, event) {
                 if (obj.ObjectState() !== ObjectState.Added) {
                     obj.ObjectState(ObjectState.Modified);
-                    flagRecipeAsEdited();
                 }
+                flagRecipeAsEdited();
             };
             var changeUnitOfMeasure = function (obj, event) {
                 if (obj.ObjectState() !== ObjectState.Added) {
                     obj.ObjectState(ObjectState.Modified);
-                    flagRecipeAsEdited();
                 }
+                flagRecipeAsEdited();
             };
             var addRecipeIngredient = function () {
                 recipe().RecipeIngredients.push(new Ingredient()

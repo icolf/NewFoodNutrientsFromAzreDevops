@@ -117,5 +117,6 @@ namespace NewFoodNutrients.ViewModels
         public ObjectState ObjectState { get; set; }
 
         public List<int> RecipeIngredientsToDelete { get; set; }
+        public string Heading { get; set; }
     }
 }
