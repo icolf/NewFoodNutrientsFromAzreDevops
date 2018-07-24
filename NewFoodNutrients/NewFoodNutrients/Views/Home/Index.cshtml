@@ -5,6 +5,16 @@
 }
 
 <div class="row">
+    <div class="form-group">
+        <div class="input-group inputgroupstyle">
+            <input type="text" class="form-control" placeholder="Recipe title or food to search for" autofocus = "autofocus" data-bind="textInput: search, valueUpdate: 'afterkeydown'" />
+            <span class="input-group-addon">
+                <i class="glyphicon glyphicon-search"></i>
+            </span>
+        </div>
+    </div>
+</div>
+<div class="row">
     <div class="panel panel-default">
         <div class="panel-heading">
             <h3 class="panel-title col-md-11">My Recipes</h3>
@@ -17,11 +27,11 @@
                 <tr>
                     <th>Title</th>
                     <th>Owner</th>
-                    <th>Main Ingredient</th>
+                    <th>Food</th>
                     <th style="width:30px"></th>
                     <th style="width:30px"></th>
                 </tr>
-                <tbody data-bind="foreach : recipeListViewModel()">
+                <tbody data-bind="foreach : filteredRecipeListViewModel()">
                 <tr>
                     <td data-bind="text : Title()"></td>
 
@@ -30,14 +40,13 @@
                     <td data-bind="text : FoodName()">
                     </td>
                     <td>
-                        <button class="btn btn-default btn-xs" data-bind="click : $parent.editRecipe">
-                            <span class="glyphicon glyphicon-pencil"></span>
-                        </button>
+                        <a data-bind="click : $parent.editRecipe">
+                            <i class="glyphicon glyphicon-pencil"></i>
+                        </a>
                     </td>
                     <td>
-                        <a href="#deleteModal" role="button" class="btn btn-danger btn-xs" data-bind="click : $parent.removeRecipe">
-                            @*//data-toggle="modal"*@
-                            <span class="glyphicon glyphicon-remove"></span>
+                        <a href="#deleteModal" data-bind="click : $parent.removeRecipe">
+                            <i class="glyphicon glyphicon-trash"></i>
                         </a>
                     </td>
                 </tr>

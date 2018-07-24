@@ -1,0 +1,178 @@
+﻿// lessc --autoprefix= "last 2 versions, > 5%"
+body {
+    padding-top: 90px;
+    padding-bottom: 20px;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+/* Bootstrap overrides*/
+
+.glyphicon-trash {
+    color: red;
+}
+
+.glyphicon-pencil {
+    color: green;
+}
+
+.navbar-inverse {
+    background-color: #11770f;
+    border-color: #11770f;
+
+    .navbar-brand {
+        color: #d8f1cb;
+    }
+
+    .navbar-nav > li > a {
+        color: #b3daa3;
+        .open > a, .open > a:hover, .open > a:focus {
+            color: #fff;
+            background-color: #0c5f0a;
+        }
+    }
+}
+
+.navbar-nav > li > a {
+    padding-top: 17px;
+}
+
+.dropdown-menu {
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+    font-family: "Lato";
+    color: #132704;
+}
+
+h3, .h3 {
+    margin-top: 8px;
+}
+
+.table {
+    margin-bottom: 0;
+}
+
+.form-group {
+    margin-bottom: 10px;
+}
+
+@controlHeadersColor: #cde7c3;
+
+.form-control[disabled], .form-control[readonly], fieldset[disabled] .form-control {
+    background-color: @controlHeadersColor;
+    opacity: 1;
+}
+
+.form-control:focus {
+    border-color: @controlHeadersColor;
+    box-shadow: none;
+    -webkit-box-shadow: none;
+}
+
+.panel-default > .panel-heading {
+    background-color: @controlHeadersColor;
+}
+
+.panel {
+    margin-bottom: 5px; 
+}
+
+.panel-body {
+    padding: 3px;
+}
+
+body {
+    font-family: Lato, "Helvetica Neue", Helvetica, Arial, sans-serif; 
+    color: #132704;
+}
+
+label {
+    padding-right: 10px;
+    margin-bottom: 0;
+}
+
+/*Page specific*/
+
+.recipes {
+    list-style: none;
+}
+.recipes > li {
+    position: relative;
+    margin-bottom: 15px;
+}
+
+.recipes > li .recipe {
+    background: rgba(65, 137, 64, 0.91);
+    color: white;
+    text-align: center;
+    width: 200px;
+    -ms-border-radius: 8px;
+    border-radius: 8px;
+}
+
+.recipes > li .recipe .title {
+    padding: 2px 6px;
+}
+
+.recipes > li .recipe .food  {
+    background: #eafbe9;
+    color: rgb(1, 63, 5);
+    padding: 6px 12px; 
+    -ms-border-bottom-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+    -ms-border-bottom-right-radius: 5px;
+    border-bottom-right-radius: 18px;
+
+
+}
+.recipes >li .detail {
+    position: absolute;
+    top: 0;
+    left: 210px;
+
+}
+
+.recipes > li .detail .date {
+    display: block;
+    font-size: 12px;
+    padding-top: 5px;
+}
+
+.recipes > li .detail .ingredients {
+    display: block;
+    font-size: 14px;
+    padding-top: 8px;
+}
+
+.removeButton{
+    padding-top: 5px;
+}
+
+.saveButton {
+    padding-left: 15px;
+}
+
+.inputgroupstyle{
+    width:300px;
+}

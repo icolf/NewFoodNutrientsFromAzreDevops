@@ -223,6 +223,7 @@
                 recipe().RecipeIngredients.remove(recipeIngredient);
                 if (recipeIngredient.Id() > 0 && recipe().RecipeIngredientsToDelete().indexOf(recipeIngredient.Id()) === -1) {
                     recipe().RecipeIngredientsToDelete.push(recipeIngredient.Id());
+                    flagRecipeAsEdited();
                 }
             };
             var save = function () {
@@ -271,8 +272,9 @@
 
         var recipeListViewModel = function (data) {
 
-            var recipe = '';
             var recipeListViewModel = ko.mapping.fromJS(data);
+            var filteredRecipeListViewModel = ko.mapping.fromJS(data);
+            var search = ko.observable("");
             var editRecipe = function (recipe) {
                 var Id = recipe.Id();
                 window.location = "/Recipes/Edit/" + Id;
@@ -290,6 +292,17 @@
 
             };
 
+            search.subscribe(function(value) {
+                filteredRecipeListViewModel(ko.utils.arrayFilter(recipeListViewModel(),
+                    function (recipe) {
+                        if (!search())
+                            return true;
+                        return recipe.Title().indexOf(search()) !== -1 || recipe.FoodName().indexOf(search()) !== -1;
+                    }));
+                return true;
+            });
+
+
             var modalSave = function() {
                 $.ajax({
                     url: "/Home/Delete/",
@@ -305,12 +318,13 @@
             }
             return {
                 recipeListViewModel: recipeListViewModel,
+                filteredRecipeListViewModel: filteredRecipeListViewModel,
                 editRecipe: editRecipe,
                 removeRecipe: removeRecipe,
                 addRecipe: addRecipe,
                 modalClose: modalClose,
-                modalSave: modalSave
-
+                modalSave: modalSave,
+                search: search
             };
 
         };
