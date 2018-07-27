@@ -1,5 +1,5 @@
 ﻿body {
-  padding-top: 90px;
+  padding-top: 80px;
   padding-bottom: 20px;
 }
 /* Set padding to keep content from hitting the edges */
@@ -153,4 +153,19 @@ label {
 }
 .inputgroupstyle {
   width: 300px;
+}
+.headingForm {
+  margin-top: 0;
+}
+.succesModal {
+  background-color: #8dff858f;
+}
+.succesModal .successModalBody {
+  color: #c4e6ab;
+  font-size: 22px;
+  padding-left: 25px;
+}
+.succesModal .successModalBody .modalIcon {
+  font-size: 28px;
+  padding-left: 30px;
 }

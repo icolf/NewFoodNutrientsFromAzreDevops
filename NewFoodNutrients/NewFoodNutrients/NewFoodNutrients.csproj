@@ -524,6 +524,11 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Scripts\app\app.js" />
+    <Content Include="Scripts\app\models\dropDownSource.js" />
+    <Content Include="Scripts\app\models\ingredient.js" />
+    <Content Include="Scripts\app\models\recipe.js" />
+    <Content Include="Scripts\app\viewmodels\RecipeListViewModel.js" />
+    <Content Include="Scripts\app\viewmodels\RecipeViewModel.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\esm\popper-utils.js" />
@@ -620,7 +625,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Scripts\app\models\" />
     <Folder Include="Views\Recipes\" />
   </ItemGroup>
   <ItemGroup>

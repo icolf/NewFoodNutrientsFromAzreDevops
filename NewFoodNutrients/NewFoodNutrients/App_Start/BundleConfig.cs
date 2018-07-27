@@ -10,7 +10,11 @@ namespace NewFoodNutrients
 
 
             bundles.Add(new ScriptBundle("~/bundles/app").Include(
-                    "~/Scripts/app/app.js"));
+                       "~/Scripts/app/viewmodels/*.js",
+                        "~/Scripts/app/models/*.js",
+                        "~/Scripts/app/app.js"
+                    ));
+
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
                         "~/Scripts/jquery-{version}.js"));
 
@@ -28,15 +32,10 @@ namespace NewFoodNutrients
 
             bundles.Add(new ScriptBundle("~/bundles/knockout").Include(
                       "~/Scripts/knockout-{version}.js",
-                      "~/Scripts/knockout.mapping-latest.js"
-                ));
+                      "~/Scripts/knockout.mapping-latest.js"))
+                ;
             bundles.Add(new ScriptBundle("~/bundles/lodash").Include(
-                "~/Scripts/lodash.js"
-                      //"~/Scripts/lodash.js",
-                //"~/Scripts/lodash.min.js",
-                //"~/Scripts/lodash.core.js",
-                //"~/Scripts/lodash.core.min.js"
-                ));
+                "~/Scripts/lodash.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",

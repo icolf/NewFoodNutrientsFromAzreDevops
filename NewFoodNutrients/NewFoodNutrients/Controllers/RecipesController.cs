@@ -162,26 +162,32 @@ namespace NewFoodNutrients.Controllers
             // If we decide in the future to stay in Edit view, then we'll restore the viewModel to show changes in the dataBase. 
             // Like new Ids for added records and we'll also need to return ObjectState to Unchange.
 
-            //recipeFormViewModel.ObjectState = ObjectState.Unchanged;
-            //recipeFormViewModel.Id = recipe.Id;
+            recipeFormViewModel.ObjectState = ObjectState.Unchanged;
+            recipeFormViewModel.Id = recipe.Id;
+            recipeFormViewModel.ContextFoodTypes = _context.FoodTypes.ToList();
+            recipeFormViewModel.ContextFoods = _context.Foods.ToList();
+            recipeFormViewModel.ContextIngredientTypes = _context.IngredientTypes.ToList();
+            recipeFormViewModel.ContextIngredients = _context.Ingredients.ToList();
+            recipeFormViewModel.ContextUnitOfMeasures = _context.UnitOfMeasures.ToList();
 
-            //recipeFormViewModel.RecipeIngredients = new List<IngredientViewModel>();
-            //foreach (var ing in recipe.RecipeIngredients)
-            //{
-            //    var ingVM = new IngredientViewModel
-            //    {
-            //        Id = ing.Id,
-            //        RecipeId = ing.RecipeId,
-            //        Amount = ing.Amount,
-            //        IngredientId = ing.IngredientId,
-            //        IngredientTypeId = ing.IngredientTypeId,
-            //        UnitOfMeasureId = ing.UnitOfMeasureId,
-            //        ObjectState = ObjectState.Unchanged
-            //    };
-            //    recipeFormViewModel.RecipeIngredients.Add(ingVM);
-            //}
+
+            recipeFormViewModel.RecipeIngredients = new List<IngredientViewModel>();
+            foreach (var ing in recipe.RecipeIngredients)
+            {
+                var ingVM = new IngredientViewModel
+                {
+                    Id = ing.Id,
+                    RecipeId = ing.RecipeId,
+                    Amount = ing.Amount,
+                    IngredientId = ing.IngredientId,
+                    IngredientTypeId = ing.IngredientTypeId,
+                    UnitOfMeasureId = ing.UnitOfMeasureId,
+                    ObjectState = ObjectState.Unchanged
+                };
+                recipeFormViewModel.RecipeIngredients.Add(ingVM);
+            }
             var redirectedToPage = "/Home/Index";
-            return Json(new { homePage = redirectedToPage });
+            return Json(new { homePage = redirectedToPage, vm = recipeFormViewModel });
         }
     }
 }
