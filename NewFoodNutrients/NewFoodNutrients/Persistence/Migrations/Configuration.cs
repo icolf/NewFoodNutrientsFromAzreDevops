@@ -8,7 +8,7 @@ namespace NewFoodNutrients.Migrations
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = false;
+            AutomaticMigrationsEnabled = true;
             AutomaticMigrationDataLossAllowed = true;
             MigrationsDirectory = @"Persistence\Migrations";
         }

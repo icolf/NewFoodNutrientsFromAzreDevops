@@ -8,6 +8,7 @@ namespace NewFoodNutrients.Persistence.Configurations
         public RecipeIngredientConfiguration()
         {
             Ignore(ri => ri.ObjectState);
+
         }
     }
 }

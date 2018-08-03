@@ -13,7 +13,7 @@ namespace FoodNutrientsIntegrationTests
         public void SetUp()
         {
             MigrateDbToLatestVersion();
-            Seed();
+            //Seed();
         }
 
         private static void MigrateDbToLatestVersion()
