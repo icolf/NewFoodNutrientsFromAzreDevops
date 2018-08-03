@@ -1,5 +1,5 @@
 ﻿@using System.Web.Script.Serialization
-@model IEnumerable<NewFoodNutrients.ViewModels.RecipeViewModel>
+@model IEnumerable<NewFoodNutrients.Core.ViewModels.RecipeViewModel>
 @{
     ViewBag.Title = "Home Page";
 }
@@ -84,7 +84,7 @@
                 <div class="modal-content succesModal">
                     <div class="modal-body successModalBody">
                         Successfuly Deleted!
-                        <i class="modalIcon" data-bind="click: cancel">
+                        <i class="modalIcon" data-bind="">
                             <span class="glyphicon glyphicon-ok"></span>
                         </i>
                     </div>

@@ -1,8 +1,9 @@
 ﻿using Microsoft.AspNet.Identity;
-using NewFoodNutrients.Models;
-using NewFoodNutrients.ViewModels;
+using NewFoodNutrients.Core;
+using NewFoodNutrients.Core.Models;
+using NewFoodNutrients.Core.ViewModels;
+using NewFoodNutrients.Persistence;
 using System.Collections.Generic;
-using System.Data.Entity;
 using System.Linq;
 using System.Net;
 using System.Web.Mvc;
@@ -11,11 +12,13 @@ namespace NewFoodNutrients.Controllers
 {
     public class RecipesController : Controller
     {
-        private ApplicationDbContext _context;
 
-        public RecipesController()
+        private readonly IUnitOfWork _unitOfWork;
+
+
+        public RecipesController(IUnitOfWork unitOfWork)
         {
-            _context = new ApplicationDbContext();
+            _unitOfWork = unitOfWork;
         }
 
         [Authorize]
@@ -24,11 +27,11 @@ namespace NewFoodNutrients.Controllers
             var viewModel = new RecipeFormViewModel
             {
                 Title = "",
-                ContextFoodTypes = _context.FoodTypes.ToList(),
-                ContextFoods = _context.Foods.ToList(),
-                ContextIngredientTypes = _context.IngredientTypes.ToList(),
-                ContextIngredients = _context.Ingredients.ToList(),
-                ContextUnitOfMeasures = _context.UnitOfMeasures.ToList(),
+                ContextFoodTypes = _unitOfWork.FoodTypes.GetFoodTypes(),
+                ContextFoods = _unitOfWork.Foods.GetFoods(),
+                ContextIngredientTypes = _unitOfWork.IngredientTypes.GetIngredientTypes(),
+                ContextIngredients = _unitOfWork.Ingredients.GetIngredients(),
+                ContextUnitOfMeasures = _unitOfWork.UnitOfMeasures.GetUnitOfMeasures(),
                 Heading = "New Recipe",
                 ObjectState = ObjectState.Added
             };
@@ -44,26 +47,22 @@ namespace NewFoodNutrients.Controllers
             }
 
             var userId = User.Identity.GetUserId();
-            var recipe = _context.Recipes
-                .Include(r => r.FoodType)
-                .Include(r => r.Food)
-                .Include(r => r.RecipeIngredients)
-                .Single<Recipe>(r => r.Id == Id && r.CookApplicationUserId == userId);
+            var recipe = _unitOfWork.Recipes.GetRecipe(Id, userId);
 
             if (recipe == null)
             {
-                return HttpNotFound("Recipe not found");
+                return new HttpNotFoundResult("Recipe not found");
             }
 
             var viewModel = new RecipeFormViewModel
             {
                 Id = recipe.Id,
                 Title = recipe.Title,
-                ContextFoodTypes = _context.FoodTypes.ToList(),
-                ContextFoods = _context.Foods.ToList(),
-                ContextIngredientTypes = _context.IngredientTypes.ToList(),
-                ContextIngredients = _context.Ingredients.ToList(),
-                ContextUnitOfMeasures = _context.UnitOfMeasures.ToList(),
+                ContextFoodTypes = _unitOfWork.FoodTypes.GetFoodTypes(),
+                ContextFoods = _unitOfWork.Foods.GetFoods().ToList(),
+                ContextIngredientTypes = _unitOfWork.IngredientTypes.GetIngredientTypes(),
+                ContextIngredients = _unitOfWork.Ingredients.GetIngredients(),
+                ContextUnitOfMeasures = _unitOfWork.UnitOfMeasures.GetUnitOfMeasures(),
                 FoodTypeId = recipe.FoodTypeId,
                 FoodId = recipe.FoodId,
                 FoodName = recipe.Food.FoodName,
@@ -96,11 +95,11 @@ namespace NewFoodNutrients.Controllers
         {
             if (!ModelState.IsValid)
             {
-                recipeFormViewModel.ContextFoodTypes = _context.FoodTypes.ToList();
-                recipeFormViewModel.ContextFoods = _context.Foods.ToList();
-                recipeFormViewModel.ContextIngredientTypes = _context.IngredientTypes.ToList();
-                recipeFormViewModel.ContextIngredients = _context.Ingredients.ToList();
-                recipeFormViewModel.ContextUnitOfMeasures = _context.UnitOfMeasures.ToList();
+                recipeFormViewModel.ContextFoodTypes = _unitOfWork.FoodTypes.GetFoodTypes();
+                recipeFormViewModel.ContextFoods = _unitOfWork.Foods.GetFoods();
+                recipeFormViewModel.ContextIngredientTypes = _unitOfWork.IngredientTypes.GetIngredientTypes();
+                recipeFormViewModel.ContextIngredients = _unitOfWork.Ingredients.GetIngredients();
+                recipeFormViewModel.ContextUnitOfMeasures = _unitOfWork.UnitOfMeasures.GetUnitOfMeasures();
 
                 return View("Recipe", recipeFormViewModel);
             }
@@ -136,18 +135,18 @@ namespace NewFoodNutrients.Controllers
                 ingredientId--;
             }
 
-            _context.Recipes.Attach(recipe);
+            _unitOfWork.Recipes.Attach(recipe);
 
             foreach (int riToDelete in recipeFormViewModel.RecipeIngredientsToDelete)
             {
-                var recipeIngredient = _context.RecipeIngredients.Find(riToDelete);
+                var recipeIngredient = _unitOfWork.RecipeIngredients.GetRecipeIngredient(riToDelete);
                 if (recipeIngredient != null)
                     recipeIngredient.ObjectState = ObjectState.Deleted;
             }
 
 
-            _context.ApplyStateChanges();
-            _context.SaveChanges();
+            _unitOfWork.ApplyStateChanges();
+            _unitOfWork.Complete();
 
             switch (recipeFormViewModel.ObjectState)
             {
@@ -164,11 +163,11 @@ namespace NewFoodNutrients.Controllers
 
             recipeFormViewModel.ObjectState = ObjectState.Unchanged;
             recipeFormViewModel.Id = recipe.Id;
-            recipeFormViewModel.ContextFoodTypes = _context.FoodTypes.ToList();
-            recipeFormViewModel.ContextFoods = _context.Foods.ToList();
-            recipeFormViewModel.ContextIngredientTypes = _context.IngredientTypes.ToList();
-            recipeFormViewModel.ContextIngredients = _context.Ingredients.ToList();
-            recipeFormViewModel.ContextUnitOfMeasures = _context.UnitOfMeasures.ToList();
+            recipeFormViewModel.ContextFoodTypes = _unitOfWork.FoodTypes.GetFoodTypes();
+            recipeFormViewModel.ContextFoods = _unitOfWork.Foods.GetFoods();
+            recipeFormViewModel.ContextIngredientTypes = _unitOfWork.IngredientTypes.GetIngredientTypes();
+            recipeFormViewModel.ContextIngredients = _unitOfWork.Ingredients.GetIngredients();
+            recipeFormViewModel.ContextUnitOfMeasures = _unitOfWork.UnitOfMeasures.GetUnitOfMeasures();
 
 
             recipeFormViewModel.RecipeIngredients = new List<IngredientViewModel>();

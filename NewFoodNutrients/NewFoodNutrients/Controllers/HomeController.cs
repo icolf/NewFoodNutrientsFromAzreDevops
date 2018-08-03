@@ -1,31 +1,25 @@
-﻿using System.Collections.Generic;
-using Microsoft.AspNet.Identity;
-using NewFoodNutrients.Models;
-using System.Data.Entity;
-using System.Linq;
-using System.Net;
+﻿using Microsoft.AspNet.Identity;
+using NewFoodNutrients.Persistence;
+using System.Collections.Generic;
 using System.Web.Mvc;
-using NewFoodNutrients.Dtos;
-using NewFoodNutrients.ViewModels;
+using NewFoodNutrients.Core;
+using NewFoodNutrients.Core.Dtos;
+using NewFoodNutrients.Core.Models;
+using NewFoodNutrients.Core.ViewModels;
 
 namespace NewFoodNutrients.Controllers
 {
     public class HomeController : Controller
     {
-        private ApplicationDbContext _context;
+        private readonly IUnitOfWork _unitOfWork;
 
-        public HomeController()
+        public HomeController(IUnitOfWork unitOfWork)
         {
-            _context = new ApplicationDbContext();
+            _unitOfWork = unitOfWork;
         }
         public ActionResult Index()
         {
-            var userId = User.Identity.GetUserId();
-            var recipes = _context.Recipes
-                .Include(r => r.CookApplicationUser)
-                .Include(r => r.Food)
-                .Include(r => r.FoodType)
-                .Where(r => r.CookApplicationUserId == userId).ToList();
+            var recipes = _unitOfWork.Recipes.GetRecipes(User.Identity.GetUserId());
             var recipesViewModel = new List<RecipeViewModel>();
             foreach (var recipe in recipes)
             {
@@ -47,9 +41,7 @@ namespace NewFoodNutrients.Controllers
         [HttpPost]
         public ActionResult Delete(RecipeDto dto)
         {
-            var recipe = _context.Recipes
-                .Include(r => r.RecipeIngredients)
-                .SingleOrDefault<Recipe>(r => r.Id == dto.RecipeId);
+            var recipe = _unitOfWork.Recipes.GetRecipe(dto.RecipeId, User.Identity.GetUserId());
 
             if (recipe == null)
             {
@@ -62,18 +54,14 @@ namespace NewFoodNutrients.Controllers
             {
                 ing.ObjectState = ObjectState.Deleted;
             }
-            _context.Recipes.Attach(recipe);
-            _context.ApplyStateChanges();
-            _context.SaveChanges();
+
+            _unitOfWork.Recipes.Attach(recipe);
+            _unitOfWork.ApplyStateChanges();
+            _unitOfWork.Complete();
 
 
 
-            var userId = User.Identity.GetUserId();
-            var recipes = _context.Recipes
-                .Include(r => r.CookApplicationUser)
-                .Include(r => r.Food)
-                .Include(r => r.FoodType)
-                .Where(r => r.CookApplicationUserId == userId).ToList();
+            var recipes = _unitOfWork.Recipes.GetRecipes(User.Identity.GetUserId());
 
             var recipesViewModel = new List<RecipeViewModel>();
             foreach (var recipeModel in recipes)

@@ -5,6 +5,10 @@ VisualStudioVersion = 15.0.26228.23
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NewFoodNutrients", "NewFoodNutrients\NewFoodNutrients.csproj", "{16277087-4844-493F-9E8A-AE02759869B6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NewFoodNutrients.Tests", "NewFoodNutrients.Tests\NewFoodNutrients.Tests.csproj", "{EE61C57E-00C3-45AD-A9BD-E7559287A884}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NewFoodNutrientsIntegrationTests", "FoodNutrientsIntegrationTests\NewFoodNutrientsIntegrationTests.csproj", "{5F74BD43-78A9-418D-91AE-2FC853AFF236}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,8 +19,19 @@ Global
 		{16277087-4844-493F-9E8A-AE02759869B6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{16277087-4844-493F-9E8A-AE02759869B6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{16277087-4844-493F-9E8A-AE02759869B6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EE61C57E-00C3-45AD-A9BD-E7559287A884}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EE61C57E-00C3-45AD-A9BD-E7559287A884}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EE61C57E-00C3-45AD-A9BD-E7559287A884}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EE61C57E-00C3-45AD-A9BD-E7559287A884}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5F74BD43-78A9-418D-91AE-2FC853AFF236}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5F74BD43-78A9-418D-91AE-2FC853AFF236}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5F74BD43-78A9-418D-91AE-2FC853AFF236}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5F74BD43-78A9-418D-91AE-2FC853AFF236}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {11A87A4D-FECC-425D-8AFF-63EB867795A6}
 	EndGlobalSection
 EndGlobal

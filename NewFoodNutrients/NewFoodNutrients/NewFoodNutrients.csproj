@@ -51,6 +51,9 @@
     <Reference Include="Antlr3.Runtime, Version=3.5.0.2, Culture=neutral, PublicKeyToken=eb42632606e9261f, processorArchitecture=MSIL">
       <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
     </Reference>
+    <Reference Include="Castle.Core, Version=4.0.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
+      <HintPath>..\packages\Castle.Core.4.2.0\lib\net45\Castle.Core.dll</HintPath>
+    </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
@@ -115,12 +118,39 @@
     <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.11.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
+    <Reference Include="Ninject, Version=3.3.4.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Ninject.3.3.4\lib\net45\Ninject.dll</HintPath>
+    </Reference>
+    <Reference Include="Ninject.Extensions.Conventions, Version=3.3.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Ninject.Extensions.Conventions.3.3.0\lib\net45\Ninject.Extensions.Conventions.dll</HintPath>
+    </Reference>
+    <Reference Include="Ninject.Extensions.Factory, Version=3.3.2.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Ninject.Extensions.Factory.3.3.2\lib\net45\Ninject.Extensions.Factory.dll</HintPath>
+    </Reference>
+    <Reference Include="Ninject.Web.Common, Version=3.3.1.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Ninject.Web.Common.3.3.1\lib\net45\Ninject.Web.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Ninject.Web.Common.WebHost, Version=3.3.1.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Ninject.Web.Common.WebHost.3.3.1\lib\net45\Ninject.Web.Common.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="Ninject.Web.Mvc, Version=3.3.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Ninject.MVC5.3.3.0\lib\net45\Ninject.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="Ninject.Web.WebApi, Version=3.3.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Ninject.Web.WebApi.3.3.0\lib\net45\Ninject.Web.WebApi.dll</HintPath>
+    </Reference>
+    <Reference Include="nunit.framework, Version=2.6.3.13283, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77, processorArchitecture=MSIL">
+      <HintPath>..\packages\NUnit.2.6.3\lib\nunit.framework.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Diagnostics.DiagnosticSource, Version=4.0.2.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Diagnostics.DiagnosticSource.4.4.1\lib\net45\System.Diagnostics.DiagnosticSource.dll</HintPath>
     </Reference>
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -129,6 +159,12 @@
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.6\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.3\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=5.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.0.0\lib\net45\System.Web.Http.WebHost.dll</HintPath>
     </Reference>
     <Reference Include="System.Web.Mvc, Version=5.2.6.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.6\lib\net45\System.Web.Mvc.dll</HintPath>
@@ -165,6 +201,9 @@
     <Reference Include="System.Web.Optimization">
       <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
     </Reference>
+    <Reference Include="WebActivatorEx, Version=2.0.0.0, Culture=neutral, PublicKeyToken=7b26dc2a43f6a0d4, processorArchitecture=MSIL">
+      <HintPath>..\packages\WebActivatorEx.2.2.0\lib\net40\WebActivatorEx.dll</HintPath>
+    </Reference>
     <Reference Include="WebGrease, Version=1.6.5135.21930, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
     </Reference>
@@ -187,313 +226,311 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\IdentityConfig.cs" />
+    <Compile Include="App_Start\Ninject.Web.Common.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
-    <Compile Include="Controllers\Helpers.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\RecipesController.cs" />
-    <Compile Include="Dtos\RecipeDto.cs" />
+    <Compile Include="Core\Dtos\RecipeDto.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201804092246407_InitialModel.cs" />
-    <Compile Include="Migrations\201804092246407_InitialModel.Designer.cs">
+    <Compile Include="Persistence\Configurations\DaypartConfiguration.cs" />
+    <Compile Include="Persistence\Configurations\FoodConfiguration.cs" />
+    <Compile Include="Persistence\Configurations\FoodTypeConfiguration.cs" />
+    <Compile Include="Persistence\Configurations\IngredientConfiguration.cs" />
+    <Compile Include="Persistence\Configurations\IngredientTypeConfiguration.cs" />
+    <Compile Include="Persistence\Configurations\NutrientConfiguration.cs" />
+    <Compile Include="Persistence\Configurations\RecipeIngredientConfiguration.cs" />
+    <Compile Include="Persistence\Configurations\UnitOfMeasureConfiguration.cs" />
+    <Compile Include="Persistence\IApplicationDbContext.cs" />
+    <Compile Include="Persistence\Migrations\201804092246407_InitialModel.cs" />
+    <Compile Include="Persistence\Migrations\201804092246407_InitialModel.Designer.cs">
       <DependentUpon>201804092246407_InitialModel.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201804101631085_AddingTables.cs" />
-    <Compile Include="Migrations\201804101631085_AddingTables.Designer.cs">
+    <Compile Include="Persistence\Migrations\201804101631085_AddingTables.cs" />
+    <Compile Include="Persistence\Migrations\201804101631085_AddingTables.Designer.cs">
       <DependentUpon>201804101631085_AddingTables.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201804101822194_OverrideConventionsForModels.cs" />
-    <Compile Include="Migrations\201804101822194_OverrideConventionsForModels.Designer.cs">
+    <Compile Include="Persistence\Migrations\201804101822194_OverrideConventionsForModels.cs" />
+    <Compile Include="Persistence\Migrations\201804101822194_OverrideConventionsForModels.Designer.cs">
       <DependentUpon>201804101822194_OverrideConventionsForModels.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201804152049334_AddingMoreModels.cs" />
-    <Compile Include="Migrations\201804152049334_AddingMoreModels.Designer.cs">
+    <Compile Include="Persistence\Migrations\201804152049334_AddingMoreModels.cs" />
+    <Compile Include="Persistence\Migrations\201804152049334_AddingMoreModels.Designer.cs">
       <DependentUpon>201804152049334_AddingMoreModels.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201804170043306_PopulateFoddTypeTable.cs" />
-    <Compile Include="Migrations\201804170043306_PopulateFoddTypeTable.Designer.cs">
+    <Compile Include="Persistence\Migrations\201804170043306_PopulateFoddTypeTable.cs" />
+    <Compile Include="Persistence\Migrations\201804170043306_PopulateFoddTypeTable.Designer.cs">
       <DependentUpon>201804170043306_PopulateFoddTypeTable.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201805151808191_DataAnnotationsToSomeModels.cs" />
-    <Compile Include="Migrations\201805151808191_DataAnnotationsToSomeModels.Designer.cs">
+    <Compile Include="Persistence\Migrations\201805151808191_DataAnnotationsToSomeModels.cs" />
+    <Compile Include="Persistence\Migrations\201805151808191_DataAnnotationsToSomeModels.Designer.cs">
       <DependentUpon>201805151808191_DataAnnotationsToSomeModels.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201805231421139_Changes to plate.cs" />
-    <Compile Include="Migrations\201805231421139_Changes to plate.Designer.cs">
+    <Compile Include="Persistence\Migrations\201805231421139_Changes to plate.cs" />
+    <Compile Include="Persistence\Migrations\201805231421139_Changes to plate.Designer.cs">
       <DependentUpon>201805231421139_Changes to plate.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201805231430380_Add food type id to Recipe.cs" />
-    <Compile Include="Migrations\201805231430380_Add food type id to Recipe.Designer.cs">
+    <Compile Include="Persistence\Migrations\201805231430380_Add food type id to Recipe.cs" />
+    <Compile Include="Persistence\Migrations\201805231430380_Add food type id to Recipe.Designer.cs">
       <DependentUpon>201805231430380_Add food type id to Recipe.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201805231447179_DeleteFoodsFromPlate.cs" />
-    <Compile Include="Migrations\201805231447179_DeleteFoodsFromPlate.Designer.cs">
+    <Compile Include="Persistence\Migrations\201805231447179_DeleteFoodsFromPlate.cs" />
+    <Compile Include="Persistence\Migrations\201805231447179_DeleteFoodsFromPlate.Designer.cs">
       <DependentUpon>201805231447179_DeleteFoodsFromPlate.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201805241422496_AddFoods.cs" />
-    <Compile Include="Migrations\201805241422496_AddFoods.Designer.cs">
+    <Compile Include="Persistence\Migrations\201805241422496_AddFoods.cs" />
+    <Compile Include="Persistence\Migrations\201805241422496_AddFoods.Designer.cs">
       <DependentUpon>201805241422496_AddFoods.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201805241440116_PopulateFoodsTable.cs" />
-    <Compile Include="Migrations\201805241440116_PopulateFoodsTable.Designer.cs">
+    <Compile Include="Persistence\Migrations\201805241440116_PopulateFoodsTable.cs" />
+    <Compile Include="Persistence\Migrations\201805241440116_PopulateFoodsTable.Designer.cs">
       <DependentUpon>201805241440116_PopulateFoodsTable.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201805241553558_AddRecipeIDToPlateModel.cs" />
-    <Compile Include="Migrations\201805241553558_AddRecipeIDToPlateModel.Designer.cs">
+    <Compile Include="Persistence\Migrations\201805241553558_AddRecipeIDToPlateModel.cs" />
+    <Compile Include="Persistence\Migrations\201805241553558_AddRecipeIDToPlateModel.Designer.cs">
       <DependentUpon>201805241553558_AddRecipeIDToPlateModel.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201805241601013_NormalizePlateAndRecipe.cs" />
-    <Compile Include="Migrations\201805241601013_NormalizePlateAndRecipe.Designer.cs">
+    <Compile Include="Persistence\Migrations\201805241601013_NormalizePlateAndRecipe.cs" />
+    <Compile Include="Persistence\Migrations\201805241601013_NormalizePlateAndRecipe.Designer.cs">
       <DependentUpon>201805241601013_NormalizePlateAndRecipe.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201805241619395_ChangePlateIDKeyToId.cs" />
-    <Compile Include="Migrations\201805241619395_ChangePlateIDKeyToId.Designer.cs">
+    <Compile Include="Persistence\Migrations\201805241619395_ChangePlateIDKeyToId.cs" />
+    <Compile Include="Persistence\Migrations\201805241619395_ChangePlateIDKeyToId.Designer.cs">
       <DependentUpon>201805241619395_ChangePlateIDKeyToId.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201805241652306_DeleteFoodTypeIdInRecipe.cs" />
-    <Compile Include="Migrations\201805241652306_DeleteFoodTypeIdInRecipe.Designer.cs">
+    <Compile Include="Persistence\Migrations\201805241652306_DeleteFoodTypeIdInRecipe.cs" />
+    <Compile Include="Persistence\Migrations\201805241652306_DeleteFoodTypeIdInRecipe.Designer.cs">
       <DependentUpon>201805241652306_DeleteFoodTypeIdInRecipe.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201805241655193_ChangeFoodTypeIdKeyToId.cs" />
-    <Compile Include="Migrations\201805241655193_ChangeFoodTypeIdKeyToId.Designer.cs">
+    <Compile Include="Persistence\Migrations\201805241655193_ChangeFoodTypeIdKeyToId.cs" />
+    <Compile Include="Persistence\Migrations\201805241655193_ChangeFoodTypeIdKeyToId.Designer.cs">
       <DependentUpon>201805241655193_ChangeFoodTypeIdKeyToId.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201805241704155_ChangingOtherClassNameIdToId.cs" />
-    <Compile Include="Migrations\201805241704155_ChangingOtherClassNameIdToId.Designer.cs">
+    <Compile Include="Persistence\Migrations\201805241704155_ChangingOtherClassNameIdToId.cs" />
+    <Compile Include="Persistence\Migrations\201805241704155_ChangingOtherClassNameIdToId.Designer.cs">
       <DependentUpon>201805241704155_ChangingOtherClassNameIdToId.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201805242009338_AddRecordsToFoodTable.cs" />
-    <Compile Include="Migrations\201805242009338_AddRecordsToFoodTable.Designer.cs">
+    <Compile Include="Persistence\Migrations\201805242009338_AddRecordsToFoodTable.cs" />
+    <Compile Include="Persistence\Migrations\201805242009338_AddRecordsToFoodTable.Designer.cs">
       <DependentUpon>201805242009338_AddRecordsToFoodTable.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201805292002090_AddIngredientTypeTable.cs" />
-    <Compile Include="Migrations\201805292002090_AddIngredientTypeTable.Designer.cs">
+    <Compile Include="Persistence\Migrations\201805292002090_AddIngredientTypeTable.cs" />
+    <Compile Include="Persistence\Migrations\201805292002090_AddIngredientTypeTable.Designer.cs">
       <DependentUpon>201805292002090_AddIngredientTypeTable.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201805292024440_MakingIngredientTypeRequiredToIngredientType.cs" />
-    <Compile Include="Migrations\201805292024440_MakingIngredientTypeRequiredToIngredientType.Designer.cs">
+    <Compile Include="Persistence\Migrations\201805292024440_MakingIngredientTypeRequiredToIngredientType.cs" />
+    <Compile Include="Persistence\Migrations\201805292024440_MakingIngredientTypeRequiredToIngredientType.Designer.cs">
       <DependentUpon>201805292024440_MakingIngredientTypeRequiredToIngredientType.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201805301414327_PopulateIngredientTypeTable.cs" />
-    <Compile Include="Migrations\201805301414327_PopulateIngredientTypeTable.Designer.cs">
+    <Compile Include="Persistence\Migrations\201805301414327_PopulateIngredientTypeTable.cs" />
+    <Compile Include="Persistence\Migrations\201805301414327_PopulateIngredientTypeTable.Designer.cs">
       <DependentUpon>201805301414327_PopulateIngredientTypeTable.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201805301431211_PopulateIngredientsTable.cs" />
-    <Compile Include="Migrations\201805301431211_PopulateIngredientsTable.Designer.cs">
+    <Compile Include="Persistence\Migrations\201805301431211_PopulateIngredientsTable.cs" />
+    <Compile Include="Persistence\Migrations\201805301431211_PopulateIngredientsTable.Designer.cs">
       <DependentUpon>201805301431211_PopulateIngredientsTable.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201805301539518_AddUnitOfMeasuresTable.cs" />
-    <Compile Include="Migrations\201805301539518_AddUnitOfMeasuresTable.Designer.cs">
+    <Compile Include="Persistence\Migrations\201805301539518_AddUnitOfMeasuresTable.cs" />
+    <Compile Include="Persistence\Migrations\201805301539518_AddUnitOfMeasuresTable.Designer.cs">
       <DependentUpon>201805301539518_AddUnitOfMeasuresTable.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201805301542268_PopulateUnitOfMeasuresTable.cs" />
-    <Compile Include="Migrations\201805301542268_PopulateUnitOfMeasuresTable.Designer.cs">
+    <Compile Include="Persistence\Migrations\201805301542268_PopulateUnitOfMeasuresTable.cs" />
+    <Compile Include="Persistence\Migrations\201805301542268_PopulateUnitOfMeasuresTable.Designer.cs">
       <DependentUpon>201805301542268_PopulateUnitOfMeasuresTable.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201806081937092_AddingRecipeIdToIngredientModel.cs" />
-    <Compile Include="Migrations\201806081937092_AddingRecipeIdToIngredientModel.Designer.cs">
-      <DependentUpon>201806081937092_AddingRecipeIdToIngredientModel.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201806081948322_AddingRecipeIdPropertyToIngredientModel.cs" />
-    <Compile Include="Migrations\201806081948322_AddingRecipeIdPropertyToIngredientModel.Designer.cs">
+    <Compile Include="Persistence\Migrations\201806081948322_AddingRecipeIdPropertyToIngredientModel.cs" />
+    <Compile Include="Persistence\Migrations\201806081948322_AddingRecipeIdPropertyToIngredientModel.Designer.cs">
       <DependentUpon>201806081948322_AddingRecipeIdPropertyToIngredientModel.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201806082158502_UpdateRecipeIdinIngredientsTable.cs" />
-    <Compile Include="Migrations\201806082158502_UpdateRecipeIdinIngredientsTable.Designer.cs">
-      <DependentUpon>201806082158502_UpdateRecipeIdinIngredientsTable.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201806082235173_Correct1.cs" />
-    <Compile Include="Migrations\201806082235173_Correct1.Designer.cs">
+    <Compile Include="Persistence\Migrations\201806082235173_Correct1.cs" />
+    <Compile Include="Persistence\Migrations\201806082235173_Correct1.Designer.cs">
       <DependentUpon>201806082235173_Correct1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201806082236515_Correct2.cs" />
-    <Compile Include="Migrations\201806082236515_Correct2.Designer.cs">
+    <Compile Include="Persistence\Migrations\201806082236515_Correct2.cs" />
+    <Compile Include="Persistence\Migrations\201806082236515_Correct2.Designer.cs">
       <DependentUpon>201806082236515_Correct2.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201806082240386_Correct3.cs" />
-    <Compile Include="Migrations\201806082240386_Correct3.Designer.cs">
+    <Compile Include="Persistence\Migrations\201806082240386_Correct3.cs" />
+    <Compile Include="Persistence\Migrations\201806082240386_Correct3.Designer.cs">
       <DependentUpon>201806082240386_Correct3.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201806082301375_Correct4.cs" />
-    <Compile Include="Migrations\201806082301375_Correct4.Designer.cs">
+    <Compile Include="Persistence\Migrations\201806082301375_Correct4.cs" />
+    <Compile Include="Persistence\Migrations\201806082301375_Correct4.Designer.cs">
       <DependentUpon>201806082301375_Correct4.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201806082304473_Correct5.cs" />
-    <Compile Include="Migrations\201806082304473_Correct5.Designer.cs">
+    <Compile Include="Persistence\Migrations\201806082304473_Correct5.cs" />
+    <Compile Include="Persistence\Migrations\201806082304473_Correct5.Designer.cs">
       <DependentUpon>201806082304473_Correct5.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201806082307143_Correct6.cs" />
-    <Compile Include="Migrations\201806082307143_Correct6.Designer.cs">
+    <Compile Include="Persistence\Migrations\201806082307143_Correct6.cs" />
+    <Compile Include="Persistence\Migrations\201806082307143_Correct6.Designer.cs">
       <DependentUpon>201806082307143_Correct6.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201806082309584_Correct7.cs" />
-    <Compile Include="Migrations\201806082309584_Correct7.Designer.cs">
+    <Compile Include="Persistence\Migrations\201806082309584_Correct7.cs" />
+    <Compile Include="Persistence\Migrations\201806082309584_Correct7.Designer.cs">
       <DependentUpon>201806082309584_Correct7.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201806082311089_Correct8.cs" />
-    <Compile Include="Migrations\201806082311089_Correct8.Designer.cs">
+    <Compile Include="Persistence\Migrations\201806082311089_Correct8.cs" />
+    <Compile Include="Persistence\Migrations\201806082311089_Correct8.Designer.cs">
       <DependentUpon>201806082311089_Correct8.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201806082314434_Correct9.cs" />
-    <Compile Include="Migrations\201806082314434_Correct9.Designer.cs">
-      <DependentUpon>201806082314434_Correct9.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201806111356243_ChangingToNotRequiredIngredientsOfRecipe.cs" />
-    <Compile Include="Migrations\201806111356243_ChangingToNotRequiredIngredientsOfRecipe.Designer.cs">
-      <DependentUpon>201806111356243_ChangingToNotRequiredIngredientsOfRecipe.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201806111414455_ChangingToNotRequiredIngredientsOfRecipe2.cs" />
-    <Compile Include="Migrations\201806111414455_ChangingToNotRequiredIngredientsOfRecipe2.Designer.cs">
+    <Compile Include="Persistence\Migrations\201806111414455_ChangingToNotRequiredIngredientsOfRecipe2.cs" />
+    <Compile Include="Persistence\Migrations\201806111414455_ChangingToNotRequiredIngredientsOfRecipe2.Designer.cs">
       <DependentUpon>201806111414455_ChangingToNotRequiredIngredientsOfRecipe2.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201806111416134_ChangingToNotRequiredIngredientsOfRecipe3.cs" />
-    <Compile Include="Migrations\201806111416134_ChangingToNotRequiredIngredientsOfRecipe3.Designer.cs">
+    <Compile Include="Persistence\Migrations\201806111416134_ChangingToNotRequiredIngredientsOfRecipe3.cs" />
+    <Compile Include="Persistence\Migrations\201806111416134_ChangingToNotRequiredIngredientsOfRecipe3.Designer.cs">
       <DependentUpon>201806111416134_ChangingToNotRequiredIngredientsOfRecipe3.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201806111418539_Correct10.cs" />
-    <Compile Include="Migrations\201806111418539_Correct10.Designer.cs">
-      <DependentUpon>201806111418539_Correct10.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201806111450159_RestartingDatabase.cs" />
-    <Compile Include="Migrations\201806111450159_RestartingDatabase.Designer.cs">
+    <Compile Include="Persistence\Migrations\201806111450159_RestartingDatabase.cs" />
+    <Compile Include="Persistence\Migrations\201806111450159_RestartingDatabase.Designer.cs">
       <DependentUpon>201806111450159_RestartingDatabase.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201806111522443_RestartingDatabase1.cs" />
-    <Compile Include="Migrations\201806111522443_RestartingDatabase1.Designer.cs">
+    <Compile Include="Persistence\Migrations\201806111522443_RestartingDatabase1.cs" />
+    <Compile Include="Persistence\Migrations\201806111522443_RestartingDatabase1.Designer.cs">
       <DependentUpon>201806111522443_RestartingDatabase1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201806111543530_AddingRecipeIngredientsTable.cs" />
-    <Compile Include="Migrations\201806111543530_AddingRecipeIngredientsTable.Designer.cs">
+    <Compile Include="Persistence\Migrations\201806111543530_AddingRecipeIngredientsTable.cs" />
+    <Compile Include="Persistence\Migrations\201806111543530_AddingRecipeIngredientsTable.Designer.cs">
       <DependentUpon>201806111543530_AddingRecipeIngredientsTable.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201806111602403_AddingIngredients.cs" />
-    <Compile Include="Migrations\201806111602403_AddingIngredients.Designer.cs">
+    <Compile Include="Persistence\Migrations\201806111602403_AddingIngredients.cs" />
+    <Compile Include="Persistence\Migrations\201806111602403_AddingIngredients.Designer.cs">
       <DependentUpon>201806111602403_AddingIngredients.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201806121847179_AddIngredientToRecipeIngredientTable.cs" />
-    <Compile Include="Migrations\201806121847179_AddIngredientToRecipeIngredientTable.Designer.cs">
+    <Compile Include="Persistence\Migrations\201806121847179_AddIngredientToRecipeIngredientTable.cs" />
+    <Compile Include="Persistence\Migrations\201806121847179_AddIngredientToRecipeIngredientTable.Designer.cs">
       <DependentUpon>201806121847179_AddIngredientToRecipeIngredientTable.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201806121857114_RemoveNameFromRecipeIngredient.cs" />
-    <Compile Include="Migrations\201806121857114_RemoveNameFromRecipeIngredient.Designer.cs">
+    <Compile Include="Persistence\Migrations\201806121857114_RemoveNameFromRecipeIngredient.cs" />
+    <Compile Include="Persistence\Migrations\201806121857114_RemoveNameFromRecipeIngredient.Designer.cs">
       <DependentUpon>201806121857114_RemoveNameFromRecipeIngredient.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201806201423062_AddIngredientTypeToRecipeIngredients.cs" />
-    <Compile Include="Migrations\201806201423062_AddIngredientTypeToRecipeIngredients.Designer.cs">
+    <Compile Include="Persistence\Migrations\201806201423062_AddIngredientTypeToRecipeIngredients.cs" />
+    <Compile Include="Persistence\Migrations\201806201423062_AddIngredientTypeToRecipeIngredients.Designer.cs">
       <DependentUpon>201806201423062_AddIngredientTypeToRecipeIngredients.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201806201535233_AddFoodToRecipe.cs" />
-    <Compile Include="Migrations\201806201535233_AddFoodToRecipe.Designer.cs">
+    <Compile Include="Persistence\Migrations\201806201535233_AddFoodToRecipe.cs" />
+    <Compile Include="Persistence\Migrations\201806201535233_AddFoodToRecipe.Designer.cs">
       <DependentUpon>201806201535233_AddFoodToRecipe.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201806201614031_DeletePlateIdToRecipe.cs" />
-    <Compile Include="Migrations\201806201614031_DeletePlateIdToRecipe.Designer.cs">
+    <Compile Include="Persistence\Migrations\201806201614031_DeletePlateIdToRecipe.cs" />
+    <Compile Include="Persistence\Migrations\201806201614031_DeletePlateIdToRecipe.Designer.cs">
       <DependentUpon>201806201614031_DeletePlateIdToRecipe.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201806201728227_DateNotRequiredInRecipe.cs" />
-    <Compile Include="Migrations\201806201728227_DateNotRequiredInRecipe.Designer.cs">
-      <DependentUpon>201806201728227_DateNotRequiredInRecipe.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201806201814301_AddIdentityAtribute.cs" />
-    <Compile Include="Migrations\201806201814301_AddIdentityAtribute.Designer.cs">
-      <DependentUpon>201806201814301_AddIdentityAtribute.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201806201819506_AddIdentityAtributeAndtype.cs" />
-    <Compile Include="Migrations\201806201819506_AddIdentityAtributeAndtype.Designer.cs">
-      <DependentUpon>201806201819506_AddIdentityAtributeAndtype.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201806202212369_RemoveRecipeFromRecipeIngredients.cs" />
-    <Compile Include="Migrations\201806202212369_RemoveRecipeFromRecipeIngredients.Designer.cs">
+    <Compile Include="Persistence\Migrations\201806202212369_RemoveRecipeFromRecipeIngredients.cs" />
+    <Compile Include="Persistence\Migrations\201806202212369_RemoveRecipeFromRecipeIngredients.Designer.cs">
       <DependentUpon>201806202212369_RemoveRecipeFromRecipeIngredients.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201806202237548_RecipePKChangedToRecipeId.cs" />
-    <Compile Include="Migrations\201806202237548_RecipePKChangedToRecipeId.Designer.cs">
+    <Compile Include="Persistence\Migrations\201806202237548_RecipePKChangedToRecipeId.cs" />
+    <Compile Include="Persistence\Migrations\201806202237548_RecipePKChangedToRecipeId.Designer.cs">
       <DependentUpon>201806202237548_RecipePKChangedToRecipeId.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201806202240145_RecipePKChangedFromRecipeIdBackToId.cs" />
-    <Compile Include="Migrations\201806202240145_RecipePKChangedFromRecipeIdBackToId.Designer.cs">
+    <Compile Include="Persistence\Migrations\201806202240145_RecipePKChangedFromRecipeIdBackToId.cs" />
+    <Compile Include="Persistence\Migrations\201806202240145_RecipePKChangedFromRecipeIdBackToId.Designer.cs">
       <DependentUpon>201806202240145_RecipePKChangedFromRecipeIdBackToId.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201806252121343_AddCookAplicationUserIdToRecipe.cs" />
-    <Compile Include="Migrations\201806252121343_AddCookAplicationUserIdToRecipe.Designer.cs">
+    <Compile Include="Persistence\Migrations\201806252121343_AddCookAplicationUserIdToRecipe.cs" />
+    <Compile Include="Persistence\Migrations\201806252121343_AddCookAplicationUserIdToRecipe.Designer.cs">
       <DependentUpon>201806252121343_AddCookAplicationUserIdToRecipe.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201806252132488_AddFoodTypeIdAndfoodIdToRecipe.cs" />
-    <Compile Include="Migrations\201806252132488_AddFoodTypeIdAndfoodIdToRecipe.Designer.cs">
+    <Compile Include="Persistence\Migrations\201806252132488_AddFoodTypeIdAndfoodIdToRecipe.cs" />
+    <Compile Include="Persistence\Migrations\201806252132488_AddFoodTypeIdAndfoodIdToRecipe.Designer.cs">
       <DependentUpon>201806252132488_AddFoodTypeIdAndfoodIdToRecipe.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201806252258389_AddNameToApplicationUserModel.cs" />
-    <Compile Include="Migrations\201806252258389_AddNameToApplicationUserModel.Designer.cs">
+    <Compile Include="Persistence\Migrations\201806252258389_AddNameToApplicationUserModel.cs" />
+    <Compile Include="Persistence\Migrations\201806252258389_AddNameToApplicationUserModel.Designer.cs">
       <DependentUpon>201806252258389_AddNameToApplicationUserModel.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201806272040365_AddFoodIdToRecipeIngredients.cs" />
-    <Compile Include="Migrations\201806272040365_AddFoodIdToRecipeIngredients.Designer.cs">
+    <Compile Include="Persistence\Migrations\201806272040365_AddFoodIdToRecipeIngredients.cs" />
+    <Compile Include="Persistence\Migrations\201806272040365_AddFoodIdToRecipeIngredients.Designer.cs">
       <DependentUpon>201806272040365_AddFoodIdToRecipeIngredients.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201806272044317_AddFoodTypeIdAndUnitOfMeasureIdToRecipeIngredients.cs" />
-    <Compile Include="Migrations\201806272044317_AddFoodTypeIdAndUnitOfMeasureIdToRecipeIngredients.Designer.cs">
+    <Compile Include="Persistence\Migrations\201806272044317_AddFoodTypeIdAndUnitOfMeasureIdToRecipeIngredients.cs" />
+    <Compile Include="Persistence\Migrations\201806272044317_AddFoodTypeIdAndUnitOfMeasureIdToRecipeIngredients.Designer.cs">
       <DependentUpon>201806272044317_AddFoodTypeIdAndUnitOfMeasureIdToRecipeIngredients.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201806291544455_AddFoodTypeIdToFood.cs" />
-    <Compile Include="Migrations\201806291544455_AddFoodTypeIdToFood.Designer.cs">
+    <Compile Include="Persistence\Migrations\201806291544455_AddFoodTypeIdToFood.cs" />
+    <Compile Include="Persistence\Migrations\201806291544455_AddFoodTypeIdToFood.Designer.cs">
       <DependentUpon>201806291544455_AddFoodTypeIdToFood.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201807022321310_AddIObjectWithStateToRecipe.cs" />
-    <Compile Include="Migrations\201807022321310_AddIObjectWithStateToRecipe.Designer.cs">
+    <Compile Include="Persistence\Migrations\201807022321310_AddIObjectWithStateToRecipe.cs" />
+    <Compile Include="Persistence\Migrations\201807022321310_AddIObjectWithStateToRecipe.Designer.cs">
       <DependentUpon>201807022321310_AddIObjectWithStateToRecipe.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201807091635223_AddIngredientTypeIdToIngredient.cs" />
-    <Compile Include="Migrations\201807091635223_AddIngredientTypeIdToIngredient.Designer.cs">
+    <Compile Include="Persistence\Migrations\201807091635223_AddIngredientTypeIdToIngredient.cs" />
+    <Compile Include="Persistence\Migrations\201807091635223_AddIngredientTypeIdToIngredient.Designer.cs">
       <DependentUpon>201807091635223_AddIngredientTypeIdToIngredient.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201807092137510_AddRecipeIdToRecipeIngredients.cs" />
-    <Compile Include="Migrations\201807092137510_AddRecipeIdToRecipeIngredients.Designer.cs">
+    <Compile Include="Persistence\Migrations\201807092137510_AddRecipeIdToRecipeIngredients.cs" />
+    <Compile Include="Persistence\Migrations\201807092137510_AddRecipeIdToRecipeIngredients.Designer.cs">
       <DependentUpon>201807092137510_AddRecipeIdToRecipeIngredients.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201807092147450_RemoveRecipeToRecipeIngredients.cs" />
-    <Compile Include="Migrations\201807092147450_RemoveRecipeToRecipeIngredients.Designer.cs">
-      <DependentUpon>201807092147450_RemoveRecipeToRecipeIngredients.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201807092325161_DontRememberChanges.cs" />
-    <Compile Include="Migrations\201807092325161_DontRememberChanges.Designer.cs">
+    <Compile Include="Persistence\Migrations\201807092325161_DontRememberChanges.cs" />
+    <Compile Include="Persistence\Migrations\201807092325161_DontRememberChanges.Designer.cs">
       <DependentUpon>201807092325161_DontRememberChanges.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201807101449585_AddingRecipeTypeInRecipeIngredients.cs" />
-    <Compile Include="Migrations\201807101449585_AddingRecipeTypeInRecipeIngredients.Designer.cs">
-      <DependentUpon>201807101449585_AddingRecipeTypeInRecipeIngredients.cs</DependentUpon>
+    <Compile Include="Persistence\Migrations\201807291825054_usingFluentAPI.cs" />
+    <Compile Include="Persistence\Migrations\201807291825054_usingFluentAPI.Designer.cs">
+      <DependentUpon>201807291825054_usingFluentAPI.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201807101501242_ChangingIngredientsToRecipeIngredientsInRecipe.cs" />
-    <Compile Include="Migrations\201807101501242_ChangingIngredientsToRecipeIngredientsInRecipe.Designer.cs">
-      <DependentUpon>201807101501242_ChangingIngredientsToRecipeIngredientsInRecipe.cs</DependentUpon>
+    <Compile Include="Persistence\Migrations\201807291827348_usingFluentAPI2.cs" />
+    <Compile Include="Persistence\Migrations\201807291827348_usingFluentAPI2.Designer.cs">
+      <DependentUpon>201807291827348_usingFluentAPI2.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Models\AccountViewModels.cs" />
-    <Compile Include="Models\ApplicationDbContext.cs" />
-    <Compile Include="Models\ApplicationUser.cs" />
-    <Compile Include="Models\Configurations\RecipeConfiguration.cs" />
-    <Compile Include="Models\Daypart.cs" />
-    <Compile Include="Models\Food.cs" />
-    <Compile Include="Models\FoodType.cs" />
-    <Compile Include="Models\Ingredient.cs" />
-    <Compile Include="Models\IngredientType.cs" />
-    <Compile Include="Models\IObjectWithState.cs" />
-    <Compile Include="Models\ManageViewModels.cs" />
-    <Compile Include="Models\Nutrient.cs" />
-    <Compile Include="Models\ObjectState.cs" />
-    <Compile Include="Models\Plate.cs" />
-    <Compile Include="Models\Recipe.cs" />
-    <Compile Include="Models\RecipeIngredients.cs" />
-    <Compile Include="Models\UnitOfMeasure.cs" />
+    <Compile Include="Persistence\Migrations\201807291909544_usingFluentAPI3.cs" />
+    <Compile Include="Persistence\Migrations\201807291909544_usingFluentAPI3.Designer.cs">
+      <DependentUpon>201807291909544_usingFluentAPI3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Persistence\Migrations\201807291911298_usingFluentAPI4.cs" />
+    <Compile Include="Persistence\Migrations\201807291911298_usingFluentAPI4.Designer.cs">
+      <DependentUpon>201807291911298_usingFluentAPI4.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Persistence\Migrations\Configuration.cs" />
+    <Compile Include="Core\ViewModels\AccountViewModels.cs" />
+    <Compile Include="Persistence\ApplicationDbContext.cs" />
+    <Compile Include="Core\Models\ApplicationUser.cs" />
+    <Compile Include="Persistence\Configurations\RecipeConfiguration.cs" />
+    <Compile Include="Core\Models\Daypart.cs" />
+    <Compile Include="Core\Models\Food.cs" />
+    <Compile Include="Core\Models\FoodType.cs" />
+    <Compile Include="Core\Models\Ingredient.cs" />
+    <Compile Include="Core\Models\IngredientType.cs" />
+    <Compile Include="Core\IObjectWithState.cs" />
+    <Compile Include="Core\ViewModels\ManageViewModels.cs" />
+    <Compile Include="Core\Models\Nutrient.cs" />
+    <Compile Include="Persistence\ObjectState.cs" />
+    <Compile Include="Core\Models\Plate.cs" />
+    <Compile Include="Core\Models\Recipe.cs" />
+    <Compile Include="Core\Models\RecipeIngredients.cs" />
+    <Compile Include="Core\Models\UnitOfMeasure.cs" />
+    <Compile Include="Persistence\Helpers.cs" />
+    <Compile Include="Core\IUnitOfWork.cs" />
+    <Compile Include="Persistence\UnitOfWork.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Persistence\Repositories\FoodRepository.cs" />
+    <Compile Include="Persistence\Repositories\FoodTypeRepository.cs" />
+    <Compile Include="Core\Repositories\IFoodRepository.cs" />
+    <Compile Include="Core\Repositories\IFoodTypeRepository.cs" />
+    <Compile Include="Core\Repositories\IIngredientRepository.cs" />
+    <Compile Include="Core\Repositories\IIngredientTypeRepository.cs" />
+    <Compile Include="Persistence\Repositories\IngredientRepository.cs" />
+    <Compile Include="Persistence\Repositories\IngredientTypeRepository.cs" />
+    <Compile Include="Core\Repositories\IRecipeIngredientRepository.cs" />
+    <Compile Include="Core\Repositories\IRecipeRepository.cs" />
+    <Compile Include="Core\Repositories\IUnitOfMeasureRepository.cs" />
+    <Compile Include="Persistence\Repositories\RecipeIngredientRepository.cs" />
+    <Compile Include="Persistence\Repositories\RecipeRepository.cs" />
+    <Compile Include="Persistence\Repositories\UnitOfMeasureRepository.cs" />
     <Compile Include="Startup.cs" />
-    <Compile Include="ViewModels\IngredientViewModel.cs" />
-    <Compile Include="ViewModels\RecipeFormViewModel.cs" />
-    <Compile Include="ViewModels\RecipeViewModel.cs" />
-    <Compile Include="ViewModels\RegisterViewModel.cs" />
+    <Compile Include="Core\ViewModels\IngredientViewModel.cs" />
+    <Compile Include="Core\ViewModels\RecipeFormViewModel.cs" />
+    <Compile Include="Core\ViewModels\RecipeViewModel.cs" />
+    <Compile Include="Core\ViewModels\RegisterViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="App\img\Dairy.jpg" />
@@ -513,7 +550,7 @@
       <DependentUpon>site.css</DependentUpon>
     </Content>
     <Content Include="favicon.ico" />
-    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <None Include="compilerconfig.json" />
     <None Include="compilerconfig.json.defaults">
@@ -539,10 +576,10 @@
     <Content Include="Scripts\esm\popper.js.map" />
     <Content Include="Scripts\esm\popper-utils.min.js.map" />
     <Content Include="Scripts\esm\popper-utils.js.map" />
-    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
-    <Content Include="fonts\glyphicons-halflings-regular.woff" />
-    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
-    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Content\bootstrap.min.css.map" />
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-theme.min.css.map" />
@@ -631,209 +668,188 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201804092246407_InitialModel.resx">
+    <EmbeddedResource Include="Persistence\Migrations\201804092246407_InitialModel.resx">
       <DependentUpon>201804092246407_InitialModel.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201804101631085_AddingTables.resx">
+    <EmbeddedResource Include="Persistence\Migrations\201804101631085_AddingTables.resx">
       <DependentUpon>201804101631085_AddingTables.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201804101822194_OverrideConventionsForModels.resx">
+    <EmbeddedResource Include="Persistence\Migrations\201804101822194_OverrideConventionsForModels.resx">
       <DependentUpon>201804101822194_OverrideConventionsForModels.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201804152049334_AddingMoreModels.resx">
+    <EmbeddedResource Include="Persistence\Migrations\201804152049334_AddingMoreModels.resx">
       <DependentUpon>201804152049334_AddingMoreModels.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201804170043306_PopulateFoddTypeTable.resx">
+    <EmbeddedResource Include="Persistence\Migrations\201804170043306_PopulateFoddTypeTable.resx">
       <DependentUpon>201804170043306_PopulateFoddTypeTable.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201805151808191_DataAnnotationsToSomeModels.resx">
+    <EmbeddedResource Include="Persistence\Migrations\201805151808191_DataAnnotationsToSomeModels.resx">
       <DependentUpon>201805151808191_DataAnnotationsToSomeModels.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201805231421139_Changes to plate.resx">
+    <EmbeddedResource Include="Persistence\Migrations\201805231421139_Changes to plate.resx">
       <DependentUpon>201805231421139_Changes to plate.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201805231430380_Add food type id to Recipe.resx">
+    <EmbeddedResource Include="Persistence\Migrations\201805231430380_Add food type id to Recipe.resx">
       <DependentUpon>201805231430380_Add food type id to Recipe.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201805231447179_DeleteFoodsFromPlate.resx">
+    <EmbeddedResource Include="Persistence\Migrations\201805231447179_DeleteFoodsFromPlate.resx">
       <DependentUpon>201805231447179_DeleteFoodsFromPlate.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201805241422496_AddFoods.resx">
+    <EmbeddedResource Include="Persistence\Migrations\201805241422496_AddFoods.resx">
       <DependentUpon>201805241422496_AddFoods.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201805241440116_PopulateFoodsTable.resx">
+    <EmbeddedResource Include="Persistence\Migrations\201805241440116_PopulateFoodsTable.resx">
       <DependentUpon>201805241440116_PopulateFoodsTable.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201805241553558_AddRecipeIDToPlateModel.resx">
+    <EmbeddedResource Include="Persistence\Migrations\201805241553558_AddRecipeIDToPlateModel.resx">
       <DependentUpon>201805241553558_AddRecipeIDToPlateModel.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201805241601013_NormalizePlateAndRecipe.resx">
+    <EmbeddedResource Include="Persistence\Migrations\201805241601013_NormalizePlateAndRecipe.resx">
       <DependentUpon>201805241601013_NormalizePlateAndRecipe.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201805241619395_ChangePlateIDKeyToId.resx">
+    <EmbeddedResource Include="Persistence\Migrations\201805241619395_ChangePlateIDKeyToId.resx">
       <DependentUpon>201805241619395_ChangePlateIDKeyToId.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201805241652306_DeleteFoodTypeIdInRecipe.resx">
+    <EmbeddedResource Include="Persistence\Migrations\201805241652306_DeleteFoodTypeIdInRecipe.resx">
       <DependentUpon>201805241652306_DeleteFoodTypeIdInRecipe.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201805241655193_ChangeFoodTypeIdKeyToId.resx">
+    <EmbeddedResource Include="Persistence\Migrations\201805241655193_ChangeFoodTypeIdKeyToId.resx">
       <DependentUpon>201805241655193_ChangeFoodTypeIdKeyToId.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201805241704155_ChangingOtherClassNameIdToId.resx">
+    <EmbeddedResource Include="Persistence\Migrations\201805241704155_ChangingOtherClassNameIdToId.resx">
       <DependentUpon>201805241704155_ChangingOtherClassNameIdToId.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201805242009338_AddRecordsToFoodTable.resx">
+    <EmbeddedResource Include="Persistence\Migrations\201805242009338_AddRecordsToFoodTable.resx">
       <DependentUpon>201805242009338_AddRecordsToFoodTable.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201805292002090_AddIngredientTypeTable.resx">
+    <EmbeddedResource Include="Persistence\Migrations\201805292002090_AddIngredientTypeTable.resx">
       <DependentUpon>201805292002090_AddIngredientTypeTable.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201805292024440_MakingIngredientTypeRequiredToIngredientType.resx">
+    <EmbeddedResource Include="Persistence\Migrations\201805292024440_MakingIngredientTypeRequiredToIngredientType.resx">
       <DependentUpon>201805292024440_MakingIngredientTypeRequiredToIngredientType.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201805301414327_PopulateIngredientTypeTable.resx">
+    <EmbeddedResource Include="Persistence\Migrations\201805301414327_PopulateIngredientTypeTable.resx">
       <DependentUpon>201805301414327_PopulateIngredientTypeTable.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201805301431211_PopulateIngredientsTable.resx">
+    <EmbeddedResource Include="Persistence\Migrations\201805301431211_PopulateIngredientsTable.resx">
       <DependentUpon>201805301431211_PopulateIngredientsTable.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201805301539518_AddUnitOfMeasuresTable.resx">
+    <EmbeddedResource Include="Persistence\Migrations\201805301539518_AddUnitOfMeasuresTable.resx">
       <DependentUpon>201805301539518_AddUnitOfMeasuresTable.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201805301542268_PopulateUnitOfMeasuresTable.resx">
+    <EmbeddedResource Include="Persistence\Migrations\201805301542268_PopulateUnitOfMeasuresTable.resx">
       <DependentUpon>201805301542268_PopulateUnitOfMeasuresTable.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201806081937092_AddingRecipeIdToIngredientModel.resx">
-      <DependentUpon>201806081937092_AddingRecipeIdToIngredientModel.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201806081948322_AddingRecipeIdPropertyToIngredientModel.resx">
+    <EmbeddedResource Include="Persistence\Migrations\201806081948322_AddingRecipeIdPropertyToIngredientModel.resx">
       <DependentUpon>201806081948322_AddingRecipeIdPropertyToIngredientModel.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201806082158502_UpdateRecipeIdinIngredientsTable.resx">
-      <DependentUpon>201806082158502_UpdateRecipeIdinIngredientsTable.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201806082235173_Correct1.resx">
+    <EmbeddedResource Include="Persistence\Migrations\201806082235173_Correct1.resx">
       <DependentUpon>201806082235173_Correct1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201806082236515_Correct2.resx">
+    <EmbeddedResource Include="Persistence\Migrations\201806082236515_Correct2.resx">
       <DependentUpon>201806082236515_Correct2.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201806082240386_Correct3.resx">
+    <EmbeddedResource Include="Persistence\Migrations\201806082240386_Correct3.resx">
       <DependentUpon>201806082240386_Correct3.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201806082301375_Correct4.resx">
+    <EmbeddedResource Include="Persistence\Migrations\201806082301375_Correct4.resx">
       <DependentUpon>201806082301375_Correct4.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201806082304473_Correct5.resx">
+    <EmbeddedResource Include="Persistence\Migrations\201806082304473_Correct5.resx">
       <DependentUpon>201806082304473_Correct5.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201806082307143_Correct6.resx">
+    <EmbeddedResource Include="Persistence\Migrations\201806082307143_Correct6.resx">
       <DependentUpon>201806082307143_Correct6.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201806082309584_Correct7.resx">
+    <EmbeddedResource Include="Persistence\Migrations\201806082309584_Correct7.resx">
       <DependentUpon>201806082309584_Correct7.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201806082311089_Correct8.resx">
+    <EmbeddedResource Include="Persistence\Migrations\201806082311089_Correct8.resx">
       <DependentUpon>201806082311089_Correct8.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201806082314434_Correct9.resx">
-      <DependentUpon>201806082314434_Correct9.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201806111356243_ChangingToNotRequiredIngredientsOfRecipe.resx">
-      <DependentUpon>201806111356243_ChangingToNotRequiredIngredientsOfRecipe.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201806111414455_ChangingToNotRequiredIngredientsOfRecipe2.resx">
+    <EmbeddedResource Include="Persistence\Migrations\201806111414455_ChangingToNotRequiredIngredientsOfRecipe2.resx">
       <DependentUpon>201806111414455_ChangingToNotRequiredIngredientsOfRecipe2.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201806111416134_ChangingToNotRequiredIngredientsOfRecipe3.resx">
+    <EmbeddedResource Include="Persistence\Migrations\201806111416134_ChangingToNotRequiredIngredientsOfRecipe3.resx">
       <DependentUpon>201806111416134_ChangingToNotRequiredIngredientsOfRecipe3.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201806111418539_Correct10.resx">
-      <DependentUpon>201806111418539_Correct10.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201806111450159_RestartingDatabase.resx">
+    <EmbeddedResource Include="Persistence\Migrations\201806111450159_RestartingDatabase.resx">
       <DependentUpon>201806111450159_RestartingDatabase.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201806111522443_RestartingDatabase1.resx">
+    <EmbeddedResource Include="Persistence\Migrations\201806111522443_RestartingDatabase1.resx">
       <DependentUpon>201806111522443_RestartingDatabase1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201806111543530_AddingRecipeIngredientsTable.resx">
+    <EmbeddedResource Include="Persistence\Migrations\201806111543530_AddingRecipeIngredientsTable.resx">
       <DependentUpon>201806111543530_AddingRecipeIngredientsTable.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201806111602403_AddingIngredients.resx">
+    <EmbeddedResource Include="Persistence\Migrations\201806111602403_AddingIngredients.resx">
       <DependentUpon>201806111602403_AddingIngredients.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201806121847179_AddIngredientToRecipeIngredientTable.resx">
+    <EmbeddedResource Include="Persistence\Migrations\201806121847179_AddIngredientToRecipeIngredientTable.resx">
       <DependentUpon>201806121847179_AddIngredientToRecipeIngredientTable.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201806121857114_RemoveNameFromRecipeIngredient.resx">
+    <EmbeddedResource Include="Persistence\Migrations\201806121857114_RemoveNameFromRecipeIngredient.resx">
       <DependentUpon>201806121857114_RemoveNameFromRecipeIngredient.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201806201423062_AddIngredientTypeToRecipeIngredients.resx">
+    <EmbeddedResource Include="Persistence\Migrations\201806201423062_AddIngredientTypeToRecipeIngredients.resx">
       <DependentUpon>201806201423062_AddIngredientTypeToRecipeIngredients.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201806201535233_AddFoodToRecipe.resx">
+    <EmbeddedResource Include="Persistence\Migrations\201806201535233_AddFoodToRecipe.resx">
       <DependentUpon>201806201535233_AddFoodToRecipe.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201806201614031_DeletePlateIdToRecipe.resx">
+    <EmbeddedResource Include="Persistence\Migrations\201806201614031_DeletePlateIdToRecipe.resx">
       <DependentUpon>201806201614031_DeletePlateIdToRecipe.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201806201728227_DateNotRequiredInRecipe.resx">
-      <DependentUpon>201806201728227_DateNotRequiredInRecipe.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201806201814301_AddIdentityAtribute.resx">
-      <DependentUpon>201806201814301_AddIdentityAtribute.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201806201819506_AddIdentityAtributeAndtype.resx">
-      <DependentUpon>201806201819506_AddIdentityAtributeAndtype.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201806202212369_RemoveRecipeFromRecipeIngredients.resx">
+    <EmbeddedResource Include="Persistence\Migrations\201806202212369_RemoveRecipeFromRecipeIngredients.resx">
       <DependentUpon>201806202212369_RemoveRecipeFromRecipeIngredients.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201806202237548_RecipePKChangedToRecipeId.resx">
+    <EmbeddedResource Include="Persistence\Migrations\201806202237548_RecipePKChangedToRecipeId.resx">
       <DependentUpon>201806202237548_RecipePKChangedToRecipeId.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201806202240145_RecipePKChangedFromRecipeIdBackToId.resx">
+    <EmbeddedResource Include="Persistence\Migrations\201806202240145_RecipePKChangedFromRecipeIdBackToId.resx">
       <DependentUpon>201806202240145_RecipePKChangedFromRecipeIdBackToId.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201806252121343_AddCookAplicationUserIdToRecipe.resx">
+    <EmbeddedResource Include="Persistence\Migrations\201806252121343_AddCookAplicationUserIdToRecipe.resx">
       <DependentUpon>201806252121343_AddCookAplicationUserIdToRecipe.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201806252132488_AddFoodTypeIdAndfoodIdToRecipe.resx">
+    <EmbeddedResource Include="Persistence\Migrations\201806252132488_AddFoodTypeIdAndfoodIdToRecipe.resx">
       <DependentUpon>201806252132488_AddFoodTypeIdAndfoodIdToRecipe.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201806252258389_AddNameToApplicationUserModel.resx">
+    <EmbeddedResource Include="Persistence\Migrations\201806252258389_AddNameToApplicationUserModel.resx">
       <DependentUpon>201806252258389_AddNameToApplicationUserModel.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201806272040365_AddFoodIdToRecipeIngredients.resx">
+    <EmbeddedResource Include="Persistence\Migrations\201806272040365_AddFoodIdToRecipeIngredients.resx">
       <DependentUpon>201806272040365_AddFoodIdToRecipeIngredients.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201806272044317_AddFoodTypeIdAndUnitOfMeasureIdToRecipeIngredients.resx">
+    <EmbeddedResource Include="Persistence\Migrations\201806272044317_AddFoodTypeIdAndUnitOfMeasureIdToRecipeIngredients.resx">
       <DependentUpon>201806272044317_AddFoodTypeIdAndUnitOfMeasureIdToRecipeIngredients.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201806291544455_AddFoodTypeIdToFood.resx">
+    <EmbeddedResource Include="Persistence\Migrations\201806291544455_AddFoodTypeIdToFood.resx">
       <DependentUpon>201806291544455_AddFoodTypeIdToFood.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201807022321310_AddIObjectWithStateToRecipe.resx">
+    <EmbeddedResource Include="Persistence\Migrations\201807022321310_AddIObjectWithStateToRecipe.resx">
       <DependentUpon>201807022321310_AddIObjectWithStateToRecipe.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201807091635223_AddIngredientTypeIdToIngredient.resx">
+    <EmbeddedResource Include="Persistence\Migrations\201807091635223_AddIngredientTypeIdToIngredient.resx">
       <DependentUpon>201807091635223_AddIngredientTypeIdToIngredient.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201807092137510_AddRecipeIdToRecipeIngredients.resx">
+    <EmbeddedResource Include="Persistence\Migrations\201807092137510_AddRecipeIdToRecipeIngredients.resx">
       <DependentUpon>201807092137510_AddRecipeIdToRecipeIngredients.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201807092147450_RemoveRecipeToRecipeIngredients.resx">
-      <DependentUpon>201807092147450_RemoveRecipeToRecipeIngredients.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201807092325161_DontRememberChanges.resx">
+    <EmbeddedResource Include="Persistence\Migrations\201807092325161_DontRememberChanges.resx">
       <DependentUpon>201807092325161_DontRememberChanges.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201807101449585_AddingRecipeTypeInRecipeIngredients.resx">
-      <DependentUpon>201807101449585_AddingRecipeTypeInRecipeIngredients.cs</DependentUpon>
+    <EmbeddedResource Include="Persistence\Migrations\201807291825054_usingFluentAPI.resx">
+      <DependentUpon>201807291825054_usingFluentAPI.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201807101501242_ChangingIngredientsToRecipeIngredientsInRecipe.resx">
-      <DependentUpon>201807101501242_ChangingIngredientsToRecipeIngredientsInRecipe.cs</DependentUpon>
+    <EmbeddedResource Include="Persistence\Migrations\201807291827348_usingFluentAPI2.resx">
+      <DependentUpon>201807291827348_usingFluentAPI2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Persistence\Migrations\201807291909544_usingFluentAPI3.resx">
+      <DependentUpon>201807291909544_usingFluentAPI3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Persistence\Migrations\201807291911298_usingFluentAPI4.resx">
+      <DependentUpon>201807291911298_usingFluentAPI4.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
