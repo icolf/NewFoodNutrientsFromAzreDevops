@@ -250,6 +250,14 @@
     <Compile Include="Persistence\Migrations\201808032232552_Initial.Designer.cs">
       <DependentUpon>201808032232552_Initial.cs</DependentUpon>
     </Compile>
+    <Compile Include="Persistence\Migrations\201808032334508_RecipeIngredietRequiresIngredientType.cs" />
+    <Compile Include="Persistence\Migrations\201808032334508_RecipeIngredietRequiresIngredientType.Designer.cs">
+      <DependentUpon>201808032334508_RecipeIngredietRequiresIngredientType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Persistence\Migrations\201808032347294_RecipeIngredietRequiresIngredient.cs" />
+    <Compile Include="Persistence\Migrations\201808032347294_RecipeIngredietRequiresIngredient.Designer.cs">
+      <DependentUpon>201808032347294_RecipeIngredietRequiresIngredient.cs</DependentUpon>
+    </Compile>
     <Compile Include="Persistence\Migrations\Configuration.cs" />
     <Compile Include="Core\ViewModels\AccountViewModels.cs" />
     <Compile Include="Persistence\ApplicationDbContext.cs" />
@@ -445,6 +453,12 @@
   <ItemGroup>
     <EmbeddedResource Include="Persistence\Migrations\201808032232552_Initial.resx">
       <DependentUpon>201808032232552_Initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Persistence\Migrations\201808032334508_RecipeIngredietRequiresIngredientType.resx">
+      <DependentUpon>201808032334508_RecipeIngredietRequiresIngredientType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Persistence\Migrations\201808032347294_RecipeIngredietRequiresIngredient.resx">
+      <DependentUpon>201808032347294_RecipeIngredietRequiresIngredient.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

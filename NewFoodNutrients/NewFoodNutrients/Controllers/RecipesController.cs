@@ -185,7 +185,9 @@ namespace NewFoodNutrients.Controllers
                 };
                 recipeFormViewModel.RecipeIngredients.Add(ingVM);
             }
+
             var redirectedToPage = "/Home/Index";
+            
             return Json(new { homePage = redirectedToPage, vm = recipeFormViewModel });
         }
     }

@@ -1,8 +1,7 @@
 namespace NewFoodNutrients.Migrations
 {
-    using System;
     using System.Data.Entity.Migrations;
-    
+
     public partial class Initial : DbMigration
     {
         public override void Up()
@@ -155,10 +154,10 @@ namespace NewFoodNutrients.Migrations
                     UnitOfMeasureId = c.Int(nullable: false),
                 })
                 .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.Ingredients", t => t.IngredientId, cascadeDelete: true)
-                .ForeignKey("dbo.IngredientTypes", t => t.IngredientTypeId, cascadeDelete: true)
+                .ForeignKey("dbo.Ingredients", t => t.IngredientId)
+                .ForeignKey("dbo.IngredientTypes", t => t.IngredientTypeId)
                 .ForeignKey("dbo.Recipes", t => t.RecipeId, cascadeDelete: true)
-                .ForeignKey("dbo.UnitOfMeasures", t => t.UnitOfMeasureId, cascadeDelete: true)
+                .ForeignKey("dbo.UnitOfMeasures", t => t.UnitOfMeasureId)
                 .Index(t => t.RecipeId)
                 .Index(t => t.IngredientId)
                 .Index(t => t.IngredientTypeId)
@@ -177,8 +176,8 @@ namespace NewFoodNutrients.Migrations
                 })
                 .PrimaryKey(t => t.Id)
                 .ForeignKey("dbo.AspNetUsers", t => t.CookApplicationUserId)
-                .ForeignKey("dbo.Foods", t => t.FoodId, cascadeDelete: true)
-                .ForeignKey("dbo.FoodTypes", t => t.FoodTypeId, cascadeDelete: true)
+                .ForeignKey("dbo.Foods", t => t.FoodId)
+                .ForeignKey("dbo.FoodTypes", t => t.FoodTypeId)
                 .Index(t => t.FoodTypeId)
                 .Index(t => t.FoodId)
                 .Index(t => t.CookApplicationUserId);
@@ -203,7 +202,7 @@ namespace NewFoodNutrients.Migrations
                 .Index(t => t.Name, unique: true, name: "RoleNameIndex");
 
         }
-        
+
         public override void Down()
         {
             DropForeignKey("dbo.AspNetUserRoles", "RoleId", "dbo.AspNetRoles");

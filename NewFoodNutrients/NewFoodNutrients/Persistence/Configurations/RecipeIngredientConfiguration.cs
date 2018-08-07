@@ -8,7 +8,12 @@ namespace NewFoodNutrients.Persistence.Configurations
         public RecipeIngredientConfiguration()
         {
             Ignore(ri => ri.ObjectState);
-
+            HasRequired<IngredientType>(r=>r.IngredientType)
+                .WithMany()
+                .WillCascadeOnDelete(false);
+            HasRequired<Ingredient>(r=>r.Ingredient)
+                .WithMany()
+                .WillCascadeOnDelete(false);
         }
     }
 }

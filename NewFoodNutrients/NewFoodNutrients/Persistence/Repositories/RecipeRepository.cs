@@ -14,19 +14,11 @@ namespace NewFoodNutrients.Persistence.Repositories
         {
             _context = context;
         }
-        //public Recipe GetRecipe(int? Id, string userId) 
-        //{
-        //    return _context.Recipes
-        //        .Include(r => r.FoodType)
-        //        .Include(r => r.Food)
-        //        .Include(r => r.RecipeIngredients)
-        //        .Single<Recipe>(r => r.Id == Id && r.CookApplicationUserId == userId);
-        //}
         public Recipe GetRecipe(int? Id, string userId)
         {
-            var recipeq= _context.Recipes
+            var recipeq = _context.Recipes
                 .Where(r => r.Id == Id && r.CookApplicationUserId == userId)
-                .Select(r => new 
+                .Select(r => new
                 {
                     r.CookApplicationUser,
                     r.CookApplicationUserId,
@@ -63,9 +55,9 @@ namespace NewFoodNutrients.Persistence.Repositories
         }
         public List<Recipe> GetRecipes2(string userId)
         {
-            var recipeList= _context.Recipes
+            var recipeList = _context.Recipes
                 .Where(r => r.CookApplicationUserId == userId)
-                .Select(r=> new 
+                .Select(r => new
                 {
                     r.CookApplicationUser,
                     r.CookApplicationUserId,
@@ -78,10 +70,10 @@ namespace NewFoodNutrients.Persistence.Repositories
                     r.RecipeIngredients
                 })
                 .ToList();
-            var list=new List<Recipe>();
+            var list = new List<Recipe>();
             foreach (var r in recipeList)
             {
-                var recipe=new Recipe
+                var recipe = new Recipe
                 {
                     CookApplicationUser = r?.CookApplicationUser,
                     CookApplicationUserId = r?.CookApplicationUserId,
