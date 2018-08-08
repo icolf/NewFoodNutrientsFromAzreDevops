@@ -10,6 +10,18 @@ Is a very simple web application that covers a number of modern technologies and
 To be able to take the application to a complexity level in which I could usesome development tools and architecture principles, I decided to integrate into it some parent-child relations beween its objects.
 So, I came out with a simple cooking recipes web application, where each recipe (parent) could contain one or multiple ingredients (children).  The application lets users adding, updating and deleting cooking recipes.
 
+### Architecture
+
+The solution contains 3 projects
+1. NewFoodNutrients
+2. NewFoodNutrients.Tests
+3. NewFoodNutrients.Integration.Tests
+### Features
+#### NewFoodNutrients Project
+##### Architecture Patterns and 
+
+
+
 ### Tools
 
 #### Microsoft Tools/Packages
@@ -44,7 +56,4 @@ So, I came out with a simple cooking recipes web application, where each recipe 
 - lodash version = "4.17.0" _Utility library_
 
 
-### Architecture
 
-
-### Features
