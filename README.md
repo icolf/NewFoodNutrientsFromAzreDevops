@@ -12,9 +12,39 @@ So, I came out with a simple cooking recipes web application, where each recipe 
 
 ### Tools
 
+#### Microsoft Tools/Packages
+- Microsoft Visual Studio 2017
+- Framework .Net 4.5.2
+- Microsoft.AspNet.Mvc version="5.2.6"
+- EntityFramework version="6.2.0"
+- Microsoft.AspNet.Razor version="3.2.6"
+- Microsoft.AspNet.WebApi version="5.0.0"
+
+#### External Packages
+-   _Inversion Of Control Container_ = Ninject version="3.3.4"  
 
 
+##### Testing
+-	FluentAssertions
+-	Moq version =  4.9.0
+-	MSTest version ="1.3.2"
+-	NUnit Version = "3.10.1"
+-	JetBrains dotCover _(Code Coverage Tool)
 
-### Technical Notes
+##### CSS
+- Bootstrap version="3.3.7"
+- BuilWebCompiler	version = "1.11" _Less Compiler_
+- 
 
-In this section I will make a brief axplanation of the application structure of the appliation, tools
+##### JavaScript
+- jQuery version = "3.3.1"
+- jQuery.Validation 
+- knockOutjs version ="3.4.2"
+- knockOut.Mapping version = "2.4.0"
+- lodash version = "4.17.0" _Utility library_
+
+
+### Architecture
+
+
+### Features
