@@ -12,8 +12,8 @@ To be able to demonstrate some __SOLID__ architecture principles in practice I i
 So, I made a repository for each entity type _(i.e. Recipe, RecipeIngredient, etc.)_.  These repositories would consists mainly of all query calls to the data base.  Removing those queries and putting them into the repository left the controllers with less responsibilities __(Single Responsibility Principle)__ and a better separation of concerns, and at the same time let me reuse those queries since they can now be called from different methods/controllers. 
 
 #### Definitions And References
-> __Repository Pattern__
-> Mediates between the domain and data maping layers using a collection-like interface for accessing domain objects.
+> __Repository Pattern__  
+>> Mediates between the domain and data maping layers using a collection-like interface for accessing domain objects.
 
 >__Unit of Work__
 >Maintains a list of objects affected by a business transaction and coordinates the writing out of changes.	
