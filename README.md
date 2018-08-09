@@ -13,7 +13,7 @@ So, I made a repository for each entity type _(i.e. Recipe, RecipeIngredient, et
 
 #### Definitions And References
 > __Repository Pattern__  
->> Mediates between the domain and data maping layers using a collection-like interface for accessing domain objects.
+>Mediates between the domain and data maping layers using a collection-like interface for accessing domain objects.
 
 >__Unit of Work__
 >Maintains a list of objects affected by a business transaction and coordinates the writing out of changes.	
