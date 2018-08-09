@@ -7,9 +7,12 @@ It Is a very simple web application that let me cover a number of modern technol
 
 ### NewFooNutrients Description
 
-To be able to demonstrate some __SOLID__ architecture principles in practice I incorporated into the solution a unit testing project which needs to mocks MVC controllers.  To mocked this controllers I decoupled them from the context _(in this case from EF 6)_ by using the __Repository Pattern__ of Martin Fowler described in his book __Patterns of Enterprise Application and Architechture__. 
+To be able to demonstrate some __SOLID__ architecture principles in practice I incorporated into the solution a unit testing project which needs to mock MVC controllers.  To mocked this controllers I decoupled them from the context _(in this case from EF 6)_ by using the __Repository and Unit of Work  patterns__ of Martin Fowler described in his book __Patterns of Enterprise Application and Architechture__. 
 
-So, I made a repository for each entity type _(i.e. Recipe, RecipeIngredient, etc.)_.  These repositories would consists mainly of all query calls to the data base.  Removing those queries and putting them into the repository left the controllers with less responsibilities __(Single Responsibility Principle)__ and a better separation of concerns, and at the same time let me reuse those queries since they can now be called from different methods/controllers. 
+First, I made a repository for each entity type _(i.e. Recipe, RecipeIngredient, etc.)_.  These repositories would consists mainly of all query calls to the data base.  Removing those queries and putting them into the repository left the controllers with less responsibilities __(Single Responsibility Principle)__ and a better separation of concerns, and at the same time let me reuse those queries since they can now be called from different methods/controllers. 
+
+Then I need a class with references to all the repositories so we can call its SaveChanges method to persist all changes made to all entities in a transaction.  I created for this UnitOfWork type.  It consists of properties _(references)_ for each repository and a method named Complete which called the EntityFramework context SaveChanges method.
+
 
 #### Definitions And References
 > __Repository Pattern__  
@@ -18,7 +21,9 @@ So, I made a repository for each entity type _(i.e. Recipe, RecipeIngredient, et
 >__Unit of Work__  
 >Maintains a list of objects affected by a business transaction and coordinates the writing out of changes.	
 
-
+>__Dependency Inversion Principle__  
+>> A: High level modules should not depend on low-level modules. Both should depend on abstractions.  
+>> B: Abstractions should not depend on details.  Details should depend on abstractions.
 
 So, I came out with a simple cooking recipes web application, where each recipe (parent) could contain one or multiple ingredients (children).  The application lets users adding, updating and deleting cooking recipes.
 
