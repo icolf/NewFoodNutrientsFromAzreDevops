@@ -13,7 +13,7 @@ To be able to demonstrate some __SOLID__ architecture principles I've incorporat
 
 First, I made a repository for each entity type _(i.e. Recipe, RecipeIngredient, etc.)_.  These repositories would consists mainly of all query calls to the data base.  Removing those queries and putting them into the repository left controllers with less responsibilities __(Single Responsibility Principle)__ and a better __separation of concerns__, and at the same time let me reuse those queries since they are now accesible from different methods/controllers. 
 
-Then, I needed a __UnitOfWork__ class which contains references (public properties) to all the repositories.  This class _"UnitOfWork"_, will also contains a Complete() method, which call the SaveChanges method of EF to persist all changes made to all entities in a transaction. In other words, now the controller don't need to make any direct call to context _("context.SaveChanges()" )_ instead it'll be calling _unitOFWork.RepositoryName.Complete().  
+Then, I needed a __UnitOfWork__ class which contains references (public properties) to all the repositories.  This class _"UnitOfWork"_, will also contains a Complete() method, which calls the SaveChanges method of EF to persist all changes made to all entities in a transaction. In other words, now the controller don't need to make any direct call to context _("context.SaveChanges()" )_ instead it'll be calling _unitOFWork.RepositoryName.Complete().  
 
 Now I can apply the __Dependecy Inversion Principle__ to totally decouple controllers from Entity Framework context.  So, I extracted interfaces from each Repository and from my UnitOfWork classes.  Next I configured Ninject to inject to the controller's constructor a concrete class of IUnitOfWork interface.  
 
