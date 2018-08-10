@@ -15,7 +15,7 @@ First, I made a repository for each entity type _(i.e. Recipe, RecipeIngredient,
 
 Then, I needed a __UnitOfWork__ class which contains references (public properties) to all the repositories.  This class _"UnitOfWork"_, will also contains a Complete() method, which calls the SaveChanges method of EF to persist all changes made to all entities in a transaction. In other words, now the controller don't need to make any direct call to context _("context.SaveChanges()" )_ instead it'll be calling _unitOFWork.RepositoryName.Complete().  
 
-Now I can apply the __Dependecy Inversion Principle__ to totally decouple controllers from Entity Framework context.  So, I extracted interfaces from each Repository and from my UnitOfWork classes.  Next I configured Ninject to inject to the controller's constructor a concrete class of IUnitOfWork interface.  
+Now I can apply the __Dependecy Inversion Principle__ to totally decouple controllers from Entity Framework context.  So, I extracted interfaces from each Repository and from my UnitOfWork classes.  Next I configured Ninject _(IoC for Dependency Injection)_ to inject to the controller's constructor a concrete class of IUnitOfWork interface.  
 
 #### Definitions And References
 > __Repository Pattern__  
