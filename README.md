@@ -17,7 +17,7 @@ To continue the process of decoupling controllers from _context_ calls, I needed
 
 Now I can apply the __Dependecy Inversion Principle__ to totally decouple controllers from Entity Framework context.  So, I extracted interfaces from each Repository and from my UnitOfWork classes.  Next I configured Ninject _(IoC for Dependency Injection)_ to inject to the controller's constructor a concrete class of IUnitOfWork interface.  
 #### Frontend
-In this area I used the __Immediately Invoked Function Expression__ pattern to be able of modularizing my knockOutjs view models and other objects.  This pattern permitts a better separation of cerns as you can see in _scripts\app\_ folders in this solution.  
+In this area I used the __Immediately Invoked Function Expression__ pattern to be able of modularizing my knockOutjs view models and other objects.  This pattern permitts a better separation of concerns by letting for example segregate ViewModels from the Models as you can see in _scripts\app\_ folders in this solution.  
 I have also integrated some Bootstrap.css classes' overwitting to have a standard look of all pages in the project using some LESS commands as you can see in Site.LESS file in the _content_ folder of this solution.   
 #### Definitions And References
 > __Repository Pattern__  
