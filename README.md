@@ -31,20 +31,6 @@ I have also integrated some Bootstrap.css classes' overwitting to have a standar
 >> B: Abstractions should not depend on details.  Details should depend on abstractions.
 
 
-
-
-### Architecture
-
-The solution contains 3 projects
-1. NewFoodNutrients
-2. NewFoodNutrients.Tests
-3. NewFoodNutrients.Integration.Tests
-### Features
-#### NewFoodNutrients Project
-##### Architecture Patterns and 
-
-
-
 ### Tools
 
 #### Microsoft Tools/Packages
