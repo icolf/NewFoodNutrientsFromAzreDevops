@@ -3,16 +3,17 @@
 ### Introduction
 
 I created this project to demonstrate some of my skills as a software engineer.  I also wanted to show how would I architech and build a new application or refactor an existing one based on my mentioned skills and knowledges.  
-It Is a very simple web application that let me cover a number of modern technologies and architechture patterns and principles commonly used by top engineers and architechs in building cutting edge applications.
+This is a very simple web application that let me cover a number of modern technologies and architechture patterns and principles commonly used by top engineers and architechs in building cutting edge applications.
 
-### NewFooNutrients Description
+### Architecture
 
-To be able to demonstrate some __SOLID__ architecture principles in practice I incorporated into the solution a unit testing project which needs to mock MVC controllers.  To mocked this controllers I decoupled them from the context _(in this case from EF 6)_ by using the __Repository and Unit of Work  patterns__ of Martin Fowler described in his book __Patterns of Enterprise Application and Architechture__. 
+To be able to demonstrate some __SOLID__ architecture principles in practice I incorporated into the solution a unit testing project which needs to mock MVC controllers.  To mocked this controllers I needed to decoupled them from its context calls _(in this case from EF 6)_ by using the __Repository and Unit of Work  patterns__ described by Martin Fowler in his book __Patterns of Enterprise Application and Architechture__. 
 
-First, I made a repository for each entity type _(i.e. Recipe, RecipeIngredient, etc.)_.  These repositories would consists mainly of all query calls to the data base.  Removing those queries and putting them into the repository left the controllers with less responsibilities __(Single Responsibility Principle)__ and a better separation of concerns, and at the same time let me reuse those queries since they can now be called from different methods/controllers. 
+First, I made a repository for each entity type _(i.e. Recipe, RecipeIngredient, etc.)_.  These repositories would consists mainly of all query calls to the data base.  Removing those queries and putting them into the repository left controllers with less responsibilities __(Single Responsibility Principle)__ and a better __separation of concerns__, and at the same time let me reuse those queries since they are now accesible from different methods/controllers. 
 
-Then I need a class with references to all the repositories so we can call its SaveChanges method to persist all changes made to all entities in a transaction.  I created for this UnitOfWork type.  It consists of properties _(references)_ for each repository and a method named Complete which called the EntityFramework context SaveChanges method.
+Then, I needed a __UnitOfWork__ class which contains references (public properties) to all the repositories.  This class _"UnitOfWork"_, will also contains a Complete() method, which call the SaveChanges method of EF to persist all changes made to all entities in a transaction. In other words, now the controller don't need to make any direct call to context _("context.SaveChanges()" )_ instead it'll be calling _unitOFWork.RepositoryName.Complete().  
 
+Now I can apply the __Dependecy Inversion Principle__ to totally decouple controllers from Entity Framework context.  So, I extracted interfaces from each Repository and from my UnitOfWork classes.  Next I configured Ninject to inject to the controller's constructor a concrete class of IUnitOfWork interface.  
 
 #### Definitions And References
 > __Repository Pattern__  
@@ -24,6 +25,7 @@ Then I need a class with references to all the repositories so we can call its S
 >__Dependency Inversion Principle__  
 >> A: High level modules should not depend on low-level modules. Both should depend on abstractions.  
 >> B: Abstractions should not depend on details.  Details should depend on abstractions.
+
 
 So, I came out with a simple cooking recipes web application, where each recipe (parent) could contain one or multiple ingredients (children).  The application lets users adding, updating and deleting cooking recipes.
 
