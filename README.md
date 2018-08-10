@@ -2,11 +2,13 @@
 
 ### Introduction
 
-I created this project to demonstrate some of my skills as a software engineer.  I also wanted to show how would I architech and build a new application or refactor an existing one based on my mentioned skills and knowledges.  
+I created this project to expose some of my skills as a software engineer and to show how would I architech and build a new application or refactor an existing one.  
 This is a very simple web application that let me cover a number of modern technologies and architechture patterns and principles commonly used by top engineers and architechs in building cutting edge applications.
+To reach a required level of complexity to reach those goals, I created a simple cooking recipes .Net MVC web application, where each recipe (parent) could contains one or multiple ingredients (children).  The application lets users logging in, adding, updating and deleting cooking recipes.  
+I follow code-first aproach and used MS SQL Server as database in a VisualStudio 2017 and Team Foundation 2017 with Git as source control manager.
 
 ### Architecture
-
+#### Backend
 To be able to demonstrate some __SOLID__ architecture principles in practice I incorporated into the solution a unit testing project which needs to mock MVC controllers.  To mocked this controllers I needed to decoupled them from its context calls _(in this case from EF 6)_ by using the __Repository and Unit of Work  patterns__ described by Martin Fowler in his book __Patterns of Enterprise Application and Architechture__. 
 
 First, I made a repository for each entity type _(i.e. Recipe, RecipeIngredient, etc.)_.  These repositories would consists mainly of all query calls to the data base.  Removing those queries and putting them into the repository left controllers with less responsibilities __(Single Responsibility Principle)__ and a better __separation of concerns__, and at the same time let me reuse those queries since they are now accesible from different methods/controllers. 
@@ -27,7 +29,7 @@ Now I can apply the __Dependecy Inversion Principle__ to totally decouple contro
 >> B: Abstractions should not depend on details.  Details should depend on abstractions.
 
 
-So, I came out with a simple cooking recipes web application, where each recipe (parent) could contain one or multiple ingredients (children).  The application lets users adding, updating and deleting cooking recipes.
+
 
 ### Architecture
 
