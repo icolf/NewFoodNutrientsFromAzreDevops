@@ -7,6 +7,8 @@ namespace NewFoodNutrients.Persistence
     public class UnitOfWork : IUnitOfWork
     {
         private readonly ApplicationDbContext _context;
+
+        //Repositories
         public IRecipeRepository Recipes { get; set; }
         public IRecipeIngredientRepository RecipeIngredients { get; set; }
         public IFoodTypeRepository FoodTypes { get; set; }
