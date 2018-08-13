@@ -7,9 +7,9 @@ namespace NewFoodNutrients.Persistence.Repositories
 {
     public class UnitOfMeasureRepository : IUnitOfMeasureRepository
     {
-        private readonly ApplicationDbContext _context;
+        private readonly IApplicationDbContext _context;
 
-        public UnitOfMeasureRepository(ApplicationDbContext context)
+        public UnitOfMeasureRepository(IApplicationDbContext context)
         {
             _context = context;
         }
@@ -19,6 +19,12 @@ namespace NewFoodNutrients.Persistence.Repositories
             return _context.UnitOfMeasures.ToList();
 
         }
+
+        public void Attach(UnitOfMeasure unitOfMeasure)
+        {
+            _context.UnitOfMeasures.Attach(unitOfMeasure);
+        }
+
 
     }
 }

@@ -5,9 +5,9 @@ namespace NewFoodNutrients.Persistence.Repositories
 {
     public class RecipeIngredientRepository : IRecipeIngredientRepository
     {
-        private readonly ApplicationDbContext _context;
+        private readonly IApplicationDbContext _context;
 
-        public RecipeIngredientRepository(ApplicationDbContext context)
+        public RecipeIngredientRepository(IApplicationDbContext context)
         {
             _context = context;
         }
