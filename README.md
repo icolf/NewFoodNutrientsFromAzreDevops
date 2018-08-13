@@ -2,7 +2,7 @@
 
 ### Introduction
 
-I created this project to expose some of my skills as a software engineer and to show how would I architech and build a new application or refactor an existing one.  
+I created this project to expose some of my skills as a software engineer and to demonstrate how would I architech and build a new application or refactor an existing one.  
 This is a very simple web application that let me cover a number of modern technologies and architechture patterns and principles commonly used by top engineers and architechs in building cutting edge applications.
 To reach a required level of complexity to meet those goals, I created a simple cooking recipes .Net MVC web application, where each recipe (parent) could contains one or multiple ingredients (children).  The application lets users logging in, adding, updating and deleting cooking recipes.  
 I follow code-first aproach and used MS SQL Server as database in a VisualStudio 2017 environment and Team Foundation 2017 with Git as source control manager.
