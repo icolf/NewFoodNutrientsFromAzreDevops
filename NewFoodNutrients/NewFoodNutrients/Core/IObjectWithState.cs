@@ -6,4 +6,5 @@ namespace NewFoodNutrients.Core
     {
         ObjectState ObjectState { get; set; }
     }
+    
 }
