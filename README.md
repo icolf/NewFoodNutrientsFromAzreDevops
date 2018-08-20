@@ -9,7 +9,7 @@ I follow code-first aproach and used MS SQL Server as database in a VisualStudio
 
 ### Architecture
 #### Backend
-To be able to demonstrate some __SOLID__ architecture principles I've incorporated into the solution a unit testing project which needs to mock MVC controllers.  To mocked this controllers I needed to decoupled them from its context calls _(in this case from EF 6 calls)_ by using the __Repository and Unit of Work Patterns__ described by Martin Fowler in his book __Patterns of Enterprise Application and Architechture__. 
+To be able to demonstrate some __SOLID__ architecture principles I've incorporated into the solution a unit testing project and an integration testing project.  The unit testing project needs to mock MVC controllers.  To mocked this controllers I needed to decoupled them from its context calls _(in this case from EF 6 calls)_ by using the __Repository and Unit of Work Patterns__ described by Martin Fowler in his book __Patterns of Enterprise Application and Architechture__. 
 
 First, I made a repository for each entity type _(i.e. RecipeRepository, RecipeIngredient, etc.)_.  These repositories would consist mainly of all query calls to the data base and adding entities to the ChangeTracking _("Attach(entity)")_ system of the context.  Removing those queries from the controllers and putting them into the repositories left controllers with less responsibilities __(Single Responsibility Principle)__ and a better __separation of concerns__.  This also lets other controllers call this queries giving the benefit of reusing queries. 
 
