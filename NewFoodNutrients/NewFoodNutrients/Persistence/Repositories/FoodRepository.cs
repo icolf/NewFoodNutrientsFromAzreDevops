@@ -7,7 +7,6 @@ namespace NewFoodNutrients.Persistence.Repositories
 {
     public class FoodRepository : IFoodRepository
     {
-        //coment
         private readonly IApplicationDbContext _context;
 
         public FoodRepository(IApplicationDbContext context)
