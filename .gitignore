@@ -260,3 +260,5 @@ paket-files/
 __pycache__/
 *.pyc
 /NewFoodNutrients/NewFoodNutrients/Properties/PublishProfiles
+
+Web.config
