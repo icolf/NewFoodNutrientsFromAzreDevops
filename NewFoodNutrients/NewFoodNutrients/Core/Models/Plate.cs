@@ -12,7 +12,7 @@
 
         public Daypart Daypart { get; set; }
 
-        public string Sample { get; set; }
+       // public string Sample { get; set; }
 
         //public List<Recipe> Recipes { get; set; }
 
