@@ -258,6 +258,10 @@
     <Compile Include="Persistence\Migrations\201808032347294_RecipeIngredietRequiresIngredient.Designer.cs">
       <DependentUpon>201808032347294_RecipeIngredietRequiresIngredient.cs</DependentUpon>
     </Compile>
+    <Compile Include="Persistence\Migrations\201810021255296_AddingSampletoPlate.cs" />
+    <Compile Include="Persistence\Migrations\201810021255296_AddingSampletoPlate.Designer.cs">
+      <DependentUpon>201810021255296_AddingSampletoPlate.cs</DependentUpon>
+    </Compile>
     <Compile Include="Persistence\Migrations\Configuration.cs" />
     <Compile Include="Core\ViewModels\AccountViewModels.cs" />
     <Compile Include="Persistence\ApplicationDbContext.cs" />
@@ -352,6 +356,7 @@
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
+    <Content Include="libman.json" />
     <None Include="Properties\PublishProfiles\NewFoodNutrientsWA - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
@@ -460,6 +465,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Persistence\Migrations\201808032347294_RecipeIngredietRequiresIngredient.resx">
       <DependentUpon>201808032347294_RecipeIngredietRequiresIngredient.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Persistence\Migrations\201810021255296_AddingSampletoPlate.resx">
+      <DependentUpon>201810021255296_AddingSampletoPlate.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
