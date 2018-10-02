@@ -1,5 +1,6 @@
 ﻿namespace NewFoodNutrients.Core.Models
 {
+    //comment
     public class Plate
     {
         public int Id { get; set; }
