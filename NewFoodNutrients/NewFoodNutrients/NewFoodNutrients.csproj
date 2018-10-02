@@ -266,6 +266,10 @@
     <Compile Include="Persistence\Migrations\201810021745080_RemovingSampletoPlate.Designer.cs">
       <DependentUpon>201810021745080_RemovingSampletoPlate.cs</DependentUpon>
     </Compile>
+    <Compile Include="Persistence\Migrations\201810022015119_AddingSampletoPlate2.cs" />
+    <Compile Include="Persistence\Migrations\201810022015119_AddingSampletoPlate2.Designer.cs">
+      <DependentUpon>201810022015119_AddingSampletoPlate2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Persistence\Migrations\Configuration.cs" />
     <Compile Include="Core\ViewModels\AccountViewModels.cs" />
     <Compile Include="Persistence\ApplicationDbContext.cs" />
@@ -474,6 +478,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Persistence\Migrations\201810021745080_RemovingSampletoPlate.resx">
       <DependentUpon>201810021745080_RemovingSampletoPlate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Persistence\Migrations\201810022015119_AddingSampletoPlate2.resx">
+      <DependentUpon>201810022015119_AddingSampletoPlate2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
