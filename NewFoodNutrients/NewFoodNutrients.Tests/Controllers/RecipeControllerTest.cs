@@ -4,9 +4,12 @@ using Moq;
 using NewFoodNutrients.Controllers;
 using NewFoodNutrients.Core;
 using NewFoodNutrients.Core.Repositories;
+using NewFoodNutrients.Core.Models;
 using NewFoodNutrients.Tests.Extensions;
 using System.Security.Principal;
 using System.Web.Mvc;
+using System.Data.Entity;
+
 
 namespace NewFoodNutrients.Tests.Controllers
 {
